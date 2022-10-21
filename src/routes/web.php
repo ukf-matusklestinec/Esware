@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\Listing;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,17 +17,19 @@ use App\Models\Listing;
 */
 
 
-// vsetky ponuky
-Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Nove ponuky',
-        'listings' => Listing::all()
-    ]);
-});
-// jedna ponuka
-Route::get('/listings/{idPonuky}', function ($idPonuky) {
-    return view('listing', [
-        'listing' => Listing::find($idPonuky)
-    ]);
-});
+Route::get('login', [AuthController::class, 'index'])->name('login');
+
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
+
+Route::get('registration', [AuthController::class, 'registration'])->name('register');
+
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+
+Route::get('dashboard', [AuthController::class, 'dashboard']);
+
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+
 
