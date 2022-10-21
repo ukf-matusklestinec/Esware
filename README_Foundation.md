@@ -1,2 +1,2 @@
 # Esware je tu uploadnutý celý základný súbor, musel som, ale vynechať súbory v zložke: .idea = ( esware.iml, modules.xml, php.xml, phpunit.xml, vcs.xml)
-v config = (default.conf) a v config\mysql = (mysql.sock) . Tieto súbory sa nachádzajú v zložke, ktorú dal Jozef na discord
+v config = (default.conf) a v config\mysql = (mysql.sock) . Tieto súbory sa nachádzajú v zložke, ktorú dal Jozef na discord. Dôvodom je, že mi nešla zložka dať do githubu pretože nastal problém : "LF will be replaced by CRLF" a to som nedokázal vyriešiť. Ak by mal niekto skvelé riešenie ako toto opraviť tak mi dajte vedieť.
