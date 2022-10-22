@@ -1,6 +1,8 @@
-@extends('layout')
+<x-layout>
+    @include('partials._hero')
+    @include('partials._search')
 
-@section('content')
+
 
     <div
         class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4"
@@ -11,13 +13,8 @@
 @endif
 
 @foreach ($listings as $listing)
-    <h2>
-        <a href="/listings/{{$listing['idPonuky']}}">{{$listing['Nazov']}}</a>
-    </h2>
-    <p>
-        {{$listing['Napln_prace']}}
-    </p>
+ <x-listing-card :listing="$listing" />
 @endforeach
     </div>
-@endsection
+</x-layout>
 

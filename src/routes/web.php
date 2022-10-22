@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\Listing;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,15 @@ use App\Http\Controllers\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//JK start
+
+// vsetky ponuky
+Route::get('/',[ListingController::class, 'index']);
+
+// jedna ponuka
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+//JK end
 
 
 Route::get('login', [AuthController::class, 'index'])->name('login');

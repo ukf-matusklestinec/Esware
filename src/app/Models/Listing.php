@@ -1,60 +1,26 @@
 <?php
+
 namespace App\Models;
 
-class Listing {
-    public static function all(){
-        return [[
-            'idPonuky' => 1,
-            'Nazov' => 'BLA1',
-            'Napln_prace' => 'dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd'
-        ],
-            [
-                'idPonuky' => 2,
-                'Nazov' => 'BLA2',
-                'Napln_prace' => 'dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd'
-            ],
-            [
-                'idPonuky' => 3,
-                'Nazov' => 'BLA3',
-                'Napln_prace' => 'dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd'
-            ],
-            [
-                'idPonuky' => 4,
-                'Nazov' => 'BLA4',
-                'Napln_prace' => 'dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd
-            dasdasdasadssdaasdasdasd dasdasdasadssdaasdasdasd'
-            ]
-        ];
-    }
-    public static function find($idPonuky) {
-        $listings = self::all();
-        foreach ($listings as $listing) {
-            if ($listing['idPonuky'] == $idPonuky) {
-                return $listing;
-            }
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Listing extends Model
+{
+    use HasFactory;
+
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['tag'] ?? false) {
+            $query->where('tags', 'like', '%' . request('tag') . '%');
+        }
+        if ($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . request('search') . '%')
+                //->orWhere('description', 'like', '%' . request('search') . '%')
+                ->orWhere('location', 'like', '%' . request('search') . '%')
+            ;
         }
     }
+
+
 }
