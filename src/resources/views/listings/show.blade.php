@@ -10,7 +10,7 @@
             >
                 <img
                     class="w-48 mr-6 mb-6"
-                    src="{{asset('images/no-imageUKF.png')}}"
+                    src="{{$listing->logo ? asset('storage/' . $listing->logo) : asset('/images/no-imageUKF.png')}}"
                     alt=""
                 />
 
@@ -47,5 +47,7 @@
                 </div>
             </div>
         </x-card>
+
     </div>
 </x-layout>
+
