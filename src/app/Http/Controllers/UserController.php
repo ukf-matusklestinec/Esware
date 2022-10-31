@@ -13,6 +13,10 @@ class UserController extends Controller
         return view('users.register');
     }
 
+    public function profil(){
+        return view('profilstudent');
+    }   
+    
     // Create New User
     public function store(Request $request) {
         $formFields = $request->validate([

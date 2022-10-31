@@ -61,5 +61,6 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 
 //JK end
-
+ 
+Route::get('/profilstudent', [UserController::class, 'profil']);
 
