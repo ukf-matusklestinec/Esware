@@ -15,11 +15,8 @@ class UserController extends Controller
 
     // profil študenta
     public function profil(){
-
         return view('users.profilstudent');
     }
-
-
 
 
     // Create New User

@@ -62,9 +62,6 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 //JK end
 
-Route::get('/profil', [UserController::class, 'profil']);
-
-
 
 // profil študenta
 Route::get('/profilstudent', [UserController::class, 'profil']);

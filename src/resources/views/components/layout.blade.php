@@ -49,19 +49,18 @@
             <li>
                 <form class="inline" method="POST" action="/logout">
                     @csrf
-
                     <button type="submit" class="hover:text-laravel">
                         <i class="fa-solid fa-sign-out"></i> Odhlásiť sa
-
                     </button>
                 </form>
             </li>
         @else
         <li>
-            <a href="/login" class="hover:text-laravel"
-            ><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                Prihlásenie</a
-
+            <a href="/login" class="hover:text-laravel">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                Prihlásenie</a>
+        </li>
+            <li>
             <a href="/register" class="hover:text-laravel"
             ><i class="fa-solid fa-user-plus"></i> Registracia</a>
         </li>
@@ -75,8 +74,7 @@
 
 <footer
 
-    class="bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-15 mt-15 opacity-90 md:justify-center">
-
+    class="bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-15 mt-15 opacity-90 md:justify-center" >
     <p class="mt-3 mb-3">© 2022, Všetky práva vyhradené</p>
 </footer>
 </body>
