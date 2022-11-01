@@ -36,7 +36,7 @@
         @auth
         <li>
             <span class="font-bold.uppercase">
-                Vitaj {{auth()->user()->name}}
+                Vitaj <a href = "/profil"><b>{{auth()->user()->name}}</b></a>
             </span>
         </li>
         <li>
