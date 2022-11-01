@@ -13,10 +13,15 @@ class UserController extends Controller
         return view('users.register');
     }
 
+    // profil študenta
     public function profil(){
-        return view('profilstudent');
-    }   
-    
+
+        return view('users.profilstudent');
+    }
+
+
+
+
     // Create New User
     public function store(Request $request) {
         $formFields = $request->validate([
@@ -44,7 +49,7 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('message', 'Prave ste sa odhlasili!');
+        return redirect('/')->with('message', 'Práve ste sa odhlásili!');
 
     }
 
@@ -63,7 +68,7 @@ class UserController extends Controller
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
-            return redirect('/')->with('message', 'Ste prihlaseny!');
+            return redirect('/')->with('message', 'Ste prihláseny!');
         }
 
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');

@@ -50,7 +50,7 @@
 
             <div class="mb-6">
                 <label for="website" class="inline-block text-lg mb-2">
-                    Webstranka URL
+                    Webstránka URL
                 </label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="website"
                        value="{{old('website')}}" />
@@ -62,7 +62,7 @@
 
             <div class="mb-6">
                 <label for="tags" class="inline-block text-lg mb-2">
-                    Tagy (Ciarkou odelene)
+                    Tagy (Čiarkou oddelene)
                 </label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags"
                        placeholder="Example: Laravel, Backend, Postgres, etc" value="{{old('tags')}}" />
@@ -105,3 +105,6 @@
         </form>
     </x-card>
 </x-layout>
+
+
+{{-- vytvorenie ponuky na zamestnanie--}}

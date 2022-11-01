@@ -20,7 +20,7 @@
             </div>
 
             <div class="mb-6">
-                <label for="title" class="inline-block text-lg mb-2">Nazov prace</label>
+                <label for="title" class="inline-block text-lg mb-2">Názov práce</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title"
                        placeholder="Example: Senior Laravel Developer" value="{{$listing->title}}" />
 
@@ -52,7 +52,7 @@
 
             <div class="mb-6">
                 <label for="website" class="inline-block text-lg mb-2">
-                    Webstranka URL
+                    Webstránka URL
                 </label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="website"
                        value="{{$listing->website}}" />
@@ -64,7 +64,7 @@
 
             <div class="mb-6">
                 <label for="tags" class="inline-block text-lg mb-2">
-                    Tagy (Ciarkou odelene)
+                    Tagy (Čiarkou oddelene)
                 </label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags"
                        placeholder="Example: Laravel, Backend, Postgres, etc" value="{{$listing->tags}}" />
@@ -90,7 +90,7 @@
 
             <div class="mb-6">
                 <label for="description" class="inline-block text-lg mb-2">
-                    Napln prace
+                    Náplň práce
                 </label>
                 <textarea class="border border-gray-200 rounded p-2 w-full" name="description" rows="10"
                           placeholder="Include tasks, requirements, salary, etc">{{$listing->description}}</textarea>
@@ -105,7 +105,7 @@
                     Update ponuku
                 </button>
 
-                <a href="/" class="text-black ml-4"> Naspat </a>
+                <a href="/" class="text-black ml-4"> Naspäť </a>
             </div>
         </form>
     </x-card>
