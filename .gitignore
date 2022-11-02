@@ -2,3 +2,5 @@
 .idea/phpunit.xml
 config/default.conf
 config/mysql/mysql.sock
+config/mysql/ibtmp1
+config/mysql/ib_buffer_pool
