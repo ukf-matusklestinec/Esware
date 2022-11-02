@@ -32,7 +32,7 @@
 <body class="mb-48">
 <nav class="flex justify-between items-center mb-4">
     <a href="/">
-        <img class="w-24" src="{{asset('images/logoMsWare.png')}}" alt="" class="logo"/>
+        <img class="w-24 ml-6" src="{{asset('images/logoMsWare.png')}}" alt="" class="logo"/>
     </a>
     <ul class="flex space-x-6 mr-6 text-lg">
         @auth
@@ -50,7 +50,7 @@
                 <form class="inline" method="POST" action="/logout">
                     @csrf
                     <button type="submit">
-                        <i class="fa-solid fa-door-closed"></i> Odhlásiť sa
+                        <i class="fa-solid fa-sign-out"></i> Odhlásiť sa
                     </button>
                 </form>
             </li>
