@@ -69,6 +69,9 @@ Route::get('/profilstudent', [UserController::class, 'profil']);
 // nexus administrátor
 Route::get('/nexus_admin', [UserController::class, 'nexusA']);
 
+// zoznam firiem
+Route::get('/zoznam_firiem', [UserController::class, 'zoz_firma']);
+
 // nexus vedúci pracoviska
 Route::get('/nexus_veduci', [UserController::class, 'nexusV']);
 

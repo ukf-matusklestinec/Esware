@@ -22,23 +22,23 @@
                         laravel: "#2d57ef",
                     },
                 },
+
+
             },
         };
     </script>
     <title>EsWare</title>
 </head>
-<body>
+<body class="mb-48">
 <nav class="flex justify-between items-center mb-4">
-
-    <a href="/"
-    ><img class="w-24 ml-6" src="{{asset('images/logoMsWare.png')}}" alt="" class="logo"
-        /></a>
-
+    <a href="/">
+        <img class="w-24" src="{{asset('images/logoMsWare.png')}}" alt="" class="logo"/>
+    </a>
     <ul class="flex space-x-6 mr-6 text-lg">
         @auth
         <li>
             <span class="font-bold.uppercase">
-                Vitaj <a href = "/profil"><b>{{auth()->user()->name}}</b></a>
+                Vitaj {{auth()->user()->name}}
             </span>
         </li>
         <li>
@@ -49,20 +49,22 @@
             <li>
                 <form class="inline" method="POST" action="/logout">
                     @csrf
-                    <button type="submit" class="hover:text-laravel">
-                        <i class="fa-solid fa-sign-out"></i> Odhlásiť sa
+                    <button type="submit">
+                        <i class="fa-solid fa-door-closed"></i> Odhlásiť sa
                     </button>
                 </form>
             </li>
         @else
         <li>
-            <a href="/login" class="hover:text-laravel">
-            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                Prihlásenie</a>
-        </li>
-            <li>
             <a href="/register" class="hover:text-laravel"
-            ><i class="fa-solid fa-user-plus"></i> Registracia</a>
+            ><i class="fa-solid fa-user-plus"></i> Registrácia</a
+            >
+        </li>
+        <li>
+            <a href="/login" class="hover:text-laravel"
+            ><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                Prihlásenie</a
+            >
         </li>
         @endauth
     </ul>
@@ -73,8 +75,7 @@
 </main>
 
 <footer
-
-    class="bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-15 mt-15 opacity-90 md:justify-center" >
+    class="bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-15 mt-15 opacity-90 md:justify-center">
     <p class="mt-3 mb-3">© 2022, Všetky práva vyhradené</p>
 </footer>
 </body>

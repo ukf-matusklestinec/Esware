@@ -102,7 +102,7 @@
 
             <div class="mb-6">
                 <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
-                    Update ponuku
+                    Upraviť ponuku
                 </button>
 
                 <a href="/" class="text-black ml-4"> Naspäť </a>

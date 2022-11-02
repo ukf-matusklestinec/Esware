@@ -18,18 +18,30 @@ class UserController extends Controller
         return view('users.profilstudent');
     }
 
+    // ADMINISTRATOR
+
     // nexus administratora
     public function nexusA(){
         return view('administrator.nexus_admin');
     }
+
+    // zoznam firiem pre administratora
+    public function zoz_firma(){
+        return view('administrator.zoznam_firiem');
+    }
+
+    // VEDUCI PRACOVISKA
 
     // nexus vedúci pracoviska
     public function nexusV(){
         return view('veduci_pracoviska.nexus_veduci');
     }
 
+    // POVERENÝ PRACOVNÍK PRACOVISKA
+
+    // nexus poverený pracovník pracoviska
     public function nexusPov(){
-        return view('veduci_pracoviska.nexus_veduci');
+        return view('povereny_pracovnik.nexus_povereny');
     }
 
 

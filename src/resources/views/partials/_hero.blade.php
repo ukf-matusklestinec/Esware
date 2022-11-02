@@ -13,21 +13,22 @@
         <p class="text-2xl text-gray-200 font-bold my-4">
             Nájdi si prax alebo brigádu cez UKF
         </p>
+
+       {{-- @if() --}}
         <div>
-            <a
-                href="register.html"
+            {{-- treba ešte pridať možnosti, keď je človek odhlásený --}}
+            <a href="register.html"
                 class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
             >Prihlás sa na EsWare</a>
         </div>
-
+        {{-- @endif --}}
 
         <div>
             <a
-            href="/listings/create"
-            class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
+                href="/listings/create"
+                class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
             >Pridaj ponuku</a>
         </div>
-
     </div>
 </section>
 
