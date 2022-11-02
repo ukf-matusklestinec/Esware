@@ -18,6 +18,21 @@ class UserController extends Controller
         return view('users.profilstudent');
     }
 
+    // nexus administratora
+    public function nexusA(){
+        return view('administrator.nexus_admin');
+    }
+
+    // nexus vedúci pracoviska
+    public function nexusV(){
+        return view('veduci_pracoviska.nexus_veduci');
+    }
+
+    public function nexusPov(){
+        return view('veduci_pracoviska.nexus_veduci');
+    }
+
+
 
     // Create New User
     public function store(Request $request) {

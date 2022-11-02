@@ -65,3 +65,12 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 // profil študenta
 Route::get('/profilstudent', [UserController::class, 'profil']);
+
+// nexus administrátor
+Route::get('/nexus_admin', [UserController::class, 'nexusA']);
+
+// nexus vedúci pracoviska
+Route::get('/nexus_veduci', [UserController::class, 'nexusV']);
+
+// nexus poverený zamestnanec pracoviska
+Route::get('/nexus_povereny', [UserController::class, 'nexusPov']);
