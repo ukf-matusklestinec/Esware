@@ -29,7 +29,7 @@
     </script>
     <title>EsWare</title>
 </head>
-<body class="mb-48">
+<body>
 <nav class="flex justify-between items-center mb-4">
     <a href="/">
         <img class="w-24 ml-6" src="{{asset('images/logoMsWare.png')}}" alt="" class="logo"/>
