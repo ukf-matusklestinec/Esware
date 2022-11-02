@@ -38,7 +38,8 @@
         @auth
         <li>
             <span class="font-bold.uppercase">
-                Vitaj {{auth()->user()->name}}
+                <a href="/profilstudent" class="hover:text-laravel"
+                >Vitaj {{auth()->user()->name}}</a>
             </span>
         </li>
         <li>
@@ -49,7 +50,7 @@
             <li>
                 <form class="inline" method="POST" action="/logout">
                     @csrf
-                    <button type="submit">
+                    <button type="submit" class="hover:text-laravel">
                         <i class="fa-solid fa-sign-out"></i> Odhlásiť sa
                     </button>
                 </form>
