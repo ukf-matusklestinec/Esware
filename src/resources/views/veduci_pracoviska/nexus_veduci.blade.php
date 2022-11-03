@@ -1,38 +1,35 @@
 <x-layout>
-
+    
     <header>
         <h1 class="text-3xl text-center font-bold my-6 uppercase">
-            Poverený zamestnanec pracoviska nexus
+            Vedúci pracoviska nexus
         </h1>
     </header>
+   
     <body>
-    <div class="p-3 grid gap-4 ">
-        <div>
-            <button
-                type="submit"
-                class="h-16 w-100 text-black-50 bg-blue-500  hover:bg-blue-600">
-                Študenti
-            </button>
-        </div>
+        <div class="lg:grid lg:grid-cols-2 gap-10 space-y-4 md:space-y-0 mx-10">
 
-        <div>
-            <button
-                type="submit"
-                class="h-16 w-100 text-black-50  bg-blue-500 hover:bg-blue-600">
-                Zoznam praxí na schválenie
-            </button>
+        <x-card>
+            <div class="flex justify-center">
+                <button
+                    type="submit"
+                    class="text-xl font-bold hover:text-laravel ">
+                    Praxe
+                </button>
+            </div>
+        </x-card>
+        <x-card>
+            <div class="flex justify-center">
+                <button
+                    type="submit"
+                    class="text-xl font-bold hover:text-laravel">
+                    Firmy a organizácie
+                </button>
+            </div>
+        </x-card>
         </div>
-
-        <div>
-            <button
-                type="submit"
-                class="h-16 w-100 text-black-50 bg-blue-500 hover:bg-blue-600">
-                Zoznam firiem a organizácií
-            </button>
-        </div>
-
-    </div>
     </body>
+
 
 </x-layout>
 
