@@ -1,7 +1,7 @@
 <x-layout>
 
     <a href="/" class="inline-block text-black ml-4 mb-4"
-    ><i class="fa-solid fa-arrow-left"></i> Naspat
+    ><i class="fa-solid fa-arrow-left"></i> Naspäť
     </a>
     <div class="mx-4">
         <x-card class="p-10">
@@ -24,25 +24,24 @@
                 </div>
                 <div class="border border-gray-200 w-full mb-6"></div>
                 <div>
+                    {{-- Vypísaný popis práce --}}
                     <h3 class="text-3xl font-bold mb-4">
-                        Napln prace
+                        Náplň práce
                     </h3>
                     <div class="text-lg space-y-6">
                         {{$listing->description}}
 
-                        <a
-                            href="mailto:{{$listing->email}}"
+                        {{-- tlačidlo, ktoré automaticky do mailu skopíruje mailovú adresu firmy --}}
+                        <a href="mailto:{{$listing->email}}"
                             class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"
                         ><i class="fa-solid fa-envelope"></i>
-                            Kontaktuj firmu</a
-                        >
+                            Kontaktuj firmu</a>
 
-                        <a
-                            href="{{$listing->website}}"
+                        {{-- tlačidlo, ktoré používateľa prenesie na webovú stránku firmy --}}
+                        <a href="{{$listing->website}}"
                             target="_blank"
                             class="block bg-black text-white py-2 rounded-xl hover:opacity-80"
-                        ><i class="fa-solid fa-globe"></i> Stranka firmy</a
-                        >
+                        ><i class="fa-solid fa-globe"></i> Stránka firmy</a>
                     </div>
                 </div>
             </div>
@@ -51,3 +50,4 @@
     </div>
 </x-layout>
 
+{{-- po rozkliknutí konkrétnej ponuky sa zobrazí popis práce --}}

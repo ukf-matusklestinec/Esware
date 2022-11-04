@@ -39,13 +39,13 @@
         <li>
             <span class="font-bold.uppercase">
                 <a href="/profilstudent" class="hover:text-laravel"
-                >Vitaj {{auth()->user()->name}}</a>
+                >Vitajte {{auth()->user()->name}}</a>
             </span>
         </li>
         <li>
             <a href="/listings/manage" class="hover:text-laravel"
             ><i class="fa-solid fa-gear"></i>
-                Tvoje ponuky</a>      {{-- prenesie používateľa do jeho ponúk --}}
+                Vaše ponuky</a>      {{-- prenesie používateľa do jeho ponúk --}}
         </li>
             <li>
                 <form class="inline" method="POST" action="/logout">

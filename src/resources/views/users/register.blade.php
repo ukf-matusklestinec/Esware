@@ -43,11 +43,11 @@
                 <div><span style="color: red;">* sú označené povinné polia</div>
                 <div style="padding-top: 25px;">
                     <button type="submit" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
-                        Registrovať
+                        Registrovať sa
                     </button>
                 </div>
                 <div style="padding-top: 15px;">
-                    <a href="/login" class="text-laravel">Účet už mám</a>
+                    <a href="/login" class="text-laravel">Máte už účet?</a>
                     <br>
                 </div>
             </div>

@@ -23,3 +23,5 @@
 
 </x-layout>
 
+{{-- slúži ako schránka na mainpage kde sa zobrazujú ponuky praxí--}}
+

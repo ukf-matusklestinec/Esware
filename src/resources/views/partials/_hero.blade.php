@@ -11,23 +11,25 @@
             Es<span class="text-black">Ware</span>
         </h1>
         <p class="text-2xl text-gray-200 font-bold my-4">
-            Nájdi si prax alebo brigádu cez UKF
+            Nájdite si prax alebo brigádu cez UKF
         </p>
 
        {{-- @if() --}}
         <div>
             {{-- treba ešte pridať možnosti, keď je človek odhlásený --}}
+            {{-- v prípade ak používateľ nie je prihlásený, tlačidlo prenesie na prihlasovací formulár --}}
             <a href="register.html"
                 class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
-            >Prihlás sa na EsWare</a>
+            >Prihláste sa na EsWare</a>
         </div>
         {{-- @endif --}}
 
         <div>
-            <a
-                href="/listings/create"
+
+            {{-- v prípade ak je používateľ prihlásený môže pridať ponuku práce --}}
+            <a href="/listings/create"
                 class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
-            >Pridaj ponuku</a>
+            >Pridajte ponuku práce</a>
         </div>
     </div>
 </section>

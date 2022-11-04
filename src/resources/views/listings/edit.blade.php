@@ -110,3 +110,5 @@
         </form>
     </x-card>
 </x-layout>
+
+{{-- slúži ako šablona na úpravu ponúk praxí  --}}
