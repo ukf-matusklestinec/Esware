@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('prihlasenie_id')->constrained();
             $table->integer('pocet_hodin');
             $table->boolean('homeoffice');
+            $table->string('_token');
             $table->timestamps();
         });
 

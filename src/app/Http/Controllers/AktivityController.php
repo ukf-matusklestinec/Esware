@@ -10,30 +10,32 @@ use Illuminate\Validation\Rule;
 
 class AktivityController extends Controller
 {
-    public function index() {
+    // Show ale len studentove aktivity
+    public function index( $prihlasenie) {
 
         return view('listings.aktivity', [
-            'aktivity' => Aktivity::get()
-            //'aktivity' => auth()->user()->prihlasenie()->get()
+            'aktivity' => Aktivity::get()->where('prihlasenie_id', $prihlasenie),
+            'prihlasenie' => Prihlasenie::with('listing', 'user')->get()//->where('user_id', auth()->id())
         ]);
     }
 
 
     // Show form pre vytvorenie aktivity
-    public function create() {
-        return view('listings.createaktivity');
+    public function create( $prihlasenie) {
+        return view('listings.createaktivity', [
+            //'aktivity' => Aktivity::find($prihlasenie)
+            'aktivity' => Aktivity::get()->where('prihlasenie_id', $prihlasenie)
+        ]);
     }
 
 
     // Store aktivity Data
-    public function store(Request $request) {
-        $formFields = $request->validate([
-            'pocet_hodin' => 'required',
-            'homeoffice' => 'required'
-        ]);
+    public function store( $prihlasenie, Request $request) {
+        $formFields = $request->all();
+        $formFields['prihlasenie_id'] = $prihlasenie;
 
         Aktivity::create($formFields);
 
-        return redirect('/aktivity')->with('message', 'Aktivita bola pridana!');
+        return redirect('/')->with('message', 'Aktivita bola pridana!');
     }
 }

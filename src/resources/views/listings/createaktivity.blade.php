@@ -4,8 +4,8 @@
             <h2 class="text-2xl font-bold uppercase mb-1">Pridaj tvoju aktivitu</h2>
 
         </header>
-
-        <form method="POST" action="/aktivity" enctype="multipart/form-data">
+@foreach($aktivity as $aktivit)
+        <form method="POST" action="/aktivity/{{$aktivit->prihlasenie_id}}" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
                 <label for="pocet_hodin" class="inline-block text-lg mb-2">Počet hodín</label>
@@ -33,6 +33,8 @@
                 <a href="/aktivity" class="text-black ml-4"> Naspäť </a>
             </div>
         </form>
+    @break
+        @endforeach
     </x-card>
 </x-layout>
 

@@ -1,13 +1,12 @@
 <x-layout>
 
-{{-- ak student sa prihlasil na prax, je tu tlacidlo pre pridanie aktivity --}}
     @include('partials._hero')
     @include('partials._search')
-
+    {{-- ak student sa prihlasil na prax, je tu tlacidlo pre pridanie aktivity --}}
     @foreach($aktivity as $aktivit)
         @if($aktivit->user_id == auth()->id())
 
-            <a href="/aktivity" class="block bg-blue-500 text-white py-2 rounded-xl hover:opacity-80 text-center"
+            <a href="/aktivity/{{$aktivit->id}}" class="block bg-blue-500 text-white py-2 rounded-xl hover:opacity-80 text-center"
             ><i class="fa-solid fa-user-plus"></i> Moja prax</a
             >
             <br>

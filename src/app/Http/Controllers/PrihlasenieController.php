@@ -46,8 +46,7 @@ class PrihlasenieController extends Controller
 
     // Store Data na prihlasenie pre prax
     public function store($id) {
-// + aktivna 1
-        //echo $id;
+
         $listing = Listing::find($id);
 
         if($listing) {

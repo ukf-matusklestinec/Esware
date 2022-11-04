@@ -7,7 +7,7 @@
                 Monitorovanie ponúk
             </h1>
         </header>
-        @include('partials._search')
+        {{-- @include('partials._search') --}}
         <table class="w-full table-auto rounded-sm">
             <tbody>
             @unless($aktivity->isEmpty())

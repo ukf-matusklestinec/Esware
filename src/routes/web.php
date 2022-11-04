@@ -25,31 +25,31 @@ use App\Http\Controllers\AktivityController;
 
 
 // monittorovanie ponuk (zobrazenie)
-Route::get('/prihlasenie',[PrihlasenieController::class, 'index']);
+Route::get('/prihlasenie',[PrihlasenieController::class, 'index'])->middleware('auth');
 
 // Edit prihlasenie
-Route::get('/prihlasenie/{aktivity}/edit', [PrihlasenieController::class, 'edit']);
+Route::get('/prihlasenie/{aktivity}/edit', [PrihlasenieController::class, 'edit'])->middleware('auth');
 
 // Update prihlasenie
-Route::put('/prihlasenie/{aktivity}', [PrihlasenieController::class, 'update']);
+Route::put('/prihlasenie/{aktivity}', [PrihlasenieController::class, 'update'])->middleware('auth');
 
 // Delete prihlasenie
-Route::delete('/prihlasenie/{aktivity}', [PrihlasenieController::class, 'destroy']);
+Route::delete('/prihlasenie/{aktivity}', [PrihlasenieController::class, 'destroy'])->middleware('auth');
 
 // Store id_user a id_listing do tabulky prihlasenie
-Route::get('/prihlas/{id}', [PrihlasenieController::class, 'store']);
+Route::get('/prihlas/{id}', [PrihlasenieController::class, 'store'])->middleware('auth');
 
 
 //-------------------------------------------------------------------------------Tabulka aktivity
 
 // vsetky aktivity
-Route::get('/aktivity',[AktivityController::class, 'index']);
+Route::get('/aktivity/{prihlasenie}',[AktivityController::class, 'index'])->middleware('auth');
 
 //show create aktivity
-Route::get('/aktivity/create', [AktivityController::class, 'create']);
+Route::get('/aktivity/{prihlasenie}/create', [AktivityController::class, 'create'])->middleware('auth');
 
 // Store aktivity Data
-Route::post('/aktivity', [AktivityController::class, 'store']);
+Route::post('/aktivity/{prihlasenie}', [AktivityController::class, 'store'])->middleware('auth');
 
 //-------------------------------------------------------------------------------Tabulka listings
 
