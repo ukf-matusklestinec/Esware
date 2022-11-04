@@ -47,6 +47,17 @@
             ><i class="fa-solid fa-gear"></i>
                 Vaše ponuky</a>      {{-- prenesie používateľa do jeho ponúk --}}
         </li>
+
+            {{-- Monitorovanie studentov ktory su prihlaseny na nejaku prax --}}
+            {{-- aktivity este nefunguju poriadne --}}
+<!--
+            <li>
+                <a href="/prihlasenie" class="hover:text-laravel"
+                ><i class="fa-solid fa-user-plus"></i> Monitorovanie ponúk</a
+                >
+            </li>
+            -->
+
             <li>
                 <form class="inline" method="POST" action="/logout">
                     @csrf

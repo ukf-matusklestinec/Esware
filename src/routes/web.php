@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Models\Listing;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PrihlasenieController;
+use App\Http\Controllers\AktivityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +20,41 @@ use App\Http\Controllers\UserController;
 */
 //JK start
 
+
+//-------------------------------------------------------------------------------Tabulka prihlasenie
+
+
+// monittorovanie ponuk (zobrazenie)
+Route::get('/prihlasenie',[PrihlasenieController::class, 'index']);
+
+// Edit prihlasenie
+Route::get('/prihlasenie/{aktivity}/edit', [PrihlasenieController::class, 'edit']);
+
+// Update prihlasenie
+Route::put('/prihlasenie/{aktivity}', [PrihlasenieController::class, 'update']);
+
+// Delete prihlasenie
+Route::delete('/prihlasenie/{aktivity}', [PrihlasenieController::class, 'destroy']);
+
+// Store id_user a id_listing do tabulky prihlasenie
+Route::get('/prihlas/{id}', [PrihlasenieController::class, 'store']);
+
+
+//-------------------------------------------------------------------------------Tabulka aktivity
+
+// vsetky aktivity
+Route::get('/aktivity',[AktivityController::class, 'index']);
+
+//show create aktivity
+Route::get('/aktivity/create', [AktivityController::class, 'create']);
+
+// Store aktivity Data
+Route::post('/aktivity', [AktivityController::class, 'store']);
+
+//-------------------------------------------------------------------------------Tabulka listings
+
 // vsetky ponuky
 Route::get('/',[ListingController::class, 'index']);
-
-
 
 //show create form
 Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth');
@@ -44,6 +77,8 @@ Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware
 // jedna ponuka
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
+//-------------------------------------------------------------------------------Tabulka user
+
 // Show Register/Create Form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
@@ -59,9 +94,7 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 // Log In User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
-
-//JK end
-
+//-------------------------------------------------------------------------------
 
 // profil študenta
 Route::get('/profilstudent', [UserController::class, 'profil']);
