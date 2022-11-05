@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('listing_id')->constrained();
-            $table->boolean('aktivna');
-            $table->longText('spatna_vazba');
+            $table->boolean('aktivna')->nullable();
+            $table->longText('spatna_vazba')->nullable();
             $table->timestamps();
 
         });
