@@ -21,6 +21,22 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            // udaje ktore si prida v profile
+            $table->integer('tel_cislo')->nullable();
+            $table->date('datum_narodenia')->nullable();
+            $table->boolean('pohlavie')->nullable();
+            $table->string('profil')->nullable();
+            $table->string('odbor')->nullable();
+            //adresa
+            $table->string('Ulica')->nullable();
+            $table->string('Mesto')->nullable();
+            $table->integer('PSC')->nullable();
+            //role
+            $table->boolean('Admin')->nullable();
+            $table->boolean('Veduci_pracoviska')->nullable();
+            $table->boolean('Povereny_pracovnik')->nullable();
+            $table->boolean('Zastupca_firmy')->nullable();
         });
     }
 

@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('location');
             $table->string('email');
             $table->string('website');
+            $table->integer('tel_cislo')->nullable();
+            $table->boolean('schvalena')->nullable();
             $table->longText('description');
             $table->timestamps();
         });

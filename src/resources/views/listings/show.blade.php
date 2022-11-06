@@ -33,15 +33,27 @@
 
                         {{-- tlačidlo, ktoré automaticky do mailu skopíruje mailovú adresu firmy --}}
                         <a href="mailto:{{$listing->email}}"
-                            class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"
+                           class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"
                         ><i class="fa-solid fa-envelope"></i>
                             Kontaktuj firmu</a>
 
                         {{-- tlačidlo, ktoré používateľa prenesie na webovú stránku firmy --}}
                         <a href="{{$listing->website}}"
-                            target="_blank"
-                            class="block bg-black text-white py-2 rounded-xl hover:opacity-80"
+                           target="_blank"
+                           class="block bg-black text-white py-2 rounded-xl hover:opacity-80"
                         ><i class="fa-solid fa-globe"></i> Stránka firmy</a>
+                        {{-- tlačidlo, používateľa prihlasi na vybranu ponuku (len ak je prihlaseny)--}}
+                        {{-- ak uz je prihlaseny na nejkau ponuku, nezobrazi tlacidlo)--}}
+                        @auth
+                            @unless($aktivity->isEmpty())
+
+                            @else
+                                <a href="/prihlas/{{$listing->id}}"
+                                   target="_blank"
+                                   class="block bg-green-600 text-white py-2 rounded-xl hover:opacity-80"
+                                ><i class="fa-solid fa-user"></i> Prihlásiť sa na ponuku</a>
+                            @endunless
+                        @endauth
                     </div>
                 </div>
             </div>

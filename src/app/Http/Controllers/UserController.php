@@ -22,26 +22,43 @@ class UserController extends Controller
 
     // nexus administratora
     public function nexusA(){
-        return view('administrator.nexus_admin');
+        if(auth()->user()->Admin == 1) {
+            return view('administrator.nexus_admin');
+
+        }
+        else{abort(403, 'Unauthorized Action');}
     }
 
     // zoznam firiem pre administratora
     public function zoz_firma(){
-        return view('administrator.zoznam_firiem');
+        if(auth()->user()->Admin == 1) {
+            return view('administrator.zoznam_firiem');
+
+        }
+        else{abort(403, 'Unauthorized Action');}
     }
 
     // VEDUCI PRACOVISKA
 
     // nexus vedúci pracoviska
     public function nexusV(){
-        return view('veduci_pracoviska.nexus_veduci');
+        if(auth()->user()->Veduci_pracoviska == 1 || auth()->user()->Admin == 1) {
+            return view('veduci_pracoviska.nexus_veduci');
+
+        }
+        else{abort(403, 'Unauthorized Action');}
     }
 
     // POVERENÝ PRACOVNÍK PRACOVISKA
 
     // nexus poverený pracovník pracoviska
     public function nexusPov(){
-        return view('povereny_pracovnik.nexus_povereny');
+        if(auth()->user()->Povereny_pracovnik == 1 || auth()->user()->Admin == 1) {
+            return view('povereny_pracovnik.nexus_povereny');
+
+        }
+        else{abort(403, 'Unauthorized Action');}
+
     }
 
 
@@ -91,8 +108,19 @@ class UserController extends Controller
 
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
-
-            return redirect('/')->with('message', 'Ste prihláseny!');
+            if(auth()->user()->Admin == 1){
+                return redirect('/nexus_admin')->with('message', 'Ste prihláseny!');
+            }
+            if(auth()->user()->Veduci_pracoviska == 1){
+                return redirect('/nexus_veduci')->with('message', 'Ste prihláseny!');
+            }
+            if(auth()->user()->Povereny_pracovnik == 1){
+                return redirect('/nexus_povereny')->with('message', 'Ste prihláseny!');
+            }
+            if(auth()->user()->Zastupca_firmy == 1){
+                return redirect('/nexus_admin')->with('message', 'Ste prihláseny!');
+            }
+            else{ return redirect('/')->with('message', 'Ste prihláseny!');}
         }
 
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');

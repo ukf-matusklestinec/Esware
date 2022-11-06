@@ -36,17 +36,31 @@
     </a>
     <ul class="flex space-x-6 mr-6 text-lg">
         @auth
-        <li>
+            <li>
             <span class="font-bold.uppercase">
                 <a href="/profilstudent" class="hover:text-laravel"
-                >Vitajte {{auth()->user()->name}}</a>
+                >Vitajte {{auth()->user()->name}} </a>
+                @if(auth()->user()->Admin == 1)
+                    <b><a>Admin</a></b>
+                    @endif
             </span>
-        </li>
-        <li>
-            <a href="/listings/manage" class="hover:text-laravel"
-            ><i class="fa-solid fa-gear"></i>
-                Vaše ponuky</a>      {{-- prenesie používateľa do jeho ponúk --}}
-        </li>
+            </li>
+            <li>
+                <a href="/listings/manage" class="hover:text-laravel"
+                ><i class="fa-solid fa-gear"></i>
+                    Vaše ponuky</a>      {{-- prenesie používateľa do jeho ponúk --}}
+            </li>
+
+            {{-- Monitorovanie studentov ktory su prihlaseny na nejaku prax --}}
+            {{-- aktivity este nefunguju poriadne --}}
+            @if(auth()->user()->Admin == 1 || auth()->user()->Veduci_pracoviska == 1)
+            <li>
+                <a href="/prihlasenie" class="hover:text-laravel"
+                ><i class="fa-solid fa-user-plus"></i> Monitorovanie ponúk</a
+                >
+            </li>
+            @endif
+
             <li>
                 <form class="inline" method="POST" action="/logout">
                     @csrf
@@ -56,17 +70,17 @@
                 </form>
             </li>
         @else
-        <li>
-            <a href="/register" class="hover:text-laravel"
-            ><i class="fa-solid fa-user-plus"></i> Registrácia</a
-            >
-        </li>
-        <li>
-            <a href="/login" class="hover:text-laravel"
-            ><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                Prihlásenie</a
-            >
-        </li>
+            <li>
+                <a href="/register" class="hover:text-laravel"
+                ><i class="fa-solid fa-user-plus"></i> Registrácia</a
+                >
+            </li>
+            <li>
+                <a href="/login" class="hover:text-laravel"
+                ><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    Prihlásenie</a
+                >
+            </li>
         @endauth
     </ul>
 </nav>
