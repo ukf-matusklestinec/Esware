@@ -42,8 +42,8 @@
                            target="_blank"
                            class="block bg-black text-white py-2 rounded-xl hover:opacity-80"
                         ><i class="fa-solid fa-globe"></i> Stránka firmy</a>
-                        {{-- tlačidlo, používateľa prihlasi na vybranu ponuku (len ak je prihlaseny)--}}
-                        {{-- ak uz je prihlaseny na nejkau ponuku, nezobrazi tlacidlo)--}}
+                        {{-- tlačidlo, používateľa prihlási na vybranú ponuku (len ak je prihlasený)--}}
+                        {{-- ak uz je prihlaseny na nejakú ponuku, nezobrazí tlačidlo)--}}
                         @auth
                             @unless($aktivity->isEmpty())
 

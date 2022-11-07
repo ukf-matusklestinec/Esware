@@ -12,7 +12,7 @@
         <br>
         @foreach($SV as $SV1)
             @if($SV1->spatna_vazba == null)
-                <p>Ziadna spätná väzba</p>
+                <p>Žiadna spätná väzba</p>
                 @else
         <p>
             Spätná väzba od zamestnávateľa.
@@ -52,7 +52,7 @@
             @else
                 <tr class="border-gray-300">
                     <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <p class="text-center">Nenasli sa ziadne aktivity</p>
+                        <p class="text-center">Nenašli sa žiadne aktivity</p>
                     </td>
                 </tr>
             @endunless
@@ -76,3 +76,4 @@
     </x-card>
 </x-layout>
 
+{{-- zobrazenie aktivít študenta --}}

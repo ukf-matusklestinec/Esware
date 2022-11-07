@@ -22,7 +22,7 @@
     >
 
         @if(count($listings) == 0)
-            <p>Ziadne ponuky</p>
+            <p>Žiadne ponuky</p>
         @endif
 
         @foreach ($listings as $listing)

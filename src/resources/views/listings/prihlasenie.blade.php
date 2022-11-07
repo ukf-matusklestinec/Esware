@@ -15,7 +15,7 @@
                     <th>Ponuka</th>
                     <th>Firma</th>
                     <th>Student</th>
-                    <th>Aktivna prax</th>
+                    <th>Aktívna prax</th>
                     <th>Spätná väzba</th>
                 </tr>
                 @foreach($aktivity2 as $aktivit)
@@ -36,14 +36,14 @@
                         </td>
                         <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-center">
                             @if($aktivit->aktivna == 1)
-                                Ano
+                                Áno
                             @else
                                 Nie
                             @endif
                         </td>
                         <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-center">
                             @if($aktivit->spatna_vazba == null)
-                                Ziadna spätná väzba.
+                                Žiadna spätná väzba.
                             @else
                                 {{$aktivit->spatna_vazba}}
                             @endif
@@ -65,7 +65,7 @@
             @else
                 <tr class="border-gray-300">
                     <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <p class="text-center">Študenti niesu prihlásený na ziadnej ponuke</p>
+                        <p class="text-center">Študenti nie sú prihlásení na žiadnej ponuke</p>
                     </td>
                 </tr>
             @endunless
@@ -75,3 +75,5 @@
 
     </x-card>
 </x-layout>
+
+{{-- zobrazenie pre zamestávateľa ( zástupcu firmy alebo organizácie) ohľadom pracovnej ponuky --}}

@@ -33,4 +33,4 @@
 </section>
 
 
-{{--na hlavnej stránke je to blok kde je upútavka na registráciu--}}
+{{--na hlavnej stránke je to blok kde je upútavka na prihlásenie, či pridanie ponuky--}}

@@ -44,3 +44,5 @@
         </form>
     </x-card>
 </x-layout>
+
+{{-- editácia prihlásenia praxe pre študenta --}}

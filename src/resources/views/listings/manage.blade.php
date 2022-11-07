@@ -42,4 +42,4 @@
 </x-layout>
 
 
-{{-- tento blade zobrazuje ponuky práce, ktoré vytvoril používateľ --}}
+{{-- tento blade zobrazuje ponuky práce, ktoré vytvoril používateľ, tieto ponuky sa môžu následne spravovať --}}

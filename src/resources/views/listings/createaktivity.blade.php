@@ -37,3 +37,6 @@
     </x-card>
 </x-layout>
 
+
+{{-- vytvorenie aktivity študenta--}}
+

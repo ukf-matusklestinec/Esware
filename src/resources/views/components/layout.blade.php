@@ -22,8 +22,6 @@
                         laravel: "#2d57ef",
                     },
                 },
-
-
             },
         };
     </script>
@@ -38,18 +36,38 @@
         @auth
             <li>
             <span class="font-bold.uppercase">
-                <a href="/profilstudent" class="hover:text-laravel"
-                >Vitajte {{auth()->user()->name}} </a>
+                @if(auth()->user()->Admin != 1)
+                <a href="/profilstudent" class="hover:text-laravel">
+                    Vitajte {{auth()->user()->name}} </a>
+                   @endif
+                {{-- vypísanie oprávnenia používateľa --}}
                 @if(auth()->user()->Admin == 1)
                     <b><a>Admin</a></b>
                     @endif
+
+                    @if(auth()->user()->Veduci_pracoviska == 1)
+                        <b><a>Vedúci pracoviska</a></b>
+                    @endif
+
+                    @if(auth()->user()->Povereny_pracovnik == 1)
+                        <b><a>Poverený pracovník</a></b>
+                    @endif
+
+                    @if(auth()->user()->Zastupca_firmy == 1)
+                        <b><a>Zástupca firmy</a></b>
+                    @endif
             </span>
             </li>
+            {{-- zoznam ponúk sa nezobrazí adminovy --}}
+            {{-- prenesie používateľa do jeho ponúk --}}
+            @if(auth()->user()->Admin != 1)
             <li>
                 <a href="/listings/manage" class="hover:text-laravel"
                 ><i class="fa-solid fa-gear"></i>
-                    Vaše ponuky</a>      {{-- prenesie používateľa do jeho ponúk --}}
+                    Vaše ponuky</a>
             </li>
+            @endif
+
 
             {{-- Monitorovanie studentov ktory su prihlaseny na nejaku prax --}}
             {{-- aktivity este nefunguju poriadne --}}
@@ -69,7 +87,7 @@
                     </button>
                 </form>
             </li>
-        @else
+        @else {{-- v prípade, ak nie je používateľ prihlásený sa na hlavičke objavia tlačidlá registrácia a prihlásenie --}}
             <li>
                 <a href="/register" class="hover:text-laravel"
                 ><i class="fa-solid fa-user-plus"></i> Registrácia</a
