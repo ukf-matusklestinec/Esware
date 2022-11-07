@@ -1,4 +1,7 @@
 <x-layout>
+<a href="/" class="inline-block text-black ml-4 mb-4"
+    ><i class="fa-solid fa-arrow-left"></i> Naspäť
+    </a>
     <x-card class="p-10 max-w-2xl mx-auto mt-24" >
 
         <header class="text-center">
