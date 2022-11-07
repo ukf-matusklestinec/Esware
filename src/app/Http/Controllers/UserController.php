@@ -29,6 +29,17 @@ class UserController extends Controller
         else{abort(403, 'Unauthorized Action');}
     }
 
+
+
+    //zoznam studentov
+    public function zoz_student(){
+        if(auth()->user()->Admin == 1) {
+            return view('administrator.zoznam_studentov');
+
+        }
+        else{abort(403, 'Unauthorized Action');}
+    }
+
     // zoznam firiem pre administratora
     public function zoz_firma(){
         if(auth()->user()->Admin == 1) {
@@ -38,11 +49,30 @@ class UserController extends Controller
         else{abort(403, 'Unauthorized Action');}
     }
 
+    //zoznam pracovnikov
+    public function zoz_pracov(){
+        if(auth()->user()->Admin == 1) {
+            return view('administrator.zoznam_pracovnikov');
+
+        }
+        else{abort(403, 'Unauthorized Action');}
+    }
+
+    //zoznam pracovísk
+    public function zoz_pracovisk(){
+        if(auth()->user()->Admin == 1) {
+            return view('administrator.zoznam_pracovisk');
+
+        }
+        else{abort(403, 'Unauthorized Action');}
+    }
+
+
     // VEDUCI PRACOVISKA
 
     // nexus vedúci pracoviska
     public function nexusV(){
-        if(auth()->user()->Veduci_pracoviska == 1 || auth()->user()->Admin == 1) {
+        if(auth()->user()->Veduci_pracoviska == 1) {
             return view('veduci_pracoviska.nexus_veduci');
 
         }
@@ -53,7 +83,7 @@ class UserController extends Controller
 
     // nexus poverený pracovník pracoviska
     public function nexusPov(){
-        if(auth()->user()->Povereny_pracovnik == 1 || auth()->user()->Admin == 1) {
+        if(auth()->user()->Povereny_pracovnik == 1) {
             return view('povereny_pracovnik.nexus_povereny');
 
         }

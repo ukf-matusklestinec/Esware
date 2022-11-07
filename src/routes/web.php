@@ -24,7 +24,7 @@ use App\Http\Controllers\AktivityController;
 //-------------------------------------------------------------------------------Tabulka prihlasenie
 
 
-// monittorovanie ponuk (zobrazenie)
+// monitorovanie ponuk (zobrazenie)
 Route::get('/prihlasenie',[PrihlasenieController::class, 'index'])->middleware('auth');
 
 // Edit prihlasenie
@@ -99,14 +99,16 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 // profil študenta
 Route::get('/profilstudent', [UserController::class, 'profil']);
 
+// ADMIN
 // nexus administrátor
 Route::get('/nexus_admin', [UserController::class, 'nexusA']);
 
-// zoznam firiem
-Route::get('/zoznam_firiem', [UserController::class, 'zoz_firma']);
 
+// VEDUCI PRACOVNIK
 // nexus vedúci pracoviska
 Route::get('/nexus_veduci', [UserController::class, 'nexusV']);
 
+
+// POVERENY PRACOVNIK PRACOVISKA
 // nexus poverený zamestnanec pracoviska
 Route::get('/nexus_povereny', [UserController::class, 'nexusPov']);

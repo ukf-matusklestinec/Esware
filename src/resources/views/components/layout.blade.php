@@ -29,9 +29,32 @@
 </head>
 <body>
 <nav class="flex justify-between items-center mb-4">
+
+    {{-- funkcia loga na hlavičke stránky, ktorá prenesie používateľa na príslušnú hlavnú stránku/nexus --}}
+    @if( auth()->user() == null || (auth()->user()->Admin != 1 && auth()->user()->Veduci_pracoviska != 1 && auth()->user()->Povereny_pracovnik != 1)  )
     <a href="/">
         <img class="w-24 ml-6" src="{{asset('images/logoMsWare.png')}}" alt="" class="logo"/>
     </a>
+
+    @elseif(auth()->user()->Admin == 1)
+        <a href="/nexus_admin">
+            <img class="w-24 ml-6" src="{{asset('images/logoMsWare.png')}}" alt="" class="logo"/>
+        </a>
+
+
+    @elseif(auth()->user()->Veduci_pracoviska == 1)
+        <a href="/nexus_veduci">
+            <img class="w-24 ml-6" src="{{asset('images/logoMsWare.png')}}" alt="" class="logo"/>
+        </a>
+
+
+    @elseif(auth()->user()->Povereny_pracovnik == 1)
+        <a href="/nexus_povereny">
+            <img class="w-24 ml-6" src="{{asset('images/logoMsWare.png')}}" alt="" class="logo"/>
+        </a>
+    @endif
+
+
     <ul class="flex space-x-6 mr-6 text-lg">
         @auth
             <li>
@@ -46,21 +69,21 @@
                     @endif
 
                     @if(auth()->user()->Veduci_pracoviska == 1)
-                        <b><a>Vedúci pracoviska</a></b>
+                        <b><a>- Vedúci pracoviska</a></b>
                     @endif
 
                     @if(auth()->user()->Povereny_pracovnik == 1)
-                        <b><a>Poverený pracovník</a></b>
+                        <b><a>- Poverený pracovník</a></b>
                     @endif
 
                     @if(auth()->user()->Zastupca_firmy == 1)
-                        <b><a>Zástupca firmy</a></b>
+                        <b><a>- Zástupca firmy</a></b>
                     @endif
             </span>
             </li>
-            {{-- zoznam ponúk sa nezobrazí adminovy --}}
+            {{-- zoznam ponúk sa nezobrazí adminovy, vedúcemu a poverenému pracovníkovi --}}
             {{-- prenesie používateľa do jeho ponúk --}}
-            @if(auth()->user()->Admin != 1)
+            @if(auth()->user()->Admin != 1 && auth()->user()->Veduci_pracoviska != 1 && auth()->user()->Povereny_pracovnik != 1 )
             <li>
                 <a href="/listings/manage" class="hover:text-laravel"
                 ><i class="fa-solid fa-gear"></i>
@@ -102,7 +125,7 @@
         @endauth
     </ul>
 </nav>
-{{-- View Output --}}
+
 <main>
     {{$slot}}
 </main>
