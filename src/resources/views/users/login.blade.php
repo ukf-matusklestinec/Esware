@@ -29,8 +29,6 @@
                 </div>
                 <div style="padding-top: 15px;">
                     <a href="/register" class="text-laravel">Nová registrácia</a>
-                    <br>
-                    <a href="/forget-password" class="text-laravel">Zabudnuté heslo</a>
                 </div>
             </div>
         </form>
