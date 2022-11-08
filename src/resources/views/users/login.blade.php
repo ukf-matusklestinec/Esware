@@ -2,7 +2,7 @@
 <a href="/" class="inline-block text-black ml-4 mb-4"
     ><i class="fa-solid fa-arrow-left"></i> Naspäť
     </a>
-    <x-card class="p-10 max-w-lg mx-auto mt-24">
+    <x-card class="p-10 max-w-lg mx-auto mt-6">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1" style="padding-bottom: 20px;">Prihlásenie k vášmu účtu</h2>
         </header>
