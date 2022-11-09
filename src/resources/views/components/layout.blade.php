@@ -30,9 +30,8 @@
     </script>
 <style>
 footer{
-    position: fixed;
+    position: relative;
     right: 0;
-    left: 0:
     bottom: 0;
 }
     </style>
