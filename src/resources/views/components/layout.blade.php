@@ -12,6 +12,9 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
     />
+   
+
+   
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -25,6 +28,15 @@
             },
         };
     </script>
+<style>
+footer{
+    position: fixed;
+    right: 0;
+    left: 0:
+    bottom: 0;
+}
+    </style>
+
     <title>EsWare</title>
 </head>
 <body>
@@ -130,11 +142,13 @@
     {{$slot}}
 </main>
 
+
 <footer
     class="bottom-0 left-0 w-full flex items-center mt-10 justify-start font-bold bg-laravel text-white h-15 mt-15 opacity-90 md:justify-center">
     <p class="mt-3 mb-3">© 2022, Všetky práva vyhradené</p>
 </footer>
 </body>
+
 </html>
 
 
