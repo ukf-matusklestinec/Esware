@@ -30,7 +30,7 @@
     </script>
 <style>
 footer{
-    position: absolute;
+    position: fixed;
     right: 0;
     left: 0:
     bottom: 0;
