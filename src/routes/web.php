@@ -103,6 +103,14 @@ Route::get('/profilstudent', [UserController::class, 'profil']);
 // nexus administrátor
 Route::get('/nexus_admin', [UserController::class, 'nexusA']);
 
+Route::get('/zoznam_firiem', [UserController::class, 'zoz_firma']);
+
+Route::get('/zoznam_studentov', [UserController::class, 'zoz_student']);
+
+Route::get('/zoznam_pracovisk', [UserController::class, 'zoz_pracov']);
+
+Route::get('/zoznam_pracovnikov', [UserController::class, 'zoz_pracov']);
+
 
 // VEDUCI PRACOVNIK
 // nexus vedúci pracoviska
@@ -112,3 +120,9 @@ Route::get('/nexus_veduci', [UserController::class, 'nexusV']);
 // POVERENY PRACOVNIK PRACOVISKA
 // nexus poverený zamestnanec pracoviska
 Route::get('/nexus_povereny', [UserController::class, 'nexusPov']);
+
+Route::get('/zoznam_akad_student', [UserController::class, 'zoz_ak_stud']);
+
+Route::get('/zoznam_org_firm', [UserController::class, 'zoz_or_fi']);
+
+Route::get('/zoznam_praxi', [UserController::class, 'zoz_prax']);

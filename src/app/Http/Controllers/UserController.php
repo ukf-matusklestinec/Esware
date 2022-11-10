@@ -18,6 +18,7 @@ class UserController extends Controller
         return view('users.profilstudent');
     }
 
+    //--------------------------------------------------------------------------------------------------------
     // ADMINISTRATOR
 
     // nexus administratora
@@ -28,8 +29,6 @@ class UserController extends Controller
         }
         else{abort(403, 'Unauthorized Action');}
     }
-
-
 
     //zoznam studentov
     public function zoz_student(){
@@ -68,6 +67,7 @@ class UserController extends Controller
     }
 
 
+    // ------------------------------------------------------------------------------------------
     // VEDUCI PRACOVISKA
 
     // nexus vedúci pracoviska
@@ -79,6 +79,14 @@ class UserController extends Controller
         else{abort(403, 'Unauthorized Action');}
     }
 
+
+
+
+
+
+
+
+    // -------------------------------------------------------------------------------------------
     // POVERENÝ PRACOVNÍK PRACOVISKA
 
     // nexus poverený pracovník pracoviska
@@ -89,6 +97,33 @@ class UserController extends Controller
         }
         else{abort(403, 'Unauthorized Action');}
 
+    }
+
+    // zoznam študentov do príslušného akademického roka
+    public function zoz_ak_stud(){
+        if(auth()->user()->Povereny_pracovnik == 1) {
+            return view('povereny_pracovnik.zoznam_akad_student');
+
+        }
+        else{abort(403, 'Unauthorized Action');}
+    }
+
+    // zoznam organizácií a firiem
+    public function zoz_or_fi(){
+        if(auth()->user()->Povereny_pracovnik == 1) {
+            return view('povereny_pracovnik.zoznam_org_firm');
+
+        }
+        else{abort(403, 'Unauthorized Action');}
+    }
+
+    // zoznam praxí vykonávaných študentmi 
+    public function zoz_prax(){
+        if(auth()->user()->Povereny_pracovnik == 1) {
+            return view('povereny_pracovnik.zoznam_praxi');
+
+        }
+        else{abort(403, 'Unauthorized Action');}
     }
 
 
