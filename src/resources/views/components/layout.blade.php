@@ -143,7 +143,12 @@ footer{
 
 
 <footer
-    class="bottom-0 left-0 w-full flex items-center mt-10 justify-start font-bold bg-laravel text-white h-15 mt-15 opacity-90 md:justify-center">
+    class="bottom-0 left-0 w-full flex items-center mt-10 justify-start font-bold bg-laravel text-white h-15 mt-15 opacity-90 md:justify-center" style="
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;">
     <p class="mt-3 mb-3">© 2022, Všetky práva vyhradené</p>
 </footer>
 </body>
