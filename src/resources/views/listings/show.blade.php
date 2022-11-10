@@ -6,7 +6,7 @@
         grid-area: main;
     }
     .item3 {
-        grid-area: right;
+        grid-area: adresa;
     }
     .item4 {
         grid-area: footer;
@@ -19,7 +19,7 @@
         display: grid;
         grid-template-areas:
             'photo photo blank main main main'
-            'photo photo blank right right right'
+            'photo photo blank adresa adresa adresa'
             'footer footer footer footer footer footer';
     }
 
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="border border-black mt-2"></div>
-            <div class="items-center justify-center text-center flex mt-6 mb-6">
+            <div class="items-center justify-center text-center flex mt-6 mb-6 max-w-2xl">
                 <x-listing-tags :tagsCsv="$listing->tags" />
             </div>
             @auth

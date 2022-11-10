@@ -97,7 +97,7 @@ footer{
             @if(auth()->user()->Admin != 1 && auth()->user()->Veduci_pracoviska != 1 && auth()->user()->Povereny_pracovnik != 1 )
             <li>
                 <a href="/listings/manage" class="hover:text-laravel"
-                ><i class="fa-solid fa-gear"></i>
+                ><i class="fa-solid fa-bars"></i>
                     Vaše ponuky</a>
             </li>
             @endif
