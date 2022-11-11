@@ -20,7 +20,7 @@
             <div class="mb-6">
                 <label for="title" class="inline-block text-lg mb-2">Názov prace</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title"
-                       placeholder="Example: Senior Laravel Developer" value="{{old('title')}}" />
+                       placeholder="Napríklad: Senior Laravel Developer" value="{{old('title')}}" />
 
                 @error('title')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -30,7 +30,7 @@
             <div class="mb-6">
                 <label for="location" class="inline-block text-lg mb-2">Adresa</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="location"
-                       placeholder="Example: Remote, Boston MA, etc" value="{{old('location')}}" />
+                       placeholder="Napríklad: Tr. A. Hlinku 1, 949 01 Nitra" value="{{old('location')}}" />
 
                 @error('location')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -65,7 +65,7 @@
                     Tagy (Čiarkou oddelene)
                 </label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags"
-                       placeholder="Example: Laravel, Backend, Postgres, etc" value="{{old('tags')}}" />
+                       placeholder="Napríklad: Laravel, Backend, Postgres, atď" value="{{old('tags')}}" />
 
                 @error('tags')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>

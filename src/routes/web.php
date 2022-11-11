@@ -94,7 +94,12 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 // Log In User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
-//-------------------------------------------------------------------------------
+
+
+//------------------------------------------------------------------------------- Tabulka zoznam studentov
+
+// spravovanie používateľov
+//Route::get('/administrator/zoznam_studentov', [UserController::class, 'manage_users'])->middleware('auth');
 
 // profil študenta
 Route::get('/profilstudent', [UserController::class, 'profil']);
@@ -107,11 +112,16 @@ Route::get('/zoznam_firiem', [UserController::class, 'zoz_firma']);
 
 Route::get('/zoznam_studentov', [UserController::class, 'zoz_student']);
 
-Route::get('/zoznam_pracovisk', [UserController::class, 'zoz_pracov']);
+Route::get('/zoznam_pracovisk', [UserController::class, 'zoz_pracovisk']);
 
 Route::get('/zoznam_pracovnikov', [UserController::class, 'zoz_pracov']);
 
+//------------------------------------------------------------------------------- tabulka
 
+
+
+
+//-------------------------------------------------------------------------------
 // VEDUCI PRACOVNIK
 // nexus vedúci pracoviska
 Route::get('/nexus_veduci', [UserController::class, 'nexusV']);

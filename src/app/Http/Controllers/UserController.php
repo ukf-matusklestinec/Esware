@@ -66,6 +66,13 @@ class UserController extends Controller
         else{abort(403, 'Unauthorized Action');}
     }
 
+    // spravovanie používateľov prerobiť
+    public function manage_users(User $user){
+        if(auth()->user()->Admin == 1) {
+            return view('administrator.zoznam_studentov');
+        }
+        else{abort(403, 'Unauthorized Action');}
+    }
 
     // ------------------------------------------------------------------------------------------
     // VEDUCI PRACOVISKA
@@ -117,7 +124,7 @@ class UserController extends Controller
         else{abort(403, 'Unauthorized Action');}
     }
 
-    // zoznam praxí vykonávaných študentmi 
+    // zoznam praxí vykonávaných študentmi
     public function zoz_prax(){
         if(auth()->user()->Povereny_pracovnik == 1) {
             return view('povereny_pracovnik.zoznam_praxi');
@@ -183,7 +190,7 @@ class UserController extends Controller
                 return redirect('/nexus_povereny')->with('message', 'Ste prihláseny!');
             }
             if(auth()->user()->Zastupca_firmy == 1){
-                return redirect('/nexus_admin')->with('message', 'Ste prihláseny!');
+                return redirect('/')->with('message', 'Ste prihláseny!');
             }
             else{ return redirect('/')->with('message', 'Ste prihláseny!');}
         }

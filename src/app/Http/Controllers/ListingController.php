@@ -11,7 +11,7 @@ use Illuminate\Validation\Rule;
 
 class ListingController extends Controller
 {
-    // Show all listings
+    // zobrazenie všetkych ponúk
     public function index() {
         return view('listings.index', [
             'heading' => 'Nove ponuky',
@@ -22,7 +22,7 @@ class ListingController extends Controller
         ]);
     }
 
-    //Show single listing
+    // zobrazenie jednej ponuky
     public function show(Listing $listing) {
         return view('listings.show', [
             'listing' => $listing,
@@ -30,13 +30,13 @@ class ListingController extends Controller
         ]);
     }
 
-    // Show Create Form
+    // zobrazenie formulára na vytvorenie
     public function create() {
         return view('listings.create');
     }
 
 
-    // Store Listing Data
+    // uložiť ponuku do databázy
     public function store(Request $request) {
         $formFields = $request->validate([
             'title' => 'required',
@@ -59,16 +59,16 @@ class ListingController extends Controller
         return redirect('/')->with('message', 'Ponuka bola pridana!');
     }
 
-    // Show Edit Form
+    // zobraziť formulár na úpravu
     public function edit(Listing $listing) {
         return view('listings.edit', [
             'listing' => $listing,
         ]);
     }
 
-    // Update Listing Data
+    // upraviť ponuku
     public function update(Request $request, Listing $listing) {
-        // Make sure logged in user is owner
+
         if($listing->user_id != auth()->id()) {
             abort(403, 'Unauthorized Action');
         }
@@ -90,10 +90,10 @@ class ListingController extends Controller
 
         $listing->update($formFields);
 
-        return back()->with('message', 'Ponuka bola uspesne zmenena!');
+        return back()->with('message', 'Ponuka bola úspešne zmenená!');
     }
 
-    // Delete Listing
+    // odstrániť ponuku
     public function destroy(Listing $listing) {
         // Make sure logged in user is owner
         if($listing->user_id != auth()->id()) {
@@ -102,9 +102,9 @@ class ListingController extends Controller
 
 
         $listing->delete();
-        return redirect('/')->with('message', 'Ponuka uspesne odstranena!');
+        return redirect('/')->with('message', 'Ponuka úspešne odstránená!');
     }
-// Manage Listings
+// spravovanie ponúk študenta/firmy
     public function manage() {
         return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
     }
