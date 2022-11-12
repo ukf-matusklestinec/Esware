@@ -30,10 +30,20 @@
 
 
 <x-layout>
-
+    {{-- ak používateľ nie je admin prenesie na ostatné ponuky --}}
+    @if(auth()->user()->Admin != 1)
     <a href="/" class="inline-block text-black ml-4 mb-4">
         <i class="fa-solid fa-arrow-left"></i> Naspäť
     </a>
+        @endif
+
+    {{-- ak používateľ je admin prenesie ho na zoznam študentov --}}
+    @if(auth()->user()->Admin == 1)
+            <a href="/zoznam_studentov" class="inline-block text-black ml-4 mb-4">
+                <i class="fa-solid fa-arrow-left"></i> Naspäť
+            </a>
+        @endif
+
     <div class="mx-4">
         <x-card class="p-10 max-w-2xl mx-auto mt-6">
             <div class="grid-container">
@@ -73,8 +83,10 @@
             @unless($aktivity->isEmpty())
 
             @else
+                @if(auth()->user()->Admin != 1)
             <a href="/prihlas/{{$listing->id}}" target="_blank" class="block bg-green-600 text-white py-2 rounded-xl hover:opacity-80 text-center">
                 <i class="fa-solid fa-user"></i> Prihlásiť sa na ponuku</a>
+                @endif
             @endunless
             @endauth
     </div>

@@ -7,6 +7,7 @@ use App\Http\Controllers\ListingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PrihlasenieController;
 use App\Http\Controllers\AktivityController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,27 +97,33 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 
 
-//------------------------------------------------------------------------------- Tabulka zoznam studentov
 
-// spravovanie používateľov
-//Route::get('/administrator/zoznam_studentov', [UserController::class, 'manage_users'])->middleware('auth');
-
+// -------------------------------------------------------------------------- profil
 // profil študenta
 Route::get('/profilstudent', [UserController::class, 'profil']);
 
-// ADMIN
+
+//------------------------------------------------------------------------------- ADMIN rozhranie
+
 // nexus administrátor
 Route::get('/nexus_admin', [UserController::class, 'nexusA']);
 
-Route::get('/zoznam_firiem', [UserController::class, 'zoz_firma']);
+// spravovanie používateľov resp. študentov
+Route::get('/zoznam_studentov', [AdminController::class, 'manage_student']);
 
-Route::get('/zoznam_studentov', [UserController::class, 'zoz_student']);
-
+// spravovanie pracovísk
 Route::get('/zoznam_pracovisk', [UserController::class, 'zoz_pracovisk']);
 
-Route::get('/zoznam_pracovnikov', [UserController::class, 'zoz_pracov']);
+// spravovať poverených a vedúcich pracovísk
+Route::get('/zoznam_pracovnikov', [AdminController::class, 'manage_pracovnikov']);
 
-//------------------------------------------------------------------------------- tabulka
+// spravovať firmy a organizácie
+Route::get('/zoznam_firiem', [UserController::class, 'zoz_firma']);
+
+
+
+
+
 
 
 
