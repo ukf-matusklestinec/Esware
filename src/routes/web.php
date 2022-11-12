@@ -117,6 +117,9 @@ Route::get('/zoznam_pracovisk', [UserController::class, 'zoz_pracovisk']);
 // spravovať poverených a vedúcich pracovísk
 Route::get('/zoznam_pracovnikov', [AdminController::class, 'manage_pracovnikov']);
 
+// spravovať poverených a vedúcich pracovísk
+Route::get('/zoznam_veducich', [AdminController::class, 'manage_veducich']);
+
 // spravovať firmy a organizácie
 Route::get('/zoznam_firiem', [UserController::class, 'zoz_firma']);
 

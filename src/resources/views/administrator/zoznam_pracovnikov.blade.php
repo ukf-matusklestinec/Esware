@@ -1,9 +1,14 @@
 <x-layout>
+
+    <a href="/nexus_admin" class="inline-block text-black ml-4 mb-4">
+        <i class="fa-solid fa-arrow-left"></i> Naspäť
+    </a>
+
     <x-card class="p-10">
         {{-- pridať searchbar --}}
         <header>
             <h1 class="text-3xl text-center font-bold my-6 uppercase">
-                Zoznam vedúcich a poverených zamestnancov
+                Zoznam poverených zamestnancov
             </h1>
         </header>
 
@@ -13,17 +18,11 @@
             @foreach($users as $zam)
                 <tr class="border-gray-300">
                     <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <a href="/listings/{{$zam->id}}"> {{$zam->name}} </a>
+                        {{$zam->name}}
                     </td>
 
-                    {{-- úprava používateľovych ponúk --}}
-                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <a href="/listings/{{$zam->id}}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i
-                                class="fa-solid fa-pen-to-square"></i>
-                            Upraviť</a>
-                    </td>
 
-                    {{-- odstránenie používateľových ponúk --}}
+                    {{-- odstránenie povereného zamestnanca WIP --}}
                     <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
                         <form method="POST" action="/listings/{{$zam->id}}">
                             @csrf

@@ -35,15 +35,27 @@
 
         <x-card>
             <div class="flex justify-center">
-                <form action="/zoznam_pracovnikov">
+                <form action="/zoznam_veducich">
                 <button
                     type="submit"
                     class="text-xl font-bold  hover:text-laravel">
-                    Spravovať poverených a vedúcich pracovísk
+                    Spravovať vedúcich pracovísk
                 </button>
                 </form>
             </div>
         </x-card>
+
+            <x-card>
+                <div class="flex justify-center">
+                    <form action="/zoznam_pracovnikov">
+                        <button
+                            type="submit"
+                            class="text-xl font-bold  hover:text-laravel">
+                            Spravovať poverených pracovníkov pracovísk
+                        </button>
+                    </form>
+                </div>
+            </x-card>
 
         <x-card>
             <div class="flex justify-center">
