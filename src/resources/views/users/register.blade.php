@@ -27,6 +27,17 @@
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
                 </div>
+
+                <div style="padding-bottom: 15px;">
+                    <label for="odbor" class="inline-block text-lg mb-2">Odbor<span style="color:red;"> *</label>
+                    <input type="text" name="odbor" class="border border-black-200 rounded p-2 w-full"
+                           style="width: 350px; margin-left: 70.31px;" value="{{old('odbor')}}" >
+                    @error('odbor')
+                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    @enderror
+                </div>
+
+
                 <div style="padding-bottom: 15px;">
                     <label for="password" class="inline-block text-lg mb-2">Heslo<span style="color:red;"> *</label>
                     <input type="password" class="border border-black-200 rounded p-2 w-full" name="password"

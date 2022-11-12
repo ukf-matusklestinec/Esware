@@ -14,7 +14,7 @@
             </div>
                 <h3 class="text-2xl font-bold mb-2">{{auth()->user()->name}}</h3>
                 <div class="text-l mb-4">{{auth()->user()->id}}</div>
-                <div class="text-l">AI22M</div>
+                <div class="text-l">{{auth()->user()->odbor}}</div>
                 <div class="border border-black w-full mb-6 mt-6"></div>
 
                 <h4 class="text-xl font-bold mb-2">Tel. číslo</h4>
