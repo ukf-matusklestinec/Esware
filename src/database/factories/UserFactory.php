@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -17,12 +18,32 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $inputArray = [
+            'Fyzika','Fyzika materialov','Fyzika učiteľstvo',
+            'Matematika učiteľstvo', 'Informačné metódy v ekonómii a finančníctve',
+            'Informatika učiteľstvo','Informatika aplikovaná',
+            'Geografia v regionálnom rozvoji', 'Geografia učiteľstvo',
+            'Chemia učiteľstvo',
+            'Biologia', 'Biologia učiteľstvo'];
+
+
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi',
             'remember_token' => Str::random(10),
+            'tel_cislo' => $this->faker->numberBetween($int1=909000000,$int2=999000000),
+            'datum_narodenia' => $this->faker->date($format = 'Y-m-d', $max = '2004-12-25'),
+            'pohlavie' => $this->faker->numberBetween($min=0,$max=1),
+            'odbor' => $this->faker->randomElement($inputArray),
+            'Ulica' => $this->faker->streetName(),
+            'Mesto' => $this->faker->city(),
+            'PSC' => $this->faker->numberBetween($int1=90000,$int2=99000),
+            'Admin' => $this->faker->numberBetween($min=0,$max=0),
+            'Veduci_pracoviska' => $this->faker->numberBetween($min=0,$max=0),
+            'Povereny_pracovnik' => $this->faker->numberBetween($min=0,$max=0),
+            'Zastupca_firmy' => $this->faker->numberBetween($min=0,$max=0),
         ];
     }
 

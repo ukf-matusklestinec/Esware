@@ -13,12 +13,16 @@ class ListingController extends Controller
 {
     // zobrazenie všetkych ponúk
     public function index() {
+        $student1 = Prihlasenie::get()->where('aktivna', '1')->count();
+        $ponuky1 = Listing::get()->where('schvalena', 1)->count();
         return view('listings.index', [
             'heading' => 'Nove ponuky',
             'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6),
             //'listings' => Listing::latest()->where('schvalena', 1)->filter(request(['tag', 'search']))->paginate(6),
-            'aktivity' => Prihlasenie::with('listing', 'user')->get(),
-            'aktivity2' => Aktivity::get()
+            'aktivity' => Prihlasenie::with('listing', 'user')->get()->where('aktivna', 1),
+            'aktivity2' => Aktivity::get(),
+            'student' => $student1,
+            'ponuky' => $ponuky1
         ]);
     }
 
@@ -26,7 +30,7 @@ class ListingController extends Controller
     public function show(Listing $listing) {
         return view('listings.show', [
             'listing' => $listing,
-            'aktivity' => Prihlasenie::with('listing', 'user')->get()->where('user_id', auth()->id())
+            'aktivity' => Prihlasenie::with('listing', 'user')->get()->where('user_id', auth()->id())->where('aktivna', 1)
         ]);
     }
 
@@ -53,6 +57,7 @@ class ListingController extends Controller
         }
 
         $formFields['user_id'] = auth()->id();
+        $formFields['schvalena'] = 0;
 
         Listing::create($formFields);
 

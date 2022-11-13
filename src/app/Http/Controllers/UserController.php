@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Listing;
+use App\Models\Prihlasenie;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -23,8 +25,60 @@ class UserController extends Controller
 
     // nexus administratora
     public function nexusA(){
+        //vypocitanie graf4
+        $student1 = User::get()->where('Admin', '0')->where('Veduci_pracoviska', '0')->where('Povereny_pracovnik', '0')->where('Zastupca_firmy', '0')->count();
+        $zamestnanec1 = User::get()->count();
+        $zamestnane2 = $zamestnanec1-$student1;
+
         if(auth()->user()->Admin == 1) {
-            return view('administrator.nexus_admin');
+            return view('administrator.nexus_admin', [
+
+                // data pre grafy ********************************************************************************************************************
+                // graf1 Ponuka a ich lokacie
+                'nitra' => Listing::get()->where('location', 'Nitra')->count(),
+                'vrable' => Listing::get()->where('location', 'Vrable')->count(),
+                'zvolen' => Listing::get()->where('location', 'Zvolen')->count(),
+                'levice' => Listing::get()->where('location', 'Levice')->count(),
+                'zilina' => Listing::get()->where('location', 'Žilina')->count(),
+                'bratislava' => Listing::get()->where('location', 'Bratislava')->count(),
+
+                // grafX(pie) odbor studenta
+                'IA' => User::get()->where('odbor', 'Informatika aplikovaná')->count(),
+                'IU' => User::get()->where('odbor', 'Informatika učiteľstvo')->count(),
+                'F' => User::get()->where('odbor', 'Fyzika')->count(),
+                'FM' => User::get()->where('odbor', 'Fyzika materialov')->count(),
+                'FU' => User::get()->where('odbor', 'Fyzika učiteľstvo')->count(),
+                'MU' => User::get()->where('odbor', 'Matematika učiteľstvo')->count(),
+                'IMEF' => User::get()->where('odbor', 'Informačné metódy v ekonómii a finančníctve')->count(),
+                'G' => User::get()->where('odbor', 'Geografia v regionálnom rozvoji')->count(),
+                'GU' => User::get()->where('odbor', 'Geografia učiteľstvo')->count(),
+                'CHU' => User::get()->where('odbor', 'Chemia učiteľstvo')->count(),
+                'B' => User::get()->where('odbor', 'Biologia')->count(),
+                'BU' => User::get()->where('odbor', 'Biologia učiteľstvo')->count(),
+
+                // graf2 Rola zamestnanca
+                'admin' => User::get()->where('Admin', '1')->count(),
+                'veduci' => User::get()->where('Veduci_pracoviska', '1')->count(),
+                'povereny' => User::get()->where('Povereny_pracovnik', '1')->count(),
+                'zastupca' => User::get()->where('Zastupca_firmy', '1')->count(),
+
+                // graf3 Pohlavie pouzivatelov
+                'muz' => User::get()->where('pohlavie', '0')->count(),
+                'zena' => User::get()->where('pohlavie', '1')->count(),
+                'nezvolene' => User::get()->where('pohlavie', null)->count(),
+
+                // graf4 Pocet student zamestnanec
+                'student' => $student1,
+                'zamestnanec3' => $zamestnane2,
+
+                //graf5 Pocet aktivnich praxi studentov
+                'aktivna' => Prihlasenie::get()->where('aktivna', '1')->count(),
+                'neaktivna' => Prihlasenie::get()->where('aktivna', '0')->count(),
+
+                //graf6 Pocet schvalenych ponuk
+                'schvalena' => Listing::get()->where('schvalena', '1')->count(),
+                'neschvalena' => Listing::get()->where('schvalena', '0')->count(),
+            ]);
 
         }
         else{abort(403, 'Unauthorized Action');}
@@ -144,6 +198,10 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:6'
 
         ]);
+        $formFields['Admin'] = 0;
+        $formFields['Veduci_pracoviska'] = 0;
+        $formFields['Povereny_pracovnik'] = 0;
+        $formFields['Zastupca_firmy'] = 0;
 
         // Hash Password
         $formFields['password'] = bcrypt($formFields['password']);

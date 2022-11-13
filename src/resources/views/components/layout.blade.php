@@ -12,7 +12,7 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
     />
-    
+
 
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -111,12 +111,12 @@
 
             {{-- Monitorovanie studentov ktory su prihlaseny na nejaku prax --}}
             {{-- aktivity este nefunguju poriadne --}}
-            @if(auth()->user()->Admin == 1 || auth()->user()->Veduci_pracoviska == 1)
-            <li>
-                <a href="/prihlasenie" class="hover:text-laravel"
-                ><i class="fa-solid fa-user-plus"></i> Monitorovanie ponúk</a
-                >
-            </li>
+            @if(auth()->user()->Admin == 1 || auth()->user()->Veduci_pracoviska == 1 || auth()->user()->Zastupca_firmy == 1)
+                <li>
+                    <a href="/prihlasenie" class="hover:text-laravel"
+                    ><i class="fa-solid fa-user-plus"></i> Monitorovanie ponúk</a
+                    >
+                </li>
             @endif
 
             <li>
@@ -147,7 +147,9 @@
     {{$slot}}
 </main>
 
-
+<br>
+<br>
+<br>
 <footer
     class="bottom-0 left-0 w-full flex items-center mt-10 justify-start font-bold bg-laravel text-white h-15 mt-15 opacity-90 md:justify-center">
     <p class="mt-3 mb-3">© 2022, Všetky práva vyhradené</p>

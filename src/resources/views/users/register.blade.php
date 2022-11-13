@@ -28,13 +28,24 @@
                     @enderror
                 </div>
 
+
                 <div style="padding-bottom: 15px;">
-                    <label for="odbor" class="inline-block text-lg mb-2">Odbor<span style="color:red;"> *</label>
-                    <input type="text" name="odbor" class="border border-black-200 rounded p-2 w-full"
-                           style="width: 350px; margin-left: 70.31px;" value="{{old('odbor')}}" >
-                    @error('odbor')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                    @enderror
+                    <label for="odbor" class="inline-block text-lg mb-2">Odbor:</label>
+                    <select name="odbor" id="id" class="border border-gray-200 rounded p-2 w-half" style="width: 350px; margin-left: 70.31px;">
+                        <option value="Informatika aplikovaná">Informatika aplikovaná</option>
+                        <option value="Informatika učiteľstvo">Informatika učiteľstvo</option>
+                        <option value="Geografia učiteľstvo">Geografia učiteľstvo</option>
+                        <option value="Geografia v regionálnom rozvoji">Geografia v regionálnom rozvoji</option>
+                        <option value="Chemia učiteľstvo">Chemia učiteľstvo</option>
+                        <option value="Biologia">Biologia</option>
+                        <option value="Biologia učiteľstvo">Biologia učiteľstvo</option>
+                        <option value="Matematika učiteľstvo">Matematika učiteľstvo</option>
+                        <option value="Informačné metódy v ekonómii a finančníctve">Informačné metódy v ekonómii a finančníctve</option>
+                        <option value="Fyzika">Fyzika</option>
+                        <option value="Fyzika materialov">Fyzika materialov</option>
+                        <option value="Fyzika učiteľstvo">Fyzika učiteľstvo</option>
+                    </select>
+
                 </div>
 
 
