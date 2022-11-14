@@ -15,8 +15,8 @@
                 <tr>
                     <th>Ponuka</th>
                     <th>Firma</th>
-                    <th>Student</th>
-                    <th>Aktivna prax</th>
+                    <th>Študent</th>
+                    <th>Aktívna prax</th>
                     <th>Spätná väzba</th>
                 </tr>
 
@@ -47,7 +47,7 @@
                         </td>
                         <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-center">
                             @if($aktivit->spatna_vazba == null)
-                                Ziadna spätná väzba.
+                                Žiadna spätná väzba.
                             @else
                                 {{$aktivit->spatna_vazba}}
                             @endif
@@ -61,7 +61,7 @@
                             <form method="POST" action="/prihlasenie/{{$aktivit->id}}">
                                 @csrf
                                 @method('DELETE')
-                                <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
+                                <button class="text-red-500"><i class="fa-solid fa-trash"></i> Odstrániť</button>
                             </form>
                         </td>
                     </tr>
@@ -73,7 +73,7 @@
             @else
                 <tr class="border-gray-300">
                     <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <p class="text-center">Ešte ste nevytvorily ponuku</p>
+                        <p class="text-center">Ešte ste nevytvorili ponuku</p>
                     </td>
                 </tr>
             @endunless
@@ -89,7 +89,7 @@
         <x-card>
         <tr class="border-gray-300">
             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                <p class="text-center">Študenti niesu prihlásený na vašej ponuke</p>
+                <p class="text-center">Študenti nie sú prihlásení na vašej ponuke</p>
             </td>
         </tr>
         </x-card>

@@ -1,3 +1,4 @@
+@if(Auth::check() && auth()->user()->Admin)
 <x-layout>
     <a href="/nexus_admin" class="inline-block text-black ml-4 mb-4">
         <i class="fa-solid fa-arrow-left"></i> Naspäť
@@ -30,9 +31,9 @@
                         <a href="/listings/{{$user->id}}"> Zobrazenie pracovnej ponuky </a>
                     </td>
 
-                    {{-- odstránenie používateľových ponúk --}}
+                    {{-- odstránenie používateľa --}}
                     <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <form method="POST" action="/listings/{{$user->id}}">
+                        <form method="POST" action="/zoznam_studentov/{{$user->id}}">
                             @csrf
                             @method('DELETE')
                             <button class="text-red-500"><i class="fa-solid fa-trash"></i> Odstrániť</button>
@@ -54,3 +55,7 @@
     </table>
     </x-card>
 </x-layout>
+
+@else
+    Nemáte prístup!
+@endunless

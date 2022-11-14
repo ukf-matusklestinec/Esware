@@ -1,3 +1,4 @@
+@if(Auth::check() && auth()->user()->Admin)
 <x-layout>
 
     <a href="/nexus_admin" class="inline-block text-black ml-4 mb-4">
@@ -46,3 +47,6 @@
         </table>
     </x-card>
 </x-layout>
+@else
+    Nemáte prístup!
+@endunless

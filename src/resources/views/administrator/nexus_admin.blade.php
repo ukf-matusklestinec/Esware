@@ -1,3 +1,4 @@
+@if(Auth::check() && auth()->user()->Admin)
 <x-layout>
 
     <header>
@@ -383,5 +384,7 @@
 
 
 </x-layout>
-
+@else
+    Nemáte prístup!
+@endunless
 {{-- treba dorobiť inputy --}}

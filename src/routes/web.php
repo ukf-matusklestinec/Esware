@@ -111,6 +111,9 @@ Route::get('/nexus_admin', [UserController::class, 'nexusA']);
 // spravovanie používateľov resp. študentov
 Route::get('/zoznam_studentov', [AdminController::class, 'manage_student']);
 
+// odstránenie používateľov resp. študentov
+Route::get('/zoznam_studentov/{user}', [AdminController::class, 'odstranenie_studenta'])->middleware('auth');
+
 // spravovanie pracovísk
 Route::get('/zoznam_pracovisk', [UserController::class, 'zoz_pracovisk']);
 

@@ -29,4 +29,13 @@ class AdminController extends Controller
         $ved = DB::table('users')->get()->whereNotNull('Veduci_pracoviska');
         return view('administrator.zoznam_veducich', ['users' => $ved]);
     }
+
+
+    public function odstranenie_studenta(User $user){
+        // myslím, že názov funkcie hovorí za všetko
+        $user->delete();
+        return redirect('zoznam_studentov')->with('message', 'Študent bol úspešne odstránený!');
+    }
+
+
 }

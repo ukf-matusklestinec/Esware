@@ -14,7 +14,7 @@
                 <tr>
                     <th>Ponuka</th>
                     <th>Firma</th>
-                    <th>Student</th>
+                    <th>Študent</th>
                     <th>Aktívna prax</th>
                     <th>Spätná väzba</th>
                 </tr>
@@ -57,7 +57,7 @@
                             <form method="POST" action="/prihlasenie/{{$aktivit->id}}">
                                 @csrf
                                 @method('DELETE')
-                                <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
+                                <button class="text-red-500"><i class="fa-solid fa-trash"></i> Odstrániť </button>
                             </form>
                         </td>
                     </tr>
