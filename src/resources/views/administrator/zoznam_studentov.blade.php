@@ -27,6 +27,7 @@
                     </td>
 
                     {{-- zobrazenie jeho praxe TREBA OPRAVIŤ AK NEMÁ ŽIADNE PONUKY--}}
+
                     <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
                         <a href="/listings/{{$user->id}}"> Zobrazenie pracovnej ponuky </a>
                     </td>

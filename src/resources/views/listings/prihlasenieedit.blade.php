@@ -39,7 +39,7 @@
                     Upraviť ponuku študenta
                 </button>
 
-                <a href="/prihlasenie" class="text-black ml-4"> Naspät </a>
+                <a href="/prihlasenie" class="text-black ml-4"> Naspäť </a>
             </div>
         </form>
     </x-card>

@@ -84,33 +84,6 @@ class UserController extends Controller
         else{abort(403, 'Unauthorized Action');}
     }
 
-    //zoznam studentov
-    public function zoz_student(){
-        if(auth()->user()->Admin == 1) {
-            return view('administrator.zoznam_studentov');
-
-        }
-        else{abort(403, 'Unauthorized Action');}
-    }
-
-    // zoznam firiem pre administratora
-    public function zoz_firma(){
-        if(auth()->user()->Admin == 1) {
-            return view('administrator.zoznam_firiem');
-
-        }
-        else{abort(403, 'Unauthorized Action');}
-    }
-
-    //zoznam pracovnikov
-    public function zoz_pracov(){
-        if(auth()->user()->Admin == 1) {
-            return view('administrator.zoznam_pracovnikov');
-
-        }
-        else{abort(403, 'Unauthorized Action');}
-    }
-
     //zoznam pracovísk
     public function zoz_pracovisk(){
         if(auth()->user()->Admin == 1) {
@@ -120,13 +93,6 @@ class UserController extends Controller
         else{abort(403, 'Unauthorized Action');}
     }
 
-    // spravovanie používateľov prerobiť
-    public function manage_users(User $user){
-        if(auth()->user()->Admin == 1) {
-            return view('administrator.zoznam_studentov');
-        }
-        else{abort(403, 'Unauthorized Action');}
-    }
 
     // ------------------------------------------------------------------------------------------
     // VEDUCI PRACOVISKA
