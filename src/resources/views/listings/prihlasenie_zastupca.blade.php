@@ -83,6 +83,7 @@
 
 
     </x-card>
+{{--   ak ma ponuky ale niesu ziadny studenti prihlaseny--}}
     @if($zascount != 0)
     @if($count == 0)
         <br>

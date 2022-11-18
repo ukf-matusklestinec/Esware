@@ -15,21 +15,23 @@ class PrihlasenieController extends Controller
 {
     // Show all listings
     public function index() {
+        //ak je admin tak ukaze vsetky udaje z tabulky prihlasenie
         if(auth()->user()->Admin == 1) {
             return view('listings.prihlasenie', [
                 'aktivity2' => Prihlasenie::with('listing', 'user', 'aktivity')->get()->where('aktivna', 1)
             ]);
         }
+        // ak je zastupca tak len studentov prihlasenyhc na jeho ponuke
         else{
             if(auth()->user()->Zastupca_firmy == 1) {
                 $bla = Listing::with('user', 'prihlasenie')->get()->where('user_id', auth()->id());
-                $krat = Listing::with('user', 'prihlasenie')->get()->where('user_id', auth()->id())->count();;
+                $krat = Listing::with('user', 'prihlasenie')->get()->where('user_id', auth()->id())->count(); // kolko ponuk vytvoril
                 $count = Prihlasenie::with('listing', 'user', 'aktivity')->get()->count();
-                return view('listings.prihlasenie1', [
+                return view('listings.prihlasenie_zastupca', [
                     'aktivity2' => Prihlasenie::with('listing', 'user', 'aktivity')->get(),
                     //'aktivity3' => Prihlasenie::with('listing', 'user', 'aktivity')->get()->count(),
                     'zas' => $bla,
-                    'count' => $count*$krat,
+                    'count' => $count*$krat, // ak ma ponuky ale niesu ziadny studenti prihlaseny
                     'zascount' => $krat
                 ]);
             }

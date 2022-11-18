@@ -30,6 +30,7 @@ class ListingController extends Controller
     public function show(Listing $listing) {
         return view('listings.show', [
             'listing' => $listing,
+            'pocet_prihlasenych' => Prihlasenie::with('listing', 'user')->get()->where('aktivna', 1)->where('listing_id', $listing->id)->count(),// data pre show blade kolko je na ponuke prihlasenych
             'aktivity' => Prihlasenie::with('listing', 'user')->get()->where('user_id', auth()->id())->where('aktivna', 1)
         ]);
     }

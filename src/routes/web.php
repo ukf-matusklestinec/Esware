@@ -23,7 +23,8 @@ use App\Http\Controllers\AdminController;
 
 
 //-------------------------------------------------------------------------------Tabulka prihlasenie
-
+// ak niekomu sa nezobrazia obrazky z db tak: spustit dokcer otvorit terminal php, vlozit kod: php artisan storage:link
+// ak napise "The links have been created" tak je to v poriadku
 
 // monitorovanie ponuk (zobrazenie)
 Route::get('/prihlasenie',[PrihlasenieController::class, 'index'])->middleware('auth');

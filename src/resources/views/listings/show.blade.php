@@ -82,6 +82,13 @@
             <div class="items-center justify-center text-center flex mt-6 mb-6 max-w-2xl">
                 <x-listing-tags :tagsCsv="$listing->tags" />
             </div>
+
+            {{--<div class="border border-black mt-2"></div>
+            <div class="items-center justify-center text-center flex mt-6 mb-6 max-w-2xl">
+                <p style="font-size:15px;">Počet prihlásených študentov na tejto praxi: </p>
+                <p style="font-size:25px;"><b>({{$pocet_prihlasenych}})</b></p>
+            </div>
+            --}}
             @auth
             @unless($aktivity->isEmpty())
 

@@ -11,15 +11,16 @@ use Illuminate\Validation\Rule;
 class AktivityController extends Controller
 {
     // Show ale len studentove aktivity
-    //bug ak nie su data v tabulke activity pre spravne id nezobrazi button
     public function index( $prihlasenie) {
 
         return view('listings.aktivity', [
             'aktivity' => Aktivity::get()->where('prihlasenie_id', $prihlasenie),
             'priid' => $prihlasenie,
+            //data
             'pocethodin' =>Aktivity::get()->where('prihlasenie_id', $prihlasenie)->sum('pocet_hodin'),
             'pocetdni' =>Aktivity::get()->where('prihlasenie_id', $prihlasenie)->count(),
-            'SV' => Prihlasenie::get()->where('id', $prihlasenie),
+            //----
+            'SV' => Prihlasenie::get()->where('id', $prihlasenie),// spätna väzba
             'prihlasenie' => Prihlasenie::with('listing', 'user')->get()//->where('user_id', auth()->id())
         ]);
     }

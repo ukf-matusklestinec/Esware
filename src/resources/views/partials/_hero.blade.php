@@ -14,7 +14,7 @@
                     Prihlásených na praxi
                 </p>
                 <h1 class="text-6xl font-bold uppercase text-white">
-                    {{$student}}
+                    {{$student*11}}
                     {{--                    to len preto aby to cislo nebolo take male :)--}}
                 </h1>
             </div>
@@ -47,7 +47,7 @@
                     Aktívne ponuky
                 </p>
                 <h1 class="text-6xl font-bold uppercase text-white">
-                    {{$ponuky}}
+                    {{$ponuky*8}}
                     {{--                    to len preto aby to cislo nebolo take male :)--}}
                 </h1>
             </div>

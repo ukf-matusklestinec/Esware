@@ -70,6 +70,16 @@
             <i class="fa-solid fa-user"></i>
             Pridať aktivitu</a>
         </div>
+{{--        ak student ma viac ako 160 co je min pre prax tak si moze stiahnut cez button pdf pre absolvovanie--}}
+        @if($pocethodin >= 160)
+            <br>
+            <div class="text-lg space-y-6 text-center">
+                <a href="src/public/images/prax_vseobecne.pdf" download
+                    class="block bg-red-600 text-white py-2 rounded-xl hover:opacity-80">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Stiahnuť pdf</a>
+            </div>
+        @endif
 
 
     </x-card>
