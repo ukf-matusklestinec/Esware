@@ -11,9 +11,7 @@
     .item4 {
         grid-area: footer;
     }
-    .item5 {
-        grid-area: blank;
-    }
+
 
     .grid-container {
         display: grid;
@@ -32,7 +30,7 @@
 <x-layout>
     {{-- ak používateľ nie je admin prenesie na ostatné ponuky --}}
     {{-- Auth::check() kontroluje, či je používateľ prihlásený/neprihlásený --}}
-    @if(Auth::check() == false || auth()->user()->Admin != 1 )
+    @if(Auth::check() == false || auth()->user()->Admin != 1 && auth()->user()->Povereny_pracovnik != 1 )
     <a href="/" class="inline-block text-black ml-4 mb-4">
         <i class="fa-solid fa-arrow-left"></i> Naspäť
     </a>
@@ -44,6 +42,12 @@
                 <i class="fa-solid fa-arrow-left"></i> Naspäť
             </a>
         @endif
+
+    @if(Auth::check() && auth()->user()->Povereny_pracovnik == 1)
+        <a href="/zoznam_akad_student" class="inline-block text-black ml-4 mb-4">
+            <i class="fa-solid fa-arrow-left"></i> Naspäť
+        </a>
+    @endif
 
 
     {{-- zobrazenie informácií praxe --}}
@@ -102,8 +106,6 @@
             @endauth
     </div>
     </x-card>
-
-    </div>
 </x-layout>
 
 {{-- po rozkliknutí konkrétnej ponuky sa zobrazí popis práce --}}

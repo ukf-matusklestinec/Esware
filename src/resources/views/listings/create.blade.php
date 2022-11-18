@@ -1,4 +1,9 @@
 <x-layout>
+
+    <a href="/" class="inline-block text-black ml-4 mb-4">
+        <i class="fa-solid fa-arrow-left"></i> Naspäť
+    </a>
+
     <x-card class="p-10 max-w-lg mx-auto mt-24">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">Vytvor ponuku</h2>
@@ -30,7 +35,7 @@
             <div class="mb-6">
                 <label for="location" class="inline-block text-lg mb-2">Adresa</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="location"
-                       placeholder="Napríklad: Tr. A. Hlinku 1, 949 01 Nitra" value="{{old('location')}}" />
+                       placeholder="Napríklad: Levice, Streda nad Bodrogom, Poprad" value="{{old('location')}}" />
 
                 @error('location')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>

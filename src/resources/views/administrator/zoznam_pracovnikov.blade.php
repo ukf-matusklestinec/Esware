@@ -5,6 +5,7 @@
         <i class="fa-solid fa-arrow-left"></i> Naspäť
     </a>
 
+
     <x-card class="p-10">
         {{-- pridať searchbar --}}
         <header>

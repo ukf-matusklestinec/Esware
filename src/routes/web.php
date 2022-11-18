@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PrihlasenieController;
 use App\Http\Controllers\AktivityController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PoverenyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ use App\Http\Controllers\AdminController;
 
 
 //-------------------------------------------------------------------------------Tabulka prihlasenie
-// ak niekomu sa nezobrazia obrazky z db tak: spustit dokcer otvorit terminal php, vlozit kod: php artisan storage:link
+// ak niekomu sa nezobrazia obrazky z db tak: spustit docker otvorit terminal php, vlozit kod: php artisan storage:link
 // ak napise "The links have been created" tak je to v poriadku
 
 // monitorovanie ponuk (zobrazenie)
@@ -148,7 +149,7 @@ Route::get('/nexus_veduci', [UserController::class, 'nexusV']);
 // nexus poverený zamestnanec pracoviska
 Route::get('/nexus_povereny', [UserController::class, 'nexusPov']);
 
-Route::get('/zoznam_akad_student', [UserController::class, 'zoz_ak_stud']);
+Route::get('/zoznam_akad_student', [PoverenyController::class, 'manage_student']);
 
 Route::get('/zoznam_org_firm', [UserController::class, 'zoz_or_fi']);
 

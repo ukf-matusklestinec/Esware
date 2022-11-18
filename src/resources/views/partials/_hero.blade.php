@@ -10,12 +10,14 @@
 
         <div class="lg:grid lg:grid-cols-3 gap-4 space-y-4 md:space-y-0 mx-4">
             <div>
+
+                {{-- výpis počtu príhlásených študentov na prax --}}
                 <p class="text-2xl text-gray-200 font-bold my-4">
                     Prihlásených na praxi
                 </p>
                 <h1 class="text-6xl font-bold uppercase text-white">
                     {{$student*11}}
-                    {{--                    to len preto aby to cislo nebolo take male :)--}}
+                    {{--   to len preto aby to cislo nebolo take male :)--}}
                 </h1>
             </div>
             <div>
@@ -43,6 +45,7 @@
                 </div>
             </div>
             <div>
+                {{-- výpis počtu aktívnych ponúk --}}
                 <p class="text-2xl text-gray-200 font-bold my-4">
                     Aktívne ponuky
                 </p>

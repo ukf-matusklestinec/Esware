@@ -109,8 +109,7 @@
             @endif
 
 
-            {{-- Monitorovanie studentov ktory su prihlaseny na nejaku prax --}}
-            {{-- aktivity este nefunguju poriadne --}}
+            {{-- Monitorovanie študentov, ktorí sú prihlasení na prax --}}
             @if(auth()->user()->Admin == 1 || auth()->user()->Veduci_pracoviska == 1 || auth()->user()->Zastupca_firmy == 1)
                 <li>
                     <a href="/prihlasenie" class="hover:text-laravel"

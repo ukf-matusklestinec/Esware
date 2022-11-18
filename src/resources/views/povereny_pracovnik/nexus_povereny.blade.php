@@ -1,5 +1,4 @@
-
-
+@if(Auth::check() && auth()->user()->Povereny_pracovnik)
 <x-layout>
 
     <header>
@@ -50,5 +49,7 @@
 
 
 </x-layout>
-
+@else
+    Nemáte prístup!
+@endunless
 {{-- treba dorobiť inputy --}}
