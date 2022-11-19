@@ -7,6 +7,7 @@ use App\Http\Controllers\ListingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PrihlasenieController;
 use App\Http\Controllers\AktivityController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,8 @@ use App\Http\Controllers\AktivityController;
 
 
 //-------------------------------------------------------------------------------Tabulka prihlasenie
-
+// ak niekomu sa nezobrazia obrazky z db tak: spustit dokcer otvorit terminal php, vlozit kod: php artisan storage:link
+// ak napise "The links have been created" tak je to v poriadku
 
 // monitorovanie ponuk (zobrazenie)
 Route::get('/prihlasenie',[PrihlasenieController::class, 'index'])->middleware('auth');
@@ -94,21 +96,62 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 // Log In User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
-//-------------------------------------------------------------------------------
 
+
+
+// -------------------------------------------------------------------------- profil
 // profil študenta
 Route::get('/profilstudent', [UserController::class, 'profil']);
+Route::get('/profilstudentedit', [UserController::class, 'profiledit']);
+Route::put('/profilstudentedit/{users}', [UserController::class, 'update'])->middleware('auth');
 
-// ADMIN
+//------------------------------------------------------------------------------- ADMIN rozhranie
+
 // nexus administrátor
 Route::get('/nexus_admin', [UserController::class, 'nexusA']);
 
+// spravovanie používateľov resp. študentov
+Route::get('/zoznam_studentov', [AdminController::class, 'manage_student']);
 
+// odstránenie používateľov resp. študentov
+Route::delete('/zoznam_studentov/{user}', [AdminController::class, 'odstranenie_studenta'])->middleware('auth');
+
+// spravovanie pracovísk
+Route::get('/zoznam_pracovisk', [UserController::class, 'zoz_pracovisk']);
+
+// spravovať poverených a vedúcich pracovísk
+Route::get('/zoznam_pracovnikov', [AdminController::class, 'manage_pracovnikov']);
+
+// spravovať poverených a vedúcich pracovísk
+Route::get('/zoznam_veducich', [AdminController::class, 'manage_veducich']);
+
+// spravovať firmy a organizácie
+Route::get('/zoznam_firiem', [AdminController::class, 'manage_firmy']);
+
+// odstránenie firmy zo zoznamu
+Route::delete('/listings/{listing}', [AdminController::class, 'odstranenie_firmy'])->middleware('auth');
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------------------------
 // VEDUCI PRACOVNIK
 // nexus vedúci pracoviska
 Route::get('/nexus_veduci', [UserController::class, 'nexusV']);
+Route::get('/zoznam_firm', [UserController::class, "zoznamfirm"]);
 
 
 // POVERENY PRACOVNIK PRACOVISKA
 // nexus poverený zamestnanec pracoviska
 Route::get('/nexus_povereny', [UserController::class, 'nexusPov']);
+
+Route::get('/zoznam_akad_student', [UserController::class, 'zoz_ak_stud']);
+
+Route::get('/zoznam_org_firm', [UserController::class, 'zoz_or_fi']);
+
+Route::get('/zoznam_praxi', [UserController::class, 'zoz_prax']);

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Listing;
+use App\Models\Prihlasenie;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -18,41 +21,97 @@ class UserController extends Controller
         return view('users.profilstudent');
     }
 
+   
+        // zobraziť formulár na úpravu
+        public function profiledit(User $users) {
+            return view('users.profilstudentedit', [
+                'users' => $users,
+            ]);
+        }
+    
+        // upraviť ponuku
+        public function update(Request $request, User $users) {
+    
+            if($users->id != auth()->id()) {
+                abort(403, 'Unauthorized Action');
+            }
+    
+    
+            $formFields = $request->validate([
+                'name' => 'required',
+                //'tel_cislo' => ['required'],
+                //'password' => 'required',
+                
+            ]);
+    
+           
+    
+            $users->update($formFields);
+    
+            return back()->with('message', 'Ponuka bola úspešne zmenená!');
+        }
+
+
+
+    //--------------------------------------------------------------------------------------------------------
     // ADMINISTRATOR
 
     // nexus administratora
     public function nexusA(){
+        //vypocitanie graf4
+        $student1 = User::get()->where('Admin', '0')->where('Veduci_pracoviska', '0')->where('Povereny_pracovnik', '0')->where('Zastupca_firmy', '0')->count();
+        $zamestnanec1 = User::get()->count();
+        $zamestnane2 = $zamestnanec1-$student1;
+
         if(auth()->user()->Admin == 1) {
-            return view('administrator.nexus_admin');
+            return view('administrator.nexus_admin', [
 
-        }
-        else{abort(403, 'Unauthorized Action');}
-    }
+                // data pre grafy ********************************************************************************************************************
+                // graf1 Ponuka a ich lokacie
+                'nitra' => Listing::get()->where('location', 'Nitra')->count(),
+                'vrable' => Listing::get()->where('location', 'Vrable')->count(),
+                'zvolen' => Listing::get()->where('location', 'Zvolen')->count(),
+                'levice' => Listing::get()->where('location', 'Levice')->count(),
+                'zilina' => Listing::get()->where('location', 'Žilina')->count(),
+                'bratislava' => Listing::get()->where('location', 'Bratislava')->count(),
 
+                // grafX(pie) odbor studenta
+                'IA' => User::get()->where('odbor', 'Informatika aplikovaná')->count(),
+                'IU' => User::get()->where('odbor', 'Informatika učiteľstvo')->count(),
+                'F' => User::get()->where('odbor', 'Fyzika')->count(),
+                'FM' => User::get()->where('odbor', 'Fyzika materialov')->count(),
+                'FU' => User::get()->where('odbor', 'Fyzika učiteľstvo')->count(),
+                'MU' => User::get()->where('odbor', 'Matematika učiteľstvo')->count(),
+                'IMEF' => User::get()->where('odbor', 'Informačné metódy v ekonómii a finančníctve')->count(),
+                'G' => User::get()->where('odbor', 'Geografia v regionálnom rozvoji')->count(),
+                'GU' => User::get()->where('odbor', 'Geografia učiteľstvo')->count(),
+                'CHU' => User::get()->where('odbor', 'Chemia učiteľstvo')->count(),
+                'B' => User::get()->where('odbor', 'Biologia')->count(),
+                'BU' => User::get()->where('odbor', 'Biologia učiteľstvo')->count(),
 
+                // graf2 Rola zamestnanca
+                'admin' => User::get()->where('Admin', '1')->count(),
+                'veduci' => User::get()->where('Veduci_pracoviska', '1')->count(),
+                'povereny' => User::get()->where('Povereny_pracovnik', '1')->count(),
+                'zastupca' => User::get()->where('Zastupca_firmy', '1')->count(),
 
-    //zoznam studentov
-    public function zoz_student(){
-        if(auth()->user()->Admin == 1) {
-            return view('administrator.zoznam_studentov');
+                // graf3 Pohlavie pouzivatelov
+                'muz' => User::get()->where('pohlavie', '0')->count(),
+                'zena' => User::get()->where('pohlavie', '1')->count(),
+                'nezvolene' => User::get()->where('pohlavie', null)->count(),
 
-        }
-        else{abort(403, 'Unauthorized Action');}
-    }
+                // graf4 Pocet student zamestnanec
+                'student' => $student1,
+                'zamestnanec3' => $zamestnane2,
 
-    // zoznam firiem pre administratora
-    public function zoz_firma(){
-        if(auth()->user()->Admin == 1) {
-            return view('administrator.zoznam_firiem');
+                //graf5 Pocet aktivnich praxi studentov
+                'aktivna' => Prihlasenie::get()->where('aktivna', '1')->count(),
+                'neaktivna' => Prihlasenie::get()->where('aktivna', '0')->count(),
 
-        }
-        else{abort(403, 'Unauthorized Action');}
-    }
-
-    //zoznam pracovnikov
-    public function zoz_pracov(){
-        if(auth()->user()->Admin == 1) {
-            return view('administrator.zoznam_pracovnikov');
+                //graf6 Pocet schvalenych ponuk
+                'schvalena' => Listing::get()->where('schvalena', '1')->count(),
+                'neschvalena' => Listing::get()->where('schvalena', '0')->count(),
+            ]);
 
         }
         else{abort(403, 'Unauthorized Action');}
@@ -68,6 +127,7 @@ class UserController extends Controller
     }
 
 
+    // ------------------------------------------------------------------------------------------
     // VEDUCI PRACOVISKA
 
     // nexus vedúci pracoviska
@@ -79,6 +139,15 @@ class UserController extends Controller
         else{abort(403, 'Unauthorized Action');}
     }
 
+    //zoznam oraganizacii a firiem
+    public function zoznamfirm(){
+       
+        $listing = DB::table('listings')->distinct('company')->get();
+        return view('veduci_pracoviska.zoznam_firm', ['listings' => $listing]);
+        
+    }
+
+    // -------------------------------------------------------------------------------------------
     // POVERENÝ PRACOVNÍK PRACOVISKA
 
     // nexus poverený pracovník pracoviska
@@ -91,6 +160,35 @@ class UserController extends Controller
 
     }
 
+    
+
+    // zoznam študentov do príslušného akademického roka
+    public function zoz_ak_stud(){
+        if(auth()->user()->Povereny_pracovnik == 1) {
+            return view('povereny_pracovnik.zoznam_akad_student');
+
+        }
+        else{abort(403, 'Unauthorized Action');}
+    }
+
+    // zoznam organizácií a firiem
+    public function zoz_or_fi(){
+        if(auth()->user()->Povereny_pracovnik == 1) {
+            return view('povereny_pracovnik.zoznam_org_firm');
+
+        }
+        else{abort(403, 'Unauthorized Action');}
+    }
+
+    // zoznam praxí vykonávaných študentmi
+    public function zoz_prax(){
+        if(auth()->user()->Povereny_pracovnik == 1) {
+            return view('povereny_pracovnik.zoznam_praxi');
+
+        }
+        else{abort(403, 'Unauthorized Action');}
+    }
+
 
 
     // Create New User
@@ -98,8 +196,14 @@ class UserController extends Controller
         $formFields = $request->validate([
             'name' => ['required', 'min:3'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
+            'odbor' => ['required'],
             'password' => 'required|confirmed|min:6'
+
         ]);
+        $formFields['Admin'] = 0;
+        $formFields['Veduci_pracoviska'] = 0;
+        $formFields['Povereny_pracovnik'] = 0;
+        $formFields['Zastupca_firmy'] = 0;
 
         // Hash Password
         $formFields['password'] = bcrypt($formFields['password']);
@@ -148,7 +252,7 @@ class UserController extends Controller
                 return redirect('/nexus_povereny')->with('message', 'Ste prihláseny!');
             }
             if(auth()->user()->Zastupca_firmy == 1){
-                return redirect('/nexus_admin')->with('message', 'Ste prihláseny!');
+                return redirect('/')->with('message', 'Ste prihláseny!');
             }
             else{ return redirect('/')->with('message', 'Ste prihláseny!');}
         }

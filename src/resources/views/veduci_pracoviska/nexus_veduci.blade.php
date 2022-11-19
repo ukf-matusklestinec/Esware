@@ -1,3 +1,4 @@
+@if(Auth::check() && auth()->user()->Veduci_pracoviska)
 <x-layout>
     
     <header>
@@ -20,11 +21,13 @@
         </x-card>
         <x-card>
             <div class="flex justify-center">
+                <form action="/zoznam_firm">
                 <button
                     type="submit"
                     class="text-xl font-bold hover:text-laravel">
                     Firmy a organizácie
                 </button>
+                </form>
             </div>
         </x-card>
         </div>
@@ -32,5 +35,7 @@
 
 
 </x-layout>
-
+@else
+    Nemáte prístup!
+@endunless
 {{-- treba dorobiť inputy --}}
