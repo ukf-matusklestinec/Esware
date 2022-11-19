@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PrihlasenieController;
 use App\Http\Controllers\AktivityController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PoverenyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,7 +104,7 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 // profil študenta
 Route::get('/profilstudent', [UserController::class, 'profil']);
 Route::get('/profilstudentedit', [UserController::class, 'profiledit']);
-Route::put('/profilstudentedit/{users}', [UserController::class, 'update'])->middleware('auth');
+Route::put('/profilstudentedit/{users}', [UserController::class, 'update_prof'])->middleware('auth');
 
 //------------------------------------------------------------------------------- ADMIN rozhranie
 
@@ -134,24 +135,29 @@ Route::delete('/listings/{listing}', [AdminController::class, 'odstranenie_firmy
 
 
 
-
-
-
-
-
-//-------------------------------------------------------------------------------
-// VEDUCI PRACOVNIK
+//------------------------------------------------------------------------------- VEDUCI PRACOVNIK
 // nexus vedúci pracoviska
 Route::get('/nexus_veduci', [UserController::class, 'nexusV']);
+
+// zoznam firiem
 Route::get('/zoznam_firm', [UserController::class, "zoznamfirm"]);
 
 
-// POVERENY PRACOVNIK PRACOVISKA
+// ------------------------------------------------------------------------------- POVERENY PRACOVNIK PRACOVISKA
 // nexus poverený zamestnanec pracoviska
 Route::get('/nexus_povereny', [UserController::class, 'nexusPov']);
 
+// zoznam študentov
 Route::get('/zoznam_akad_student', [PoverenyController::class, 'manage_student']);
 
-Route::get('/zoznam_org_firm', [UserController::class, 'zoz_or_fi']);
+// zoznam firiem
+Route::get('/zoznam_org_firm', [PoverenyController::class, 'manage_org_firm']);
 
-Route::get('/zoznam_praxi', [UserController::class, 'zoz_prax']);
+// zoznam praxí
+Route::get('/zoznam_praxi', [PoverenyController::class, 'manage_schval_prax']);
+
+// zmeniť prax na potvrdenú
+Route::put('/zoznam_praxi/{listings}', [PoverenyController::class, 'update_prax'])->middleware('auth');
+
+// odstránenie praxe
+Route::delete('/zoznam_praxi/{listings}', [PoverenyController::class, 'odstranenie_praxe'])->middleware('auth');

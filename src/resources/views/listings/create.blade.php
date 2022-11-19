@@ -6,8 +6,8 @@
 
     <x-card class="p-10 max-w-lg mx-auto mt-24">
         <header class="text-center">
-            <h2 class="text-2xl font-bold uppercase mb-1">Vytvor ponuku</h2>
-            <p class="mb-4">Vytvor ponuku a nájdi pracovníkov</p>
+            <h2 class="text-2xl font-bold uppercase mb-1">Vytvorte ponuku práce</h2>
+            <p class="mb-4"> </p>
         </header>
 
         <form method="POST" action="/listings" enctype="multipart/form-data">

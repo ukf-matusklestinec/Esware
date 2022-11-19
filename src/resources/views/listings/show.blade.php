@@ -43,6 +43,7 @@
             </a>
         @endif
 
+    {{-- ak používateľ je poverený pracovník prenesie ho na zoznam študentov --}}
     @if(Auth::check() && auth()->user()->Povereny_pracovnik == 1)
         <a href="/zoznam_akad_student" class="inline-block text-black ml-4 mb-4">
             <i class="fa-solid fa-arrow-left"></i> Naspäť

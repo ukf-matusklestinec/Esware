@@ -6,7 +6,6 @@ use App\Models\Listing;
 use App\Models\User;
 use App\Models\Prihlasenie;
 use App\Models\Aktivity;
-
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -15,13 +14,13 @@ class PrihlasenieController extends Controller
 {
     // Show all listings
     public function index() {
-        //ak je admin tak ukaze vsetky udaje z tabulky prihlasenie
+        //ak je admin tak ukáže všetky údaje z tabuľky prihlásenie
         if(auth()->user()->Admin == 1) {
             return view('listings.prihlasenie', [
                 'aktivity2' => Prihlasenie::with('listing', 'user', 'aktivity')->get()->where('aktivna', 1)
             ]);
         }
-        // ak je zastupca tak len studentov prihlasenyhc na jeho ponuke
+        // ak je zástupca tak len študentov prihlasených na jeho ponuke
         else{
             if(auth()->user()->Zastupca_firmy == 1) {
                 $bla = Listing::with('user', 'prihlasenie')->get()->where('user_id', auth()->id());
@@ -36,7 +35,6 @@ class PrihlasenieController extends Controller
                 ]);
             }
             else{abort(403, 'Unauthorized Action');}
-            abort(403, 'Unauthorized Action');
         }
 
     }
@@ -76,9 +74,9 @@ class PrihlasenieController extends Controller
                 'aktivna' => 1
             ]);
 
-            return redirect('/')->with('message', 'Ste prihlaseny do ponuky!');
+            return redirect('/')->with('message', 'Ste prihlasený do ponuky!');
         } else {
-            return redirect('/')->with('message', 'Neexistujuca ponuka!');
+            return redirect('/')->with('message', 'Neexistujúca ponuka!');
         }
 
     }

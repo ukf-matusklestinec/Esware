@@ -21,33 +21,33 @@ class UserController extends Controller
         return view('users.profilstudent');
     }
 
-   
-        // zobraziť formulár na úpravu
+
+        // zobraziť formulár na úpravu profilu
         public function profiledit(User $users) {
             return view('users.profilstudentedit', [
                 'users' => $users,
             ]);
         }
-    
+
         // upraviť ponuku
-        public function update(Request $request, User $users) {
-    
+        public function update_prof(Request $request, User $users) {
+
             if($users->id != auth()->id()) {
                 abort(403, 'Unauthorized Action');
             }
-    
-    
+
+
             $formFields = $request->validate([
                 'name' => 'required',
                 //'tel_cislo' => ['required'],
                 //'password' => 'required',
-                
+
             ]);
-    
-           
-    
+
+
+
             $users->update($formFields);
-    
+
             return back()->with('message', 'Ponuka bola úspešne zmenená!');
         }
 
@@ -141,10 +141,10 @@ class UserController extends Controller
 
     //zoznam oraganizacii a firiem
     public function zoznamfirm(){
-       
+
         $listing = DB::table('listings')->distinct('company')->get();
         return view('veduci_pracoviska.zoznam_firm', ['listings' => $listing]);
-        
+
     }
 
     // -------------------------------------------------------------------------------------------
@@ -159,36 +159,6 @@ class UserController extends Controller
         else{abort(403, 'Unauthorized Action');}
 
     }
-
-    
-
-    // zoznam študentov do príslušného akademického roka
-    public function zoz_ak_stud(){
-        if(auth()->user()->Povereny_pracovnik == 1) {
-            return view('povereny_pracovnik.zoznam_akad_student');
-
-        }
-        else{abort(403, 'Unauthorized Action');}
-    }
-
-    // zoznam organizácií a firiem
-    public function zoz_or_fi(){
-        if(auth()->user()->Povereny_pracovnik == 1) {
-            return view('povereny_pracovnik.zoznam_org_firm');
-
-        }
-        else{abort(403, 'Unauthorized Action');}
-    }
-
-    // zoznam praxí vykonávaných študentmi
-    public function zoz_prax(){
-        if(auth()->user()->Povereny_pracovnik == 1) {
-            return view('povereny_pracovnik.zoznam_praxi');
-
-        }
-        else{abort(403, 'Unauthorized Action');}
-    }
-
 
 
     // Create New User

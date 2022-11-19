@@ -13,12 +13,13 @@ class ListingController extends Controller
 {
     // zobrazenie všetkych ponúk
     public function index() {
+        // zobrazenie počtu aktívnych a schválených praxí
         $student1 = Prihlasenie::get()->where('aktivna', '1')->count();
         $ponuky1 = Listing::get()->where('schvalena', 1)->count();
+        // zobrazenie konkrétnych praxí, ktoré boli schválené
         return view('listings.index', [
             'heading' => 'Nove ponuky',
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6),
-            //'listings' => Listing::latest()->where('schvalena', 1)->filter(request(['tag', 'search']))->paginate(6),
+            'listings' => Listing::latest()->where('schvalena', 1)->filter(request(['tag', 'search']))->paginate(6),
             'aktivity' => Prihlasenie::with('listing', 'user')->get()->where('aktivna', 1),
             'aktivity2' => Aktivity::get(),
             'student' => $student1,
@@ -110,7 +111,8 @@ class ListingController extends Controller
         $listing->delete();
         return redirect('/')->with('message', 'Ponuka úspešne odstránená!');
     }
-// spravovanie ponúk študenta/firmy
+
+    // spravovanie ponúk študenta/firmy
     public function manage() {
         return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
     }
