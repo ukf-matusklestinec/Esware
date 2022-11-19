@@ -16,7 +16,7 @@ return new class extends Migration
 
         Schema::create('aktivities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('prihlasenie_id')->constrained();
+            $table->foreignId('prihlasenie_id')->constrained()->onDelete('cascade');
             $table->integer('pocet_hodin');
             $table->boolean('homeoffice');
             $table->string('_token');

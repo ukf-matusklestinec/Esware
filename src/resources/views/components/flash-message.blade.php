@@ -6,3 +6,6 @@
         </p>
     </div>
 @endif
+
+{{-- slúži ako "vyskovacie okienko, ktoré upozorní
+ používateľa o vykonaní istých úkonov napr. odstránenie, pridanie atď.--}}

@@ -150,7 +150,7 @@ Route::get('/zoznam_firm', [UserController::class, "zoznamfirm"]);
 // nexus poverený zamestnanec pracoviska
 Route::get('/nexus_povereny', [UserController::class, 'nexusPov']);
 
-Route::get('/zoznam_akad_student', [UserController::class, 'zoz_ak_stud']);
+Route::get('/zoznam_akad_student', [PoverenyController::class, 'manage_student']);
 
 Route::get('/zoznam_org_firm', [UserController::class, 'zoz_or_fi']);
 

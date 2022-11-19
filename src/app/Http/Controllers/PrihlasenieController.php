@@ -15,13 +15,30 @@ class PrihlasenieController extends Controller
 {
     // Show all listings
     public function index() {
-        if(auth()->user()->Admin != 1) {
+        //ak je admin tak ukaze vsetky udaje z tabulky prihlasenie
+        if(auth()->user()->Admin == 1) {
+            return view('listings.prihlasenie', [
+                'aktivity2' => Prihlasenie::with('listing', 'user', 'aktivity')->get()->where('aktivna', 1)
+            ]);
+        }
+        // ak je zastupca tak len studentov prihlasenyhc na jeho ponuke
+        else{
+            if(auth()->user()->Zastupca_firmy == 1) {
+                $bla = Listing::with('user', 'prihlasenie')->get()->where('user_id', auth()->id());
+                $krat = Listing::with('user', 'prihlasenie')->get()->where('user_id', auth()->id())->count(); // kolko ponuk vytvoril
+                $count = Prihlasenie::with('listing', 'user', 'aktivity')->get()->count();
+                return view('listings.prihlasenie_zastupca', [
+                    'aktivity2' => Prihlasenie::with('listing', 'user', 'aktivity')->get(),
+                    //'aktivity3' => Prihlasenie::with('listing', 'user', 'aktivity')->get()->count(),
+                    'zas' => $bla,
+                    'count' => $count*$krat, // ak ma ponuky ale niesu ziadny studenti prihlaseny
+                    'zascount' => $krat
+                ]);
+            }
+            else{abort(403, 'Unauthorized Action');}
             abort(403, 'Unauthorized Action');
         }
-        return view('listings.prihlasenie', [
 
-            'aktivity2' => Prihlasenie::with('listing', 'user', 'aktivity')->get()
-        ]);
     }
 
     // Show Edit Form
@@ -55,7 +72,8 @@ class PrihlasenieController extends Controller
         if($listing) {
             Prihlasenie::create([
                 'user_id' => auth()->id(),
-                'listing_id' => $listing->id
+                'listing_id' => $listing->id,
+                'aktivna' => 1
             ]);
 
             return redirect('/')->with('message', 'Ste prihlaseny do ponuky!');

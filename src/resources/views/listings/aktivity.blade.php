@@ -1,4 +1,9 @@
 <x-layout>
+
+    <a href="/" class="inline-block text-black ml-4 mb-4">
+        <i class="fa-solid fa-arrow-left"></i> Naspäť
+    </a>
+
     <x-card class="p-10">
         <header>
             <h1 class="text-3xl text-center font-bold my-6 uppercase">
@@ -24,7 +29,7 @@
         <table class="w-full table-auto rounded-sm">
             <tbody>
 
-
+        {{-- výpis jednotlivých záznamov používateľa o jeho odpracovaných hodinách--}}
             @unless($aktivity->isEmpty())
                 <tr>
                     <th>Dátum a čas</th>
@@ -61,16 +66,26 @@
             </tbody>
         </table>
 
-
-
+        {{-- tlačidlo prenesie používateľa do rozhrania, kde vyplní koľko hodín odpracoval za deň a môže si
+         vybrať možnosť, či pracoval z domu alebo nie --}}
         <div class="text-lg space-y-6 text-center">
         <a
             href="/aktivity/{{$priid}}/create"
-            target="_blank"
             class="block bg-green-600 text-white py-2 rounded-xl hover:opacity-80">
             <i class="fa-solid fa-user"></i>
             Pridať aktivitu</a>
         </div>
+        {{-- ak študent má viac ako 160 odpracovaných hodín, čo predstavuje minimum pre prax,
+            tak sa mu sprístupní možnosť stiahnuť cez tlačidlo PDF súbor ako doklad o absolvovaní --}}
+        @if($pocethodin >= 160)
+            <br>
+            <div class="text-lg space-y-6 text-center">
+                <a href="src/public/images/prax_vseobecne.pdf" download
+                    class="block bg-red-600 text-white py-2 rounded-xl hover:opacity-80">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Stiahnuť PDF</a>
+            </div>
+        @endif
 
 
     </x-card>

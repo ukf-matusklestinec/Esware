@@ -20,4 +20,4 @@
     </div>
 </form>
 
-{{--searchbar na vyhľadávanie--}}
+{{--searchbar na vyhľadávanie pracovných ponúk--}}
