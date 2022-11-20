@@ -3,7 +3,7 @@
     <a href="/profilstudent" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i class="fa-solid fa-arrow-left"></i> Naspäť
     </a>
     <x-card class="p-10 max-w-2xl mx-auto mt-6">
-    <header class="text-center">
+        <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-6">Editácia profilu</h2>
         </header>
         <form method="POST" action="/profilstudentedit/{{$users->id}}" enctype="multipart/form-data">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="tel" class="inline-block text-lg mb-2">Tel. číslo:</label>
-                    <input type="tel" name="tel" class="border border-black-200 rounded p-2 w-full" style="width: 350px; margin-left: 54.49px;" value="{{old('email')}}">
+                    <input type="tel" name="tel" class="border border-black-200 rounded p-2 w-full" style="width: 350px; margin-left: 54.49px;" value="{{old('tel_cislo')}}">
                     @error('tel_cislo')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
