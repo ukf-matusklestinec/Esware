@@ -2,7 +2,7 @@
 
     <a href="javascript:history.back()" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i class="fa-solid fa-arrow-left"></i> Naspäť
     </a>
-    <div class="mx-4">
+
         <x-card class="p-10 max-w-lg mx-auto mt-6">
             <a href="/profilstudentedit" class="text-l text-black" style="position: relative; left: 75%; bottom: 20px;">
                 <i class="fa-solid fa-gear"></i> Editovať profil
@@ -29,7 +29,7 @@
             </div>
         </x-card>
 
-    </div>
+
 </x-layout>
 
 {{-- po rozkliknuti sa zobrazí profil studenta --}}

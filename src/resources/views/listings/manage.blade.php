@@ -4,7 +4,7 @@
     ><i class="fa-solid fa-arrow-left"></i> Naspäť 
     </a>
 
-    <x-card class="p-10">
+    <x-card class="p-10 mx-6 mt-6">
         <header>
             <h1 class="text-3xl text-center font-bold my-6 uppercase">
                 Vaše ponuky
