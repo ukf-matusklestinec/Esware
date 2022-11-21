@@ -1,30 +1,30 @@
 @if(Auth::check() && auth()->user()->Admin)
 <x-layout>
 
-    <a href="/nexus_admin" class="inline-block text-black ml-4 mb-4">
-        <i class="fa-solid fa-arrow-left"></i> Naspäť
+    <a href="/nexus_admin" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"
+    ><i class="fa-solid fa-arrow-left"></i> Naspäť 
     </a>
 
-    <x-card class="p-10">
+    <x-card class="p-10 max-w-lg mx-auto mt-6">
         {{-- pridať searchbar --}}
         <header>
-            <h1 class="text-3xl text-center font-bold my-6 uppercase">
+            <h1 class="text-2xl text-center font-bold mb-6">
                 Zoznam vedúcich pracovísk
             </h1>
         </header>
 
-        <table class="w-full table-auto rounded-sm">
+        <table class="w-full table-auto rounded-sm items-center justify-center text-center">
             <tbody>
             @unless($users->isEmpty())
                 @foreach($users as $ved)
-                    <tr class="border-gray-300">
-                        <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                    <tr>
+                        <td class="py-2 text-l border-b">
                             {{$ved->name}}
                         </td>
 
 
                         {{-- odstránenie používateľových ponúk --}}
-                        <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                        <td class="py-2 text-l border-b">
                             <form method="POST" action="/listings/{{$ved->id}}">
                                 @csrf
                                 @method('DELETE')
@@ -36,8 +36,8 @@
 
             @else
                 {{-- výpis ak žiadny vedúci pracovísk nie sú v databáze --}}
-                <tr class="border-gray-300">
-                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                <tr >
+                    <td class="py-2 border-b text-l">
                         <p class="text-center">Nenašli sa žiadny vedúci pracovísk</p>
                     </td>
                 </tr>

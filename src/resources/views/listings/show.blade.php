@@ -31,23 +31,23 @@
     {{-- ak používateľ nie je admin prenesie na ostatné ponuky --}}
     {{-- Auth::check() kontroluje, či je používateľ prihlásený/neprihlásený --}}
     @if(Auth::check() == false || auth()->user()->Admin != 1 && auth()->user()->Povereny_pracovnik != 1 )
-    <a href="/" class="inline-block text-black ml-4 mb-4">
-        <i class="fa-solid fa-arrow-left"></i> Naspäť
+    <a href="javascript:history.back()" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"
+    ><i class="fa-solid fa-arrow-left"></i> Naspäť 
     </a>
         @endif
 
     {{-- ak používateľ je admin prenesie ho na zoznam študentov --}}
     @if(Auth::check() && auth()->user()->Admin == 1)
-            <a href="/zoznam_studentov" class="inline-block text-black ml-4 mb-4">
-                <i class="fa-solid fa-arrow-left"></i> Naspäť
-            </a>
+            <a href="/zoznam_studentov" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"
+    ><i class="fa-solid fa-arrow-left"></i> Naspäť 
+    </a>
         @endif
 
     {{-- ak používateľ je poverený pracovník prenesie ho na zoznam študentov --}}
     @if(Auth::check() && auth()->user()->Povereny_pracovnik == 1)
-        <a href="/zoznam_akad_student" class="inline-block text-black ml-4 mb-4">
-            <i class="fa-solid fa-arrow-left"></i> Naspäť
-        </a>
+        <a href="/zoznam_akad_student" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"
+    ><i class="fa-solid fa-arrow-left"></i> Naspäť 
+    </a>
     @endif
 
 
@@ -67,10 +67,10 @@
                 </div>
                 <div class="item3">
                     <div>
-                        <a href="{{$listing->website}}" target="_blank" class="text-laravel mr-6">
+                        <a href="{{$listing->website}}" target="_blank" class="hover:text-laravel mr-6">
                             <i class="fa-solid fa-globe"></i> Stránka firmy</a>
 
-                        <a href="mailto:{{$listing->email}}" class="text-laravel"><i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:{{$listing->email}}" class="hover:text-laravel"><i class="fa-solid fa-envelope"></i>
                             Kontaktovať</a>
                     </div>
 

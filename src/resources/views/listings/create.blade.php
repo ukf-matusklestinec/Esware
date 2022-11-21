@@ -1,7 +1,6 @@
 <x-layout>
 
-    <a href="/" class="inline-block text-black ml-4 mb-4">
-        <i class="fa-solid fa-arrow-left"></i> Naspäť
+    <a href="javascript:history.back()" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i class="fa-solid fa-arrow-left"></i> Naspäť
     </a>
 
     <x-card class="p-10 max-w-lg mx-auto mt-24">
@@ -14,8 +13,7 @@
             @csrf
             <div class="mb-6">
                 <label for="company" class="inline-block text-lg mb-2">Názov firmy</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="company"
-                       value="{{old('company')}}" />
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="company" value="{{old('company')}}" />
 
                 @error('company')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -24,8 +22,7 @@
 
             <div class="mb-6">
                 <label for="title" class="inline-block text-lg mb-2">Názov prace</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title"
-                       placeholder="Napríklad: Senior Laravel Developer" value="{{old('title')}}" />
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title" placeholder="Napríklad: Senior Laravel Developer" value="{{old('title')}}" />
 
                 @error('title')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -34,8 +31,7 @@
 
             <div class="mb-6">
                 <label for="location" class="inline-block text-lg mb-2">Adresa</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="location"
-                       placeholder="Napríklad: Levice, Streda nad Bodrogom, Poprad" value="{{old('location')}}" />
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="location" placeholder="Napríklad: Levice, Streda nad Bodrogom, Poprad" value="{{old('location')}}" />
 
                 @error('location')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -57,8 +53,7 @@
                 <label for="website" class="inline-block text-lg mb-2">
                     Webstránka URL
                 </label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="website"
-                       value="{{old('website')}}" />
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="website" value="{{old('website')}}" />
 
                 @error('website')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -69,8 +64,7 @@
                 <label for="tags" class="inline-block text-lg mb-2">
                     Tagy (Čiarkou oddelene)
                 </label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags"
-                       placeholder="Napríklad: Laravel, Backend, Postgres, atď" value="{{old('tags')}}" />
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags" placeholder="Napríklad: Laravel, Backend, Postgres, atď" value="{{old('tags')}}" />
 
                 @error('tags')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -92,8 +86,7 @@
                 <label for="description" class="inline-block text-lg mb-2">
                     Náplň práce
                 </label>
-                <textarea class="border border-gray-200 rounded p-2 w-full" name="description" rows="10"
-                          placeholder="Popis práce, pracovná doba, plat atď.">{{old('description')}}</textarea>
+                <textarea class="border border-gray-200 rounded p-2 w-full" name="description" rows="10" placeholder="Popis práce, pracovná doba, plat atď.">{{old('description')}}</textarea>
 
                 @error('description')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>

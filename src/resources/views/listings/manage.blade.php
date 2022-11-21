@@ -1,10 +1,10 @@
 <x-layout>
 
-    <a href="/" class="inline-block text-black ml-4 mb-4">
-        <i class="fa-solid fa-arrow-left"></i> Naspäť
+    <a href="javascript:history.back()" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"
+    ><i class="fa-solid fa-arrow-left"></i> Naspäť 
     </a>
 
-    <x-card class="p-10">
+    <x-card class="p-10 mx-6 mt-6">
         <header>
             <h1 class="text-3xl text-center font-bold my-6 uppercase">
                 Vaše ponuky
