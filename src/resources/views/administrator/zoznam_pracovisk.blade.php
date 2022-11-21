@@ -6,7 +6,7 @@
     </a>
 
         <header>
-            <h1 class="text-3xl text-center font-bold my-6 uppercase">
+            <h1 class="text-2xl text-center font-bold mb-6">
                 Zoznam Pracovísk
             </h1>
         </header>
