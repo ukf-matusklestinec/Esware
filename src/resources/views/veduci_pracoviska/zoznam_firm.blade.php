@@ -1,5 +1,21 @@
 @if(Auth::check() && auth()->user()->Veduci_pracoviska)
 <x-layout>
+
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        th, td {
+          padding: 8px;
+          text-align: center;
+          border-bottom: 1px solid rgb(0, 0, 0);
+        }
+        
+        tr:hover {background-color: rgb(226, 235, 129);}
+        </style>
+
 <table class="w-full table-auto rounded-sm">
             <tbody>
             @unless($listings->isEmpty())
@@ -7,7 +23,9 @@
                     {{-- názov spoločnosti a info ako mail a webstránka--}}
                     <tr class="border-gray-300">
                         <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                            {{$listing->company}}
+
+                            <a href="/listings/{{$listing->id}}">  {{$listing->company}}</a>
+                    
                         </td>
 
                         <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
