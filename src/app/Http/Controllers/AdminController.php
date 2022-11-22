@@ -22,13 +22,13 @@ class AdminController extends Controller
 
     public function manage_pracovnikov(){
         // zobrazenie zamestnancov   prerobiť
-        $zam = DB::table('users')->get()->whereNotNull('Povereny_pracovnik');
+        $zam = DB::table('users')->get()->where('Povereny_pracovnik');
         return view('administrator.zoznam_pracovnikov', ['users' => $zam]);
     }
 
     public function manage_veducich(){
         // zobrazenie zamestnancov   prerobiť
-        $ved = DB::table('users')->get()->whereNotNull('Veduci_pracoviska');
+        $ved = DB::table('users')->get()->where('Veduci_pracoviska');
         return view('administrator.zoznam_veducich', ['users' => $ved]);
     }
 

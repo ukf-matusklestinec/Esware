@@ -1,4 +1,4 @@
-@if(Auth::check() && auth()->user()->Admin == 1 || auth()->user()->Veduci_pracoviska == 1)
+@if(Auth::check() && auth()->user()->Veduci_pracoviska || auth()->user()->Admin)
 <x-layout>
 
     @if(auth()->user()->Admin == 1)
