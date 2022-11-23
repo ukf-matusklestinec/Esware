@@ -1,4 +1,4 @@
-@if(Auth::check() && auth()->user()->Veduci_pracoviska || auth()->user()->Admin)
+@if(Auth::check() && auth()->user()->Veduci_pracoviska | auth()->user()->Admin)
 <x-layout>
 
     @if(auth()->user()->Admin == 1)
@@ -19,9 +19,12 @@
 
     <x-card class="p-10">
         <header>
+            
             <h1 class="text-3xl text-center font-bold my-6 uppercase">
                 Monitorovanie ponúk
             </h1>
+        
+
         </header>
         {{-- @include('partials._search') --}}
         <table class="w-full table-auto rounded-sm">
@@ -93,3 +96,4 @@
 Nemáte prístup!
 @endunless
 {{-- zobrazenie pre zamestávateľa ( zástupcu firmy alebo organizácie) ohľadom pracovnej ponuky --}}
+

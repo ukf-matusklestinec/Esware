@@ -15,7 +15,7 @@ class PrihlasenieController extends Controller
     // Show all listings
     public function index() {
         //ak je admin tak ukáže všetky údaje z tabuľky prihlásenie
-        if(auth()->user()->Admin == 1) {
+        if(auth()->user()->Admin == 1 | auth()->user()->Veduci_pracoviska == 1) {
             return view('listings.prihlasenie', [
                 'aktivity2' => Prihlasenie::with('listing', 'user', 'aktivity')->get()->where('aktivna', 1)
             ]);

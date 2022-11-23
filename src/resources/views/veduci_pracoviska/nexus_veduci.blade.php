@@ -12,6 +12,7 @@
 
         <x-card>
             <div class="flex justify-center">
+                <form action="/prihlasenie">
                 <button
                     type="submit"
                     class="text-xl font-bold hover:text-laravel ">
