@@ -31,6 +31,17 @@
                 </form>
             </div>
         </x-card>
+        <x-card>
+            <div class="flex justify-center">
+                <form action="/zoznam_studentov">
+                <button
+                    type="submit"
+                    class="text-xl font-bold hover:text-laravel">
+                    Zoznam študentov
+                </button>
+                </form>
+            </div>
+        </x-card>
         </div>
     </body>
 
