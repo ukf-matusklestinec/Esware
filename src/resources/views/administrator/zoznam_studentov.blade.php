@@ -37,7 +37,7 @@
 }
 
 #myTable th, #myTable td {
-  text-align: left; /* Left-align text */
+  text-align: center; /* Left-align text */
   padding: 12px; /* Add padding */
 }
 
@@ -49,7 +49,9 @@
 #myTable tr.header, #myTable tr:hover {
   /* Add a grey background color to the table header and on hover */
   background-color: #f1f1f1;
+  text-align: center;
 }
+
 </style>
 
         <script>
