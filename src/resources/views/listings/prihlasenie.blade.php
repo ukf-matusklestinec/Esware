@@ -7,7 +7,7 @@
     @endif
 
     @if(auth()->user()->Veduci_pracoviska == 1)
-    <a href="/nexus_povereny" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i class="fa-solid fa-arrow-left"></i> Naspäť
+    <a href="/nexus_veduci" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i class="fa-solid fa-arrow-left"></i> Naspäť
     </a>
     @endif
 
