@@ -1,6 +1,8 @@
 <x-layout>
 
-    <a href="javascript:history.back()" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i class="fa-solid fa-arrow-left"></i> Naspäť
+    <a href="javascript:history.back()"
+        class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i
+            class="fa-solid fa-arrow-left"></i> Naspäť
     </a>
     <div class="mx-4">
         <x-card class="p-10 max-w-lg mx-auto mt-6">
@@ -27,7 +29,8 @@
                         <i class="fa-solid fa-location-dot"></i> Bratislava
                     </h3>
                     <div class="text-lg space-y-6">
-                        <a href="" target="_blank" class="hover:text-laravel text-l"><i class="fa-solid fa-globe"></i> Stránka firmy</a>
+                        <a href="" target="_blank" class="hover:text-laravel text-l"><i
+                                class="fa-solid fa-globe"></i> Stránka firmy</a>
                     </div>
                 </div>
             </div>

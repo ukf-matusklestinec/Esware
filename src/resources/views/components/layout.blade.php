@@ -73,8 +73,9 @@
                 <li>
                     <span class="font-bold.uppercase">
                         @if (auth()->user()->Admin != 1)
+                            Vitajte
                             <a href="/profilstudent" class="hover:text-laravel">
-                                Vitajte <b>{{ auth()->user()->name }} </b></a>
+                                <b>{{ auth()->user()->name }} </b></a>
                         @endif
                         {{-- vypísanie oprávnenia používateľa --}}
                         @if (auth()->user()->Admin == 1)

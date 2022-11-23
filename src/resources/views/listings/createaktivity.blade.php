@@ -7,16 +7,16 @@
 
         </header>
 
-        <form method="POST" action="/aktivity/{{$priid}}" enctype="multipart/form-data">
+        <form method="POST" action="/aktivity/{{ $priid }}" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
                 {{-- pridanie počtu hodín, ktoré študent odpracoval, limitované na max 24 hodín --}}
                 <label for="pocet_hodin" class="inline-block text-lg mb-2">Počet hodín</label>
-                <input type="number" class="border border-gray-200 rounded p-2 w-full" name="pocet_hodin" min="0" max="24"
-                       value="{{old('pocet_hodin')}}" />
+                <input type="number" class="border border-gray-200 rounded p-2 w-full" name="pocet_hodin" min="0"
+                    max="24" value="{{ old('pocet_hodin') }}" />
 
                 @error('pocet_hodin')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
             <div class="mb-6">
@@ -34,7 +34,7 @@
                     Pridať aktivitu
                 </button>
 
-                <a href="/aktivity/{{$priid}}" class="text-black ml-4"> Naspäť </a>
+                <a href="/aktivity/{{ $priid }}" class="text-black ml-4"> Naspäť </a>
             </div>
         </form>
 
@@ -43,4 +43,3 @@
 
 
 {{-- vytvorenie aktivity študentom --}}
-
