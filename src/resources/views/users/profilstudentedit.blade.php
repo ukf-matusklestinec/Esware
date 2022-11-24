@@ -32,6 +32,12 @@
                         <input type="password" class="form-control" name="password" id="password" value="{{ auth()->user()->password }}" aria-describedby="emailHelp"
                         placeholder="Heslo">
                     </div> 
+
+                    <div class="form-group">
+                        <label>Tel cislo</label>
+                        <input type="text" class="form-control" name="tel_cislo" id="tel_cislo" value="{{ auth()->user()->tel_cislo }}" aria-describedby="emailHelp"
+                        placeholder="0906 666 666">
+                    </div> 
                     <button type="submit" name="submit" class="btn btn-primary" style="width: 50%;">UPDATE</button>
                 </form>
             </div>

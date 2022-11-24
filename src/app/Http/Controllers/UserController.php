@@ -56,14 +56,17 @@ class UserController extends Controller
             return view('users.profilstudentedit', ['users'=>$users]);
         }
 
+
+ 
         public function update_function(Request $request,$id){
             $name = $request->input('name');
             $email = $request->input('email');
-            $password = $request->input('password');
-            
-            DB::update('update users set name = ?, email = ?, password = ? where id = ?'
-            ,[$name, $email, $password, $id ]);
-            
+            $password = bcrypt( $request->input('password'));
+            $tel_cislo = $request->input('tel_cislo');
+
+            DB::update('update users set name = ?, email = ?, password = ?, tel_cislo = ? where id = ?'
+            ,[$name, $email, $password, $tel_cislo, $id ]);
+
             return redirect('profilstudent')->with('success', 'Data Updated');
 
         }
