@@ -39,8 +39,8 @@ class UserController extends Controller
 
             $formFields = $request->validate([
                 'name' => 'required',
-                //'tel_cislo' => ['required'],
-                //'password' => 'required',
+                'email' => 'required',
+                'password' => 'required',
 
             ]);
 
@@ -49,6 +49,22 @@ class UserController extends Controller
             $users->update($formFields);
 
             return back()->with('message', 'Ponuka bola úspešne zmenená!');
+        }
+
+        public function edit_function($id){
+            $users = DB::select('select * from users where id = ?', [$id]);
+            return view('users.profilstudentedit', ['users'=>$users]);
+        }
+
+        public function update_function(Request $request,$id){
+            $name = $request->input('name');
+            $email = $request->input('email');
+            $password = $request->input('password');
+            
+            DB::update('update name set name = ?, email = ?, password = ?'
+            ,[$name, $email, $password]);
+            return redirect('profilstudent')->with('success', 'Data Updated');
+
         }
 
 

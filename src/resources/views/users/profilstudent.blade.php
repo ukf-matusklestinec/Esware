@@ -5,8 +5,9 @@
             class="fa-solid fa-arrow-left"></i> Naspäť
     </a>
     <x-card class="p-10 max-w-lg mx-auto mt-6">
-        <a href="/profilstudentedit" class="text-l text-black hover:text-laravel"
-            style="position: relative; left: 100%; bottom: 20px;">
+       {{-- <a href="/profilstudentedit" class="text-l text-black hover:text-laravel"--}}
+       <a href="profilstudentedit/{{ auth()->user()->id }}" class="btn btn-success"> Edit</a> 
+            
             <i class="fa-solid fa-pen-to-square"></i>
         </a>
         <div class="flex flex-col items-center justify-center text-center">

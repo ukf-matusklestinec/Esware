@@ -103,9 +103,12 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 // -------------------------------------------------------------------------- profil
 // profil študenta
 Route::get('/profilstudent', [UserController::class, 'profil']);
-Route::get('/profilstudentedit', [UserController::class, 'profiledit']);
-Route::put('/profilstudentedit/{users}', [UserController::class, 'update_prof'])->middleware('auth');
-
+//Route::get('/profilstudentedit', [UserController::class, 'profiledit']);
+//Route::put('/profilstudentedit/{users}', [UserController::class, 'update_prof'])->middleware('auth');
+Route::get('profilstudentedit/{id}', [UserController::class, 'edit_function']);
+Route::post('/update/{id}', [UserController::class, 'update_function']);
+//Route::get('/profilstudent', [UserController::class, 'viewform']);
+//Route::get('/profilstudent', [UserController::class, 'index']);
 //------------------------------------------------------------------------------- ADMIN rozhranie
 
 // nexus administrátor
