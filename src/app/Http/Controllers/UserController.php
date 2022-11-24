@@ -61,8 +61,9 @@ class UserController extends Controller
             $email = $request->input('email');
             $password = $request->input('password');
             
-            DB::update('update name set name = ?, email = ?, password = ?'
-            ,[$name, $email, $password]);
+            DB::update('update users set name = ?, email = ?, password = ? where id = ?'
+            ,[$name, $email, $password, $id ]);
+            
             return redirect('profilstudent')->with('success', 'Data Updated');
 
         }
