@@ -1,3 +1,5 @@
+
+    <x-layout>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,15 +8,18 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <title>profilstudentedit</title>
+    
     </head>
-
+    
     <body>
+
+        
         <div class="container">
             <div class="jumbotron">
                 <form action="/update/{{ auth()->user()->id }}" method="post">
                     {{ csrf_field()}}
 
-                  
+                  <h2><center>Upraviť profil používateľa {{ auth()->user()->name }}, id: {{ auth()->user()->id }}</center></h2><br>
                     <div class="form-group">
                         <label>Meno</label>
                         <input type="text" class="form-control" name="name" id="name" value="{{ auth()->user()->name }}" aria-describedby="emailHelp"
@@ -34,17 +39,39 @@
                     </div> 
 
                     <div class="form-group">
-                        <label>Tel cislo</label>
+                        <label>Telefónne číslo</label>
                         <input type="text" class="form-control" name="tel_cislo" id="tel_cislo" value="{{ auth()->user()->tel_cislo }}" aria-describedby="emailHelp"
                         placeholder="0906 666 666">
                     </div> 
+
+                    <div class="form-group">
+                        <label>Dátum narodenia</label>
+                        <input type="date" class="form-control" name="datum_narodenia" id="datum_narodenia" value="{{ auth()->user()->datum_narodenia }}" aria-describedby="emailHelp"
+                        placeholder="2000-04-01">
+                    </div> 
+
+                    <div class="form-group">
+                        <label>Ulica</label>
+                        <input type="text" class="form-control" name="ulica" id="ulica" value="{{ auth()->user()->Ulica }}" aria-describedby="emailHelp"
+                        placeholder="Ulica">
+                    </div> 
+
+                    
+                    <div class="form-group">
+                        <label>Mesto</label>
+                        <input type="text" class="form-control" name="mesto" id="mesto" value="{{ auth()->user()->Mesto }}" aria-describedby="emailHelp"
+                        placeholder="Mesto">
+                    </div> 
+
                     <button type="submit" name="submit" class="btn btn-primary" style="width: 50%;">UPDATE</button>
                 </form>
             </div>
         </div>
     </body>
-</html>
 
+    </html>
+
+</x-layout>    
 
 
 

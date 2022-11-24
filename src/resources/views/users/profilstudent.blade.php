@@ -6,9 +6,9 @@
     </a>
     <x-card class="p-10 max-w-lg mx-auto mt-6">
        {{-- <a href="/profilstudentedit" class="text-l text-black hover:text-laravel"--}}
-       <a href="profilstudentedit/{{ auth()->user()->id }}" class="btn btn-success"> Edit</a> 
+       <a href="profilstudentedit/{{ auth()->user()->id }} class="text-l text-black hover:text-laravel">Upraviť profil <i class="fa-solid fa-pen-to-square"></i></a> 
             
-            <i class="fa-solid fa-pen-to-square"></i>
+            
         </a>
         <div class="flex flex-col items-center justify-center text-center">
             <div class="border border-black-200 rounded mb-6">

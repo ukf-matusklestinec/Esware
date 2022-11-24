@@ -63,9 +63,12 @@ class UserController extends Controller
             $email = $request->input('email');
             $password = bcrypt( $request->input('password'));
             $tel_cislo = $request->input('tel_cislo');
+            $datum_narodenia = $request->input('datum_narodenia');
+            $ulica = $request->input('ulica');
+            $mesto = $request->input('mesto');
 
-            DB::update('update users set name = ?, email = ?, password = ?, tel_cislo = ? where id = ?'
-            ,[$name, $email, $password, $tel_cislo, $id ]);
+            DB::update('update users set name = ?, email = ?, password = ?, tel_cislo = ?, datum_narodenia =?, ulica = ?, mesto= ? where id = ?'
+            ,[$name, $email, $password, $tel_cislo, $datum_narodenia, $ulica, $mesto, $id ]);
 
             return redirect('profilstudent')->with('success', 'Data Updated');
 
