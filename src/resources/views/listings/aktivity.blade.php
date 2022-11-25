@@ -77,11 +77,11 @@
         </div>
         {{-- ak študent má viac ako 160 odpracovaných hodín, čo predstavuje minimum pre prax,
             tak sa mu sprístupní možnosť stiahnuť cez tlačidlo PDF súbor ako doklad o absolvovaní --}}
-        @if ($pocethodin >= 160)
+        @if($pocethodin >= 160)
             <br>
             <div class="text-lg space-y-6 text-center">
-                <a href="src/public/images/prax_vseobecne.pdf" download
-                    class="block bg-red-600 text-white py-2 rounded-xl hover:opacity-80">
+                <a href="/potvrdenie_download" download
+                   class="block bg-red-600 text-white py-2 rounded-xl hover:opacity-80">
                     <i class="fa-solid fa-file-pdf"></i>
                     Stiahnuť PDF</a>
             </div>

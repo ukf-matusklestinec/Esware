@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aktivity;
 use App\Models\Listing;
 use App\Models\Prihlasenie;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class UserController extends Controller
 {
@@ -57,7 +59,7 @@ class UserController extends Controller
         }
 
 
- 
+
         public function update_function(Request $request,$id){
             $name = $request->input('name');
             $email = $request->input('email');
@@ -74,7 +76,166 @@ class UserController extends Controller
 
         }
 
+// html potvrdenie pdf
+    public function potvrdenie(){
+        $currentDate = date('d-m-Y');
+        $meno2 = User::get()->where('id', auth()->id());
+        return view('potvrdenie', [
+            'time' => $currentDate,
+            'meno' => $meno2
+        ]);
+    }
+    // stiahnut potvrdenie pdf
+    public function potvrdeniedownload(){
+        $currentDate = date('d-m-Y');
+        $meno2 = User::get()->where('id', auth()->id());
+        $pdf = Pdf::loadView('potvrdenie', [
+            'time' => $currentDate,
+            'meno' => $meno2
+        ]);
+        return $pdf->download('potvrdenie_UKF.pdf');
+    }
 
+    // html report pdf
+    public function reportfakulty(){
+        $currentDate = date('d-m-Y');
+        $data = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->count();
+
+        $data1 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('odbor', 'Informatika aplikovaná')->count();
+
+        $data2 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('odbor', 'Fyzika')->count();
+
+        $data3 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('odbor', 'Biologia')->count();
+
+        $data4 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('odbor', 'Geografia v regionálnom rozvoji')->count();
+
+        $data5 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('odbor', 'Chemia učiteľstvo')->count();
+
+        //------------------------------------------------------------------------------
+
+        $data6 = Prihlasenie::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('aktivna', '1')->count();
+
+        $data7 = Prihlasenie::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('aktivna', '0')->count();
+
+        $data8 = Listing::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('schvalena', '1')->count();
+
+        $data9 = Listing::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('schvalena', '0')->count();
+
+        $data10 = Aktivity::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->count();
+
+        $data11 = Aktivity::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->sum('pocet_hodin');
+
+        return view('reportfakulty', [
+            'time' => $currentDate,
+            'count_vsetko' => $data,
+            'count_ai' => $data1,
+            'count_fy' => $data2,
+            'count_bi' => $data3,
+            'count_ge' => $data4,
+            'count_ch' => $data5,
+            'pri' => $data6,
+            'odh' => $data7,
+            'sch_ano' => $data8,
+            'sch_nie' => $data9,
+            'count_akt' => $data10,
+            'count_akt_hod' => $data11
+        ]);
+    }
+
+    // stiahnut report pdf
+    public function reportfakultydownload(){
+        $currentDate = date('d-m-Y');
+        $data = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->count();
+
+        $data1 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('odbor', 'Informatika aplikovaná')->count();
+
+        $data2 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('odbor', 'Fyzika')->count();
+
+        $data3 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('odbor', 'Biologia')->count();
+
+        $data4 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('odbor', 'Geografia v regionálnom rozvoji')->count();
+
+        $data5 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('odbor', 'Chemia učiteľstvo')->count();
+
+        //------------------------------------------------------------------------------
+
+        $data6 = Prihlasenie::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('aktivna', '1')->count();
+
+        $data7 = Prihlasenie::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('aktivna', '0')->count();
+
+        $data8 = Listing::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('schvalena', '1')->count();
+
+        $data9 = Listing::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('schvalena', '0')->count();
+
+        $data10 = Aktivity::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->count();
+
+        $data11 = Aktivity::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->sum('pocet_hodin');
+
+        $pdf = Pdf::loadView('reportfakulty', [
+            'time' => $currentDate,
+            'count_vsetko' => $data,
+            'count_ai' => $data1,
+            'count_fy' => $data2,
+            'count_bi' => $data3,
+            'count_ge' => $data4,
+            'count_ch' => $data5,
+            'pri' => $data6,
+            'odh' => $data7,
+            'sch_ano' => $data8,
+            'sch_nie' => $data9,
+            'count_akt' => $data10,
+            'count_akt_hod' => $data11
+        ]);
+        return $pdf->download('reportfakulty.pdf');
+    }
 
     //--------------------------------------------------------------------------------------------------------
     // ADMINISTRATOR
