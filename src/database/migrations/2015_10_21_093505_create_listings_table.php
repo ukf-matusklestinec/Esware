@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('website');
             $table->integer('tel_cislo')->nullable();
             $table->boolean('schvalena')->nullable();
+            $table->boolean('aktivna')->nullable();
             $table->longText('description');
             $table->timestamps();
         });

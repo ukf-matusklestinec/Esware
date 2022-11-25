@@ -27,6 +27,14 @@ use App\Http\Controllers\PoverenyController;
 // ak niekomu sa nezobrazia obrazky z db tak: spustit dokcer otvorit terminal php, vlozit kod: php artisan storage:link
 // ak napise "The links have been created" tak je to v poriadku
 
+//Route::get('/potvrdenie', [UserController::class, 'potvrdenie'])->middleware('auth');
+//stiahnut report pdf
+Route::get('/potvrdenie_download', [UserController::class, 'potvrdeniedownload'])->middleware('auth');
+
+//Route::get('/report', [UserController::class, 'reportfakulty'])->middleware('auth');
+//stiahnut potvrdenie pdf
+Route::get('/report_download', [UserController::class, 'reportfakultydownload'])->middleware('auth');
+
 // monitorovanie ponuk (zobrazenie)
 Route::get('/prihlasenie',[PrihlasenieController::class, 'index'])->middleware('auth');
 

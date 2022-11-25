@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aktivity;
 use App\Models\Listing;
 use App\Models\Prihlasenie;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class UserController extends Controller
 {
@@ -57,7 +59,7 @@ class UserController extends Controller
         }
 
 
- 
+
         public function update_function(Request $request,$id){
             $name = $request->input('name');
             $email = $request->input('email');
@@ -74,7 +76,186 @@ class UserController extends Controller
 
         }
 
+// html potvrdenie pdf
+    public function potvrdenie(){
+        $currentDate = date('d-m-Y');
+        $meno2 = User::get()->where('id', auth()->id());
+        return view('potvrdenie', [
+            'time' => $currentDate,
+            'meno' => $meno2
+        ]);
+    }
+    // stiahnut potvrdenie pdf
+    public function potvrdeniedownload(){
+        $currentDate = date('d-m-Y');
+        $meno2 = User::get()->where('id', auth()->id());
+        $pdf = Pdf::loadView('potvrdenie', [
+            'time' => $currentDate,
+            'meno' => $meno2
+        ]);
+        return $pdf->download('potvrdenie_UKF.pdf');
+    }
 
+    // html report pdf
+    public function reportfakulty(){
+        $currentDate = date('d-m-Y');
+        $data = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->count();
+
+        $data1 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('katedra', 'Katedra informatiky')->count();
+
+        $data2 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('katedra', 'Katedra fyziky')->count();
+
+        $data3 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('katedra', 'Katedra botaniky a genetiky')->count();
+
+        $data4 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('katedra', 'Katedra geografie')->count();
+
+        $data5 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('katedra', 'Katedra chémie')->count();
+
+        $data12 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('katedra', 'Katedra matematiky')->count();
+
+        //------------------------------------------------------------------------------
+
+        $data6 = Prihlasenie::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('aktivna', '1')->count();
+
+        $data7 = Prihlasenie::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('aktivna', '0')->count();
+
+        $data8 = Listing::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('schvalena', '1')->count();
+
+        $data9 = Listing::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('schvalena', '0')->count();
+
+        $data10 = Aktivity::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->count();
+
+        $data11 = Aktivity::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->sum('pocet_hodin');
+
+        $data13 = Listing::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('aktivna', '0')->count();
+
+        return view('reportfakulty', [
+            'time' => $currentDate,
+            'count_vsetko' => $data,
+            'count_ai' => $data1,
+            'count_fy' => $data2,
+            'count_bi' => $data3,
+            'count_ge' => $data4,
+            'count_ch' => $data5,
+            'count_ma' => $data12,
+            'pri' => $data6,
+            'odh' => $data7,
+            'sch_ano' => $data8,
+            'sch_nie' => $data9,
+            'count_akt' => $data10,
+            'count_akt_hod' => $data11,
+            'count_archiv' => $data13
+        ]);
+    }
+
+    // stiahnut report pdf
+    public function reportfakultydownload(){
+        $currentDate = date('d-m-Y');
+        $data = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->count();
+
+        $data1 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('katedra', 'Katedra informatiky')->count();
+
+        $data2 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('katedra', 'Katedra fyziky')->count();
+
+        $data3 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('katedra', 'Katedra botaniky a genetiky')->count();
+
+        $data4 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('katedra', 'Katedra geografie')->count();
+
+        $data5 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('katedra', 'Katedra chémie')->count();
+
+        $data12 = User::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('katedra', 'Katedra matematiky')->count();
+
+        //------------------------------------------------------------------------------
+
+        $data6 = Prihlasenie::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('aktivna', '1')->count();
+
+        $data7 = Prihlasenie::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('aktivna', '0')->count();
+
+        $data8 = Listing::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('schvalena', '1')->count();
+
+        $data9 = Listing::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('schvalena', '0')->count();
+
+        $data10 = Aktivity::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->count();
+
+        $data11 = Aktivity::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->sum('pocet_hodin');
+
+        $data13 = Listing::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get()->where('aktivna', '0')->count();
+
+        $pdf = Pdf::loadView('reportfakulty', [
+            'time' => $currentDate,
+            'count_vsetko' => $data1+$data2+$data3+$data4+$data5+$data12,
+            'count_ai' => $data1,
+            'count_fy' => $data2,
+            'count_bi' => $data3,
+            'count_ge' => $data4,
+            'count_ch' => $data5,
+            'count_ma' => $data12,
+            'pri' => $data6,
+            'odh' => $data7,
+            'sch_ano' => $data8,
+            'sch_nie' => $data9,
+            'count_akt' => $data10,
+            'count_akt_hod' => $data11,
+            'count_archiv' => $data13
+        ]);
+        return $pdf->download('reportfakulty.pdf');
+    }
 
     //--------------------------------------------------------------------------------------------------------
     // ADMINISTRATOR
@@ -193,6 +374,24 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:6'
 
         ]);
+        if ($formFields['odbor'] == 'Fyzika'){$formFields['katedra'] = 'Katedra fyziky';}
+        if ($formFields['odbor'] == 'Fyzika materialov'){$formFields['katedra'] = 'Katedra fyziky';}
+        if ($formFields['odbor'] == 'Fyzika učiteľstvo'){$formFields['katedra'] = 'Katedra fyziky';}
+
+        if ($formFields['odbor'] == 'Matematika učiteľstvo'){$formFields['katedra'] = 'Katedra matematiky';}
+        if ($formFields['odbor'] == 'Informačné metódy v ekonómii a finančníctve'){$formFields['katedra'] = 'Katedra matematiky';}
+
+        if ($formFields['odbor'] == 'Informatika učiteľstvo'){$formFields['katedra'] = 'Katedra informatiky';}
+        if ($formFields['odbor'] == 'Informatika aplikovaná'){$formFields['katedra'] = 'Katedra informatiky';}
+
+        if ($formFields['odbor'] == 'Geografia v regionálnom rozvoji'){$formFields['katedra'] = 'Katedra geografie';}
+        if ($formFields['odbor'] == 'Geografia učiteľstvo'){$formFields['katedra'] = 'Katedra geografie';}
+
+        if ($formFields['odbor'] == 'Chemia učiteľstvo'){$formFields['katedra'] = 'Katedra chémie';}
+
+        if ($formFields['odbor'] == 'Biologia'){$formFields['katedra'] = 'Katedra botaniky a genetiky';}
+        if ($formFields['odbor'] == 'Biologia učiteľstvo'){$formFields['katedra'] = 'Katedra botaniky a genetiky';}
+
         $formFields['Admin'] = 0;
         $formFields['Veduci_pracoviska'] = 0;
         $formFields['Povereny_pracovnik'] = 0;

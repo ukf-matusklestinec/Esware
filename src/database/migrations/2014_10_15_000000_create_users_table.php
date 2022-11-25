@@ -27,6 +27,7 @@ return new class extends Migration
             $table->date('datum_narodenia')->nullable();
             $table->boolean('pohlavie')->nullable();
             $table->string('profil')->nullable();
+            $table->string('katedra')->nullable();
             $table->string('odbor')->nullable();
             //adresa
             $table->string('Ulica')->nullable();
