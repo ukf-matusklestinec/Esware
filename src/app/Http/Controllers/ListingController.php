@@ -60,6 +60,7 @@ class ListingController extends Controller
 
         $formFields['user_id'] = auth()->id();
         $formFields['schvalena'] = 0;
+        $formFields['aktivna'] = 1;
 
         Listing::create($formFields);
 

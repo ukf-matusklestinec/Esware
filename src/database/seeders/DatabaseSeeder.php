@@ -278,6 +278,7 @@ class DatabaseSeeder extends Seeder
             'website' => 'https://www.spolu-pracujeme.sk/',
             'tel_cislo' => '0948777643',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Do nášho tímu hľadáme analytika, ktorý sa nebojí "chopiť" technickej analýzy. Cieľom projektu sú konzultácie ku architektonickým návrhom a implementácií ESB riešenia na platforme IBM WebSphere ESB.
 
 Hľadáme kolegu, ktorý už má skúsenosti s analýzou, no zároveň má chuť naučiť sa niečo nové. Do detailov tejto práce Ťa radi zaškolíme.
@@ -303,6 +304,7 @@ Náplň práce:
             'website' => 'https://www.fpt.sk/',
             'tel_cislo' => '0948564231',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'We are looking for a .NET Backend Developer for the development and maintenance of applications for our customer in a renewables area for the project Edge2Cloud / Near Real Time (NRT). We are looking for an experienced back-end developer experienced with C# .NET and data processing services offered by Azure Cloud to facilitate data transfer between microservices, databases and Azure Data Lake storage. This developer will join an ongoing project and be integrated with the current product team.   Edge2Cloud web interface gives monitoring capabilities of data flow, data completeness, building site dashboards, extract data from the site. Place of work:
 Remote work'
         ]);
@@ -318,6 +320,7 @@ Remote work'
             'website' => 'https://www.csob.cz/portal/',
             'tel_cislo' => '0948244278',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Do nášho teamu hľadáme skúseného analytika, s veľkým zmyslom pre presnosť a detail. Ak vieš navyše pochopiť reportingové výstupy aj z business pohľadu, pri riešení zložitejších úlohách vieš navrhovať riešenia, uvažovať procesne a koncepčne, hľadáme teba.
 Hlavná pracovná náplň:
 špecializované reportovanie dát kontaktného centra.
@@ -335,6 +338,7 @@ Analýza, interpretácia a vizualizácia dát – hľadáme niekoho, kto vie vý
             'website' => 'https://www.csob.cz/portal/',
             'tel_cislo' => '0948856355',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Chceš vyvíjať kvalitné aplikácie a softvérové riešenia na Java technológiách?
 Chceš pracovať v medzinárodnom teame programátorov, získavať skúsenosti a popritom využívať anglický jazyk? Ak je odpoveď áno, možno hľadáme práve teba!
 Ponúkame ti prístup k moderným bankovým technológiám a možnosť byť súčasťou agilného SCRUM tímu.
@@ -356,6 +360,7 @@ Pracovať s manažmentom na vylepšovaní vývojových a testovacích procesov.'
             'website' => 'https://www.manpowergroup.cz',
             'tel_cislo' => '0948425663',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Náplň práce, pravomoci a zodpovědnosti
 Náš klient od roku 2016 pracuje na projektu pro Finskou celní správu. Jedná se o řešení elektronického celnictví eCustoms a patří k jedné z nejsofistikovanějších a  nejspolehlivějších implementací celního systému v celé EU.
 Budete pracovat v menším, agilně fungujícím týmů FE a BE vývojářů a testerů, kteří jsou úzce propojeni s Business analytiky a Product Ownerem.
@@ -374,6 +379,7 @@ Budete se podílet na rozvoji mezinárodního product eCustoms, postaveném  na 
             'website' => 'https://www.trigon-consulting.sk/o_nas/',
             'tel_cislo' => '0948456778',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Náplň práce, právomoci a zodpovednosti
 Do rozrastajúceho sa tímu nášho klienta hľadáme kandidáta/kandidátku na pozíciu IT business analytik.
 
@@ -405,6 +411,7 @@ Ideálnym kandidátom na tejto pozícii je človek, ktorý sa chce neustále vzd
             'website' => 'https://www.telekom.sk',
             'tel_cislo' => '0948778652',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Autonomous End2End delivery and development of complex automation solutions.
 • Analysis of customer requirements and design of tailor-made automation solution.
 • Process analysis and identification of automation opportunities.
@@ -430,6 +437,7 @@ Ideálnym kandidátom na tejto pozícii je človek, ktorý sa chce neustále vzd
             'website' => 'https://www.windowglass.sk',
             'tel_cislo' => '0948333456',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Náplň práce, právomoci a zodpovednosti:
 Riešenie potrieb užívateľov, udržiavanie a vylepšovanie IT nástrojov (software, hardware, databázy) a hľadanie možností zlepšovania s cieľom ušetriť čas užívateľom systému.
 Reagovanie a odstraňovanie IT incidentov a proaktívny prístup na predchádzanie vzniku takýchto udalostí.
@@ -454,6 +462,7 @@ Prácu je možné po zaškolení vykonávať aj z domu.'
             'website' => 'https://www.certicon.cz/?lang=en',
             'tel_cislo' => '0948778652',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Náplň práce, právomoci a zodpovednosti:
 V oblasti zdravotníctva vyvíjame webovú službu, ktorá umožňuje online monitorovanie stavu pacientov, ktorým bol implantovaný kardiostimulátor alebo defibrilátor. Týmto spôsobom výrazne zlepšujeme kvalitu života tisícov pacientov na celom svete s implantovanými podpornými srdcovými zariadeniami.
 
@@ -484,6 +493,7 @@ Reportovať objavené chýby a výsledky testovania.
             'website' => 'https://www.certicon.cz/?lang=en',
             'tel_cislo' => '0948778652',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Náplň práce, právomoci a zodpovednosti:
 V akej oblasti budeš pracovať.
 Projekty sú zamerané na problematiku porúch srdcového rytmu a prevenciu srdcového zlyhania, vyvíjané špičkovou vedecko techonologickou poločnosťou CertiCon. Uplatňujeme znalosti expertov a vyvíjame riešenia, ktoré skvalitňujú a zjednodušujú život miliónov ľudí po celom svete. Unikátnou pridanou hodnotou je vlastný aplikovaný výskum a spolupráca s medzinárodnými inštitúciami.
@@ -511,6 +521,7 @@ Hľadáme nového kolegu do nášho tímu, na pozíciu DevOps Engineer, ktorý n
             'website' => 'https://www.aston.com',
             'tel_cislo' => '0948353445',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Náplň práce, právomoci a zodpovednosti:
 Ľudia + technológie  = TechLead v Astone ❤
 
@@ -540,6 +551,7 @@ Ak by si mal záujem, môžeš si vypočuť Podcast - Aston z vnútra: Naša ces
             'website' => 'https://www.SnopAutomotive.com',
             'tel_cislo' => '0948757445',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Náplň práce, právomoci a zodpovednosti:
 Do nášho tímu hľadáme spoľahlivého kolegu/kolegyňu, ktorého hlavnou náplňou práce bude support oddeleniu IT.
 
@@ -563,6 +575,7 @@ inštalácia počítačov a tlačiarní.
             'website' => 'https://www.GlobalLogic.com',
             'tel_cislo' => '0948785425',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Job description, responsibilities and duties:
 Our customee is a private, family-owned company, founded by scientists and dedicated to providing the world’s highest quality, innovative research and diagnostic products to accelerate biological understanding and enable personalized medicine. Our employees operate worldwide from our U.S. headquarters in Massachusetts, and our offices in the Netherlands, China, and Japan.
 
@@ -583,6 +596,7 @@ Our customee is a private, family-owned company, founded by scientists and dedic
             'website' => 'https://www.ELCOM.com',
             'tel_cislo' => '0948988655',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Náplň práce, právomoci a zodpovednosti:
 Do nášho tímu hľadáme zanieteného a šikovného programátora aplikácií pre Android.
 Budeš sa podieľať na vývoji nových a údržbe existujúcich aplikácií.
@@ -608,6 +622,7 @@ Zamestnanecké výhody, benefity:
             'website' => 'https://www.PERSONALITY.com',
             'tel_cislo' => '0948858745',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Job description, responsibilities and duties:
 Take a look at this exceptional job opportunity. Freshfields company is one of TOP 5 most prestigious law companies in London, that is going to Slovakia to expand it´s activities in Central Europe. Be a part of it!
 
@@ -641,6 +656,7 @@ the CRM system, especially within the pitch module.
             'website' => 'https://www.slsp.sk',
             'tel_cislo' => '0948885425',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Náplň práce, právomoci:
 •	Audity zamerané na kybernetickú bezpečnosť, vyhľadávanie bezpečnostných rizík v systémoch, procesoch.
 •	Oboznámenie sa s rozsiahlou architektúrou IT systémov a aplikácií v inovatívnom prostredí Slovenskej sporiteľne a Erste banky.
@@ -661,6 +677,7 @@ the CRM system, especially within the pitch module.
             'website' => 'https://www.telekom.sk',
             'tel_cislo' => '0948765643',
             'schvalena' => '1',
+            'aktivna' => '1',
             'description' => 'Job description, responsibilities and duties:
 Purpose,
 Independently check, execute, solve (where appropriate), and creates tickets (problem ticket, change management ticket, incident, delivery order (DO)) in order to maintain service to customers according to given quality KPIs and internal processes (INM, CHM, PRM, DOM). 2nd level environment.

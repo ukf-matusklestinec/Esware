@@ -26,6 +26,14 @@ class UserFactory extends Factory
             'Chemia učiteľstvo',
             'Biologia', 'Biologia učiteľstvo'];
 
+        $inputArray2 = [
+            'Katedra fyziky',
+            'Katedra matematiky',
+            'Katedra informatiky',
+            'Katedra geografie',
+            'Katedra chémie',
+            'Katedra botaniky a genetiky'];
+
 
         return [
             'name' => $this->faker->name(),
@@ -36,6 +44,7 @@ class UserFactory extends Factory
             'tel_cislo' => $this->faker->numberBetween($int1=909000000,$int2=999000000),
             'datum_narodenia' => $this->faker->date($format = 'Y-m-d', $max = '2004-12-25'),
             'pohlavie' => $this->faker->numberBetween($min=0,$max=1),
+            'katedra' => $this->faker->randomElement($inputArray2),
             'odbor' => $this->faker->randomElement($inputArray),
             'Ulica' => $this->faker->streetName(),
             'Mesto' => $this->faker->city(),

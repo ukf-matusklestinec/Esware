@@ -18,37 +18,42 @@
     <table style="width: 100%; border-collapse: collapse;" border="1">
         <tbody>
         <tr>
-            <td style="width: 16.6667%; text-align: center;">Celkovo registrovaných študentov</td>
-            <td style="width: 16.6667%; text-align: center;">Informatika aplikovaná</td>
-            <td style="width: 16.6667%; text-align: center;">Fyzika</td>
-            <td style="width: 16.6667%; text-align: center;">Biologia</td>
-            <td style="width: 16.6667%; text-align: center;">Geografia</td>
-            <td style="width: 16.6667%; text-align: center;">Chemia</td>
+            <td style="width: 14.2857%; text-align: center;">Celkovo registrovaných študentov</td>
+            <td style="width: 14.2857%; text-align: center;">Katedra informatiky</td>
+            <td style="width: 14.2857%; text-align: center;">Katedra fyziky</td>
+            <td style="width: 14.2857%; text-align: center;">Katedra botaniky a genetiky</td>
+            <td style="width: 14.2857%; text-align: center;">Katedra geografie</td>
+            <td style="width: 14.2857%; text-align: center;">Katedra chémie</td>
+            <td style="width: 14.2857%; text-align: center;">Katedra matematiky</td>
         </tr>
         <tr>
-            <td style="width: 16.6667%; text-align: center;">{{$count_vsetko}}</td>
-            <td style="width: 16.6667%; text-align: center;">{{$count_ai}}</td>
-            <td style="width: 16.6667%; text-align: center;">{{$count_fy}}</td>
-            <td style="width: 16.6667%; text-align: center;">{{$count_bi}}</td>
-            <td style="width: 16.6667%; text-align: center;">{{$count_ge}}</td>
-            <td style="width: 16.6667%; text-align: center;">{{$count_ch}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$count_vsetko}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$count_ai}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$count_fy}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$count_bi}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$count_ge}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$count_ch}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$count_ma}}</td>
         </tr>
 
         <tr>
-            <td style="width: 16.6667%; text-align: center;">Prihlásený na ponukách</td>
-            <td style="width: 16.6667%; text-align: center;">Odhlasení z ponúk</td>
-            <td style="width: 16.6667%; text-align: center;">Schvalené ponuky</td>
-            <td style="width: 16.6667%; text-align: center;">Neschvalené ponuky</td>
-            <td style="width: 16.6667%; text-align: center;">Pocet pridaných aktivít</td>
-            <td style="width: 16.6667%; text-align: center;">Hodín odrobených na ponukách</td>
+            <td style="width: 14.2857%; text-align: center;">Prihlásený na ponukách</td>
+            <td style="width: 14.2857%; text-align: center;">Odhlasení z ponúk</td>
+            <td style="width: 14.2857%; text-align: center;">Schvalené ponuky</td>
+            <td style="width: 14.2857%; text-align: center;">Neschvalené ponuky</td>
+            <td style="width: 14.2857%; text-align: center;">Pocet pridaných aktivít</td>
+            <td style="width: 14.2857%; text-align: center;">Hodín odrobených na ponukách</td>
+            <td style="width: 14.2857%; text-align: center;">Archivované ponuky</td>
+
         </tr>
         <tr>
-            <td style="width: 16.6667%; text-align: center;">{{$pri}}</td>
-            <td style="width: 16.6667%; text-align: center;">{{$odh}}</td>
-            <td style="width: 16.6667%; text-align: center;">{{$sch_ano}}</td>
-            <td style="width: 16.6667%; text-align: center;">{{$sch_nie}}</td>
-            <td style="width: 16.6667%; text-align: center;">{{$count_akt}}</td>
-            <td style="width: 16.6667%; text-align: center;">{{$count_akt_hod}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$pri}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$odh}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$sch_ano}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$sch_nie}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$count_akt}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$count_akt_hod}}</td>
+            <td style="width: 14.2857%; text-align: center;">{{$count_archiv}}</td>
         </tr>
         </tbody>
     </table>
