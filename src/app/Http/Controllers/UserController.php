@@ -76,7 +76,7 @@ class UserController extends Controller
 
         }
 
-// html potvrdenie pdf
+    // html potvrdenie pdf
     public function potvrdenie(){
         $currentDate = date('d-m-Y');
         $meno2 = User::get()->where('id', auth()->id());
@@ -85,6 +85,7 @@ class UserController extends Controller
             'meno' => $meno2
         ]);
     }
+
     // stiahnut potvrdenie pdf
     public function potvrdeniedownload(){
         $currentDate = date('d-m-Y');

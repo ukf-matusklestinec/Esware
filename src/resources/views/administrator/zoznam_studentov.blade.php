@@ -99,7 +99,9 @@
                     <th col-index=1>Meno</th>
                     <th col-index=2>Odbor</th>
                     <th col-index=3>Zobraziť</th>
+                    @if(auth()->user()->Admin == 1)
                     <th col-index=4>Odstrániť</th>
+                    @endif
                 </thead>
 
                 <tbody>
@@ -120,8 +122,8 @@
                                 <td class="py-2 text-l border-b">
                                     <a href="/listings/{{ $user->id }}" class="text-green-500 hover:text-black"><i class="fa-solid fa-display"></i> Zobraziť prax</a>
                                 </td>
-
-                                {{-- odstránenie používateľa --}}
+                            @if(auth()->user()->Admin == 1)
+                                {{-- odstránenie používateľa, len pre admina --}}
                                 <td class="py-2 text-l border-b">
                                     <form method="POST" action="/zoznam_studentov/{{ $user->id }}">
                                         @csrf
@@ -129,6 +131,7 @@
                                         <button class="text-red-500 hover:text-black"><i class="fa-solid fa-trash"></i> Odstrániť</button>
                                     </form>
                                 </td>
+                            @endif()
                             </tr>
                         @endforeach
                     @else

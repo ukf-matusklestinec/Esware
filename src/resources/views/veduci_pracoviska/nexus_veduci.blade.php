@@ -16,6 +16,7 @@
                             <button type="submit" class="text-xl font-bold hover:text-laravel ">
                                 Praxe
                             </button>
+                        </form>
                     </div>
                 </x-card>
                 <x-card>

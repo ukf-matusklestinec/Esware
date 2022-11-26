@@ -1,6 +1,12 @@
 @if (Auth::check() && auth()->user()->Veduci_pracoviska)
     <x-layout>
 
+        <a href="javascript:history.back()"
+           class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i
+                class="fa-solid fa-arrow-left"></i> Naspäť
+        </a>
+        <br>
+
         <style>
             table {
                 border-collapse: collapse;
