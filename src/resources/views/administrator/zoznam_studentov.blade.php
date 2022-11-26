@@ -13,7 +13,6 @@
 
 
         <x-card class="p-10 max-w-6xl mx-auto mt-6">
-            {{-- pridať searchbar --}}
             <header>
                 <h1 class="text-2xl text-center font-bold mb-6">
                     Zoznam študentov

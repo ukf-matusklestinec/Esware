@@ -71,7 +71,7 @@ class PrihlasenieController extends Controller
             Prihlasenie::create([
                 'user_id' => auth()->id(),
                 'listing_id' => $listing->id,
-                'aktivna' => 0
+                'aktivna' => 1
             ]);
 
             return redirect('/')->with('message', 'Ste prihlasený do ponuky!');

@@ -73,3 +73,5 @@
     day = date.getDate();
     document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year;
 </script>
+
+{{-- vygeneruje pdf, ktorý slúži ako report za fakulty--}}

@@ -49,9 +49,9 @@
 
     {{-- ak používateľ je poverený pracovník prenesie ho na zoznam študentov --}}
     @if (Auth::check() && auth()->user()->Povereny_pracovnik == 1)
-        <a href="/zoznam_akad_student"
-            class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center"
-            style="width: 80px;"><i class="fa-solid fa-arrow-left"></i> Naspäť
+        <a href="javascript:history.back()"
+           class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i
+                class="fa-solid fa-arrow-left"></i> Naspäť
         </a>
     @endif
 
@@ -106,7 +106,7 @@
                 @unless($aktivity->isEmpty())
                 @else
                     {{-- ak nie je používateľ admin, môže sa prihlásiť na prax --}}
-                    @if (auth()->user()->Admin != 1)
+                    @if (auth()->user()->Admin != 1 && auth()->user()->Povereny_pracovnik != 1)
                         <a href="/prihlas/{{ $listing->id }}" target="_blank"
                             class="block bg-green-600 text-white py-2 rounded-xl hover:opacity-80 text-center">
                             <i class="fa-solid fa-user"></i> Prihlásiť sa na ponuku</a>
