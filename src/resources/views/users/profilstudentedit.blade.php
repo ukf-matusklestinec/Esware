@@ -34,7 +34,7 @@
 
                     <div class="form-group">
                         <label>Heslo</label>
-                        <input type="password" class="form-control" name="password" id="password" value="{{ auth()->user()->password }}" aria-describedby="emailHelp"
+                        <input type="password" class="form-control" name="password" id="password" aria-describedby="emailHelp" required
                         placeholder="Heslo">
                     </div> 
 
