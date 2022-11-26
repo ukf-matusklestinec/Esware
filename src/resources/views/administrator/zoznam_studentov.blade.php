@@ -118,7 +118,7 @@
                                 {{-- zobrazenie jeho praxe TREBA OPRAVIŤ AK NEMÁ ŽIADNE PONUKY --}}
 
                                 <td class="py-2 text-l border-b">
-                                    <a href="/listings/{{ $user->id }}"> Zobrazenie pracovnej ponuky </a>
+                                    <a href="/listings/{{ $user->id }}" class="text-green-500 hover:text-black"><i class="fa-solid fa-display"></i> Zobraziť prax</a>
                                 </td>
 
                                 {{-- odstránenie používateľa --}}
@@ -126,7 +126,7 @@
                                     <form method="POST" action="/zoznam_studentov/{{ $user->id }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="text-red-500"><i class="fa-solid fa-trash"></i> Odstrániť</button>
+                                        <button class="text-red-500 hover:text-black"><i class="fa-solid fa-trash"></i> Odstrániť</button>
                                     </form>
                                 </td>
                             </tr>
