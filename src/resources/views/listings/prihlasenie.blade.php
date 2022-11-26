@@ -23,7 +23,7 @@
         <x-card class="p-10">
             <header>
 
-                <h1 class="text-3xl text-center font-bold my-6 uppercase">
+                <h1 class="text-2xl text-center font-bold mb-6 uppercase">
                     Monitorovanie ponúk
                 </h1>
 
@@ -42,51 +42,51 @@
                         </tr>
                         @foreach ($aktivity2 as $aktivit)
                             <tr class="border-gray-300">
-                                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-center">
+                                <td class="py-2 text-l border-b text-center">
                                     {{ $aktivit->listing->title }}
                                 </td>
-                                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-center">
+                                <td class="py-2 text-l border-b text-center">
                                     {{ $aktivit->listing->company }}
                                 </td>
-                                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-center">
+                                <td class="py-2 text-l border-b text-center">
                                     <a href="mailto:{{ $aktivit->user->email }}">
                                         {{ $aktivit->user->name }}
                                     </a>
                                     <a href="/aktivity/{{ $aktivit->id }}">
-                                        <b>+</b>
+                                        <i class="fa fa-user-plus text-green-500 hover:text-black" aria-hidden="true"></i>
                                     </a>
                                 </td>
-                                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-center">
+                                <td class="py-2 text-l border-b text-center">
                                     @if ($aktivit->aktivna == 1)
                                         Áno
                                     @else
                                         Nie
                                     @endif
                                 </td>
-                                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-center">
+                                <td class="py-2 text-l border-b text-center">
                                     @if ($aktivit->spatna_vazba == null)
                                         Žiadna spätná väzba.
                                     @else
                                         {{ $aktivit->spatna_vazba }}
                                     @endif
                                 </td>
-                                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                                <td class="py-2 text-l border-b text-center">
                                     <a href="/prihlasenie/{{ $aktivit->id }}/edit"
-                                        class="text-blue-400 px-6 py-2 rounded-xl"><i
-                                            class="fa-solid fa-pen-to-square"></i>Edit</a>
+                                        class="text-blue-400 px-6 py-2 rounded-xl hover:text-black"><i
+                                            class="fa-solid fa-pen-to-square"></i> Edit</a>
                                 </td>
-                                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                                <td class="py-2 text-l border-b text-center">
                                     <form method="POST" action="/prihlasenie/{{ $aktivit->id }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="text-red-500"><i class="fa-solid fa-trash"></i> Odstrániť </button>
+                                        <button class="text-red-500 hover:text-black"><i class="fa-solid fa-trash"></i> Odstrániť </button>
                                     </form>
                                 </td>
                             </tr>
                         @endforeach
                     @else
                         <tr class="border-gray-300">
-                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                            <td class="py-2 text-l border-b text-center">
                                 <p class="text-center">Študenti nie sú prihlásení na žiadnej ponuke</p>
                             </td>
                         </tr>
