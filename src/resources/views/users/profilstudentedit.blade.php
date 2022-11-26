@@ -1,9 +1,5 @@
 
     <x-layout>
-        <a href="javascript:history.back()"
-        class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i
-            class="fa-solid fa-arrow-left"></i> Naspäť
-    </a>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,7 +19,7 @@
                 <form action="/update/{{ auth()->user()->id }}" method="post">
                     {{ csrf_field()}}
 
-                  <h2><center>Upraviť profil používateľa <a href="/profilstudent"><u>{{ auth()->user()->name }}</u></a></center></h2><br>
+                  <h2><center>Upraviť profil používateľa {{ auth()->user()->name }}, id: {{ auth()->user()->id }}</center></h2><br>
                     <div class="form-group">
                         <label>Meno</label>
                         <input type="text" class="form-control" name="name" id="name" value="{{ auth()->user()->name }}" aria-describedby="emailHelp"
@@ -66,9 +62,8 @@
                         <input type="text" class="form-control" name="mesto" id="mesto" value="{{ auth()->user()->Mesto }}" aria-describedby="emailHelp"
                         placeholder="Mesto">
                     </div> 
-                    <div style="text-align: center">
-                    <button type="submit" name="submit" class="btn btn-primary" style="width: 50%">Odoslať</button>
-                    </div>
+
+                    <button type="submit" name="submit" class="btn btn-primary" style="width: 50%;">UPDATE</button>
                 </form>
             </div>
         </div>
