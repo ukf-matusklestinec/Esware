@@ -12,7 +12,7 @@
         </a>
         <div class="flex flex-col items-center justify-center text-center">
             <div class="border border-black-200 rounded mb-6">
-                <img class="w-48 " alt="avatar1" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+                <img class="w-48 " alt="avatar1" src="https://us.123rf.com/450wm/apoev/apoev1901/apoev190100066/126178784-person-gray-photo-placeholder-man-in-a-costume-on-white-background.jpg?ver=6" />
             </div>
             <h3 class="text-2xl font-bold">{{ auth()->user()->name }}</h3>
             <div class="text-l mb-3">ID: {{ auth()->user()->id }}</div>
