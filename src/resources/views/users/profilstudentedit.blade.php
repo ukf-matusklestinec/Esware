@@ -19,7 +19,7 @@
                 <form action="/update/{{ auth()->user()->id }}" method="post">
                     {{ csrf_field()}}
 
-                  <h2><center>Upraviť profil používateľa {{ auth()->user()->name }}, id: {{ auth()->user()->id }}</center></h2><br>
+                    <h2><center>Upraviť profil používateľa <a href="/profilstudent"><u>{{ auth()->user()->name }}</u></a></center></h2><br>
                     <div class="form-group">
                         <label>Meno</label>
                         <input type="text" class="form-control" name="name" id="name" value="{{ auth()->user()->name }}" aria-describedby="emailHelp"
@@ -63,7 +63,9 @@
                         placeholder="Mesto">
                     </div> 
 
-                    <button type="submit" name="submit" class="btn btn-primary" style="width: 50%;">UPDATE</button>
+                    <div style="text-align: center">
+                        <button type="submit" name="submit" class="btn btn-primary" style="width: 50%">Odoslať</button>
+                        </div>
                 </form>
             </div>
         </div>

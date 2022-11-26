@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamps();
 
             // udaje ktore si prida v profile
-            $table->integer('tel_cislo')->nullable();
+            $table->string('tel_cislo')->nullable();
             $table->date('datum_narodenia')->nullable();
             $table->boolean('pohlavie')->nullable();
             $table->string('profil')->nullable();
