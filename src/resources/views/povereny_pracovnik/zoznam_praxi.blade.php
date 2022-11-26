@@ -41,6 +41,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button class="text-red-500"><i class="fa-solid fa-trash"></i> Odstrániť</button>
+
                                     </form>
                                 </td>
                             </tr>
@@ -63,3 +64,6 @@
 @else
     Nemáte prístup!
 @endunless
+
+
+{{-- slúži na schválenie praxí pridanými inými používateľmi --}}

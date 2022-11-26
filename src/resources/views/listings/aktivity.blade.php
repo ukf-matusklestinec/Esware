@@ -6,11 +6,23 @@
     </a>
 
     <x-card class="p-10">
+
+
+        @if (Auth::check() && auth()->user()->Veduci_pracoviska | auth()->user()->Admin)
+            {{-- výpis ak sa na aktivitu pozrie poverená osoba--}}
         <header>
             <h1 class="text-3xl text-center font-bold my-6 uppercase">
-                Vaše Aktivity
+                Aktivity študenta
             </h1>
         </header>
+        @else
+            {{-- výpis ak sa na aktivitu pozrie študent--}}
+            <header>
+                <h1 class="text-3xl text-center font-bold my-6 uppercase">
+                    Vaše Aktivity
+                </h1>
+            </header>
+        @endif
 
         <p>
             Počet hodín: <b>{{ $pocethodin }}</b> / Počet dní <b>{{ $pocetdni }}</b>
@@ -67,16 +79,19 @@
             </tbody>
         </table>
 
-        {{-- tlačidlo prenesie používateľa do rozhrania, kde vyplní koľko hodín odpracoval za deň a môže si
+        {{-- tlačidlo prenesie študenta do rozhrania, kde vyplní koľko hodín odpracoval za deň a môže si
          vybrať možnosť, či pracoval z domu alebo nie --}}
+            @if (Auth::check() && auth()->user()->Veduci_pracoviska != 1 && auth()->user()->Admin != 1)
         <div class="text-lg space-y-6 text-center">
             <a href="/aktivity/{{ $priid }}/create"
                 class="block bg-green-600 text-white py-2 rounded-xl hover:opacity-80">
                 <i class="fa-solid fa-user"></i>
                 Pridať aktivitu</a>
         </div>
+            @endif
         {{-- ak študent má viac ako 160 odpracovaných hodín, čo predstavuje minimum pre prax,
             tak sa mu sprístupní možnosť stiahnuť cez tlačidlo PDF súbor ako doklad o absolvovaní --}}
+            @if (Auth::check() && auth()->user()->Veduci_pracoviska != 1 && auth()->user()->Admin != 1)
         @if($pocethodin >= 160)
             <br>
             <div class="text-lg space-y-6 text-center">
@@ -86,6 +101,7 @@
                     Stiahnuť PDF</a>
             </div>
         @endif
+            @endif
 
 
     </x-card>

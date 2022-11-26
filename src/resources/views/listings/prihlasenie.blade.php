@@ -53,6 +53,7 @@
                                         {{ $aktivit->user->name }}
                                     </a>
                                     <a href="/aktivity/{{ $aktivit->id }}">
+                                        {{-- zobrazí aktivitu daného študenta --}}
                                         <i class="fa fa-user-plus text-green-500 hover:text-black" aria-hidden="true"></i>
                                     </a>
                                 </td>

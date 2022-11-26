@@ -37,10 +37,9 @@ class PoverenyController extends Controller
     }
 
     public function update_prax(Request $request, Listing $listings){
+        // úprava praxe na schválenú
+        $formFields['schvalena'] = 1;
 
-        $formFields = $request->validate([
-            'schvalena' => '1',
-        ]);
 
         $listings->update($formFields);
 

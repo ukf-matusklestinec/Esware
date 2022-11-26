@@ -33,3 +33,5 @@
     day = date.getDate();
     document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year;
 </script>
+
+{{-- dokument, ktorý si môže študent stiahnúť ako potvrdenie za absolvovanie praxe--}}
