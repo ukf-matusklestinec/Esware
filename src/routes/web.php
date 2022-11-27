@@ -117,10 +117,13 @@ Route::get('profilstudentedit/{id}', [UserController::class, 'edit_function']);
 Route::post('/update/{id}', [UserController::class, 'update_function']);
 //Route::get('/profilstudent', [UserController::class, 'viewform']);
 //Route::get('/profilstudent', [UserController::class, 'index']);
+
 //------------------------------------------------------------------------------- ADMIN rozhranie
 
 // nexus administrátor
 Route::get('/nexus_admin', [UserController::class, 'nexusA']);
+
+//------
 
 // spravovanie používateľov resp. študentov
 Route::get('/zoznam_studentov', [AdminController::class, 'manage_student']);
@@ -128,14 +131,40 @@ Route::get('/zoznam_studentov', [AdminController::class, 'manage_student']);
 // odstránenie používateľov resp. študentov
 Route::delete('/zoznam_studentov/{user}', [AdminController::class, 'odstranenie_studenta'])->middleware('auth');
 
+//------
+
 // spravovanie pracovísk
 Route::get('/zoznam_pracovisk', [UserController::class, 'zoz_pracovisk']);
 
-// spravovať poverených a vedúcich pracovísk
+//------
+
+// spravovať poverených zamestnancov
 Route::get('/zoznam_pracovnikov', [AdminController::class, 'manage_pracovnikov']);
 
-// spravovať poverených a vedúcich pracovísk
+// tabuľka na pridelenie role poverený zamestnanec
+Route::get('/pridanie_povereneho_zam', [AdminController::class, 'tab_pridanie_pracovnikov']);
+
+// pridelenie role používateľovi - poverený zamestnanec
+Route::put('/pridanie_povereneho_zam/{users}', [AdminController::class, 'pridanie_pracovnikov']);
+
+// odobranie role povereného zamestanca
+Route::put('/zoznam_pracovnikov/{users}', [AdminController::class, 'odobranie_prav_pracovnika']);
+
+//------
+
+// spravovať  vedúcich pracovísk
 Route::get('/zoznam_veducich', [AdminController::class, 'manage_veducich']);
+
+// tabuľka na pridelenie role vedúci pracoviska
+Route::get('/pridanie_ved_prac', [AdminController::class, 'tab_pridanie_ved']);
+
+// pridelenie role používateľovi - vedúci pracoviska
+Route::put('/pridanie_ved_prac/{users}', [AdminController::class, 'pridanie_ved']);
+
+// odobranie role vedúci pracoviska
+Route::put('/zoznam_veducich/{users}', [AdminController::class, 'odobranie_prav_ved']);
+
+//------
 
 // spravovať firmy a organizácie
 Route::get('/zoznam_firiem', [AdminController::class, 'manage_firmy']);

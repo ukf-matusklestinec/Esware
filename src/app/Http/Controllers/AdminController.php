@@ -26,10 +26,64 @@ class AdminController extends Controller
         return view('administrator.zoznam_pracovnikov', ['users' => $zam]);
     }
 
+    public function tab_pridanie_pracovnikov(){
+        // tabuľka na pridanie role povereného zamestnanca
+        $users = DB::table('users')->get()->where('Povereny_pracovnik', 0)->where
+        ('Admin', 0)->where('Zastupca_firmy', 0)->where('Veduci_pracoviska', 0);
+        return view('administrator.pridanie_povereneho_zam', ['users' => $users]);
+    }
+
+    public function pridanie_pracovnikov(User $users){
+        // funkcia na pridanie povereného zamestnanca
+        $formFields['Povereny_pracovnik'] = 1;
+
+        $users->update($formFields);
+
+        return view('administrator.zoznam_pracovnikov')->with
+        ('message', 'Používateľovi bola pridelená rola "Poverený pracovník"');
+    }
+
+    public function odobranie_prav_pracovnika(User $users){
+        // odobranie funcie povereného zamestnanca
+        $formFields['Povereny_pracovnik'] = 0;
+
+        $users->update($formFields);
+
+        return view('administrator.zoznam_pracovnikov')->with
+        ('message', 'Používateľovi bola odobraná rola "Poverený pracovník"');
+    }
+
     public function manage_veducich(){
         // zobrazenie zamestnancov   prerobiť
         $ved = DB::table('users')->get()->where('Veduci_pracoviska');
         return view('administrator.zoznam_veducich', ['users' => $ved]);
+    }
+
+    public function tab_pridanie_ved(){
+        // tabuľka na pridanie role vedúceho pracoviska
+        $users = DB::table('users')->get()->where('Povereny_pracovnik', 0)->where
+        ('Admin', 0)->where('Zastupca_firmy', 0)->where('Veduci_pracoviska', 0);
+        return view('administrator.pridanie_ved_prac', ['users' => $users]);
+    }
+
+    public function pridanie_ved(User $users){
+        // funkcia na pridanie vedúceho pracoviska
+        $formFields['Veduci_pracoviska'] = 1;
+
+        $users->update($formFields);
+
+        return view('administrator.zoznam_veducich')->with
+        ('message', 'Používateľovi bola pridelená rola "Vedúci pracoviska"');
+    }
+
+    public function odobranie_prav_ved(User $users){
+        // odobranie funcie vedúceho pracoviska
+        $formFields['Veduci_pracoviska'] = 0;
+
+        $users->update($formFields);
+
+        return view('administrator.zoznam_veducich')->with
+        ('message', 'Používateľovi bola pridelená rola "Vedúci pracoviska"');
     }
 
     public function manage_firmy(){

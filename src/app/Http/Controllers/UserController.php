@@ -86,7 +86,7 @@ class UserController extends Controller
         ]);
     }
 
-    // stiahnut potvrdenie pdf
+    // stiahnút potvrdenie pdf
     public function potvrdeniedownload(){
         $currentDate = date('d-m-Y');
         $meno2 = User::get()->where('id', auth()->id());
@@ -177,7 +177,7 @@ class UserController extends Controller
         ]);
     }
 
-    // stiahnut report pdf
+    // stiahnút report pdf
     public function reportfakultydownload(){
         $currentDate = date('d-m-Y');
         $data = User::whereMonth('created_at', date('m'))
@@ -261,7 +261,7 @@ class UserController extends Controller
     //--------------------------------------------------------------------------------------------------------
     // ADMINISTRATOR
 
-    // nexus administratora
+    // nexus administrátora
     public function nexusA(){
         //vypocitanie graf4
         $student1 = User::get()->where('Admin', '0')->where('Veduci_pracoviska', '0')->where('Povereny_pracovnik', '0')->where('Zastupca_firmy', '0')->count();
@@ -272,7 +272,7 @@ class UserController extends Controller
             return view('administrator.nexus_admin', [
 
                 // data pre grafy ********************************************************************************************************************
-                // graf1 Ponuka a ich lokacie
+                // graf1 Ponuka a ich lokácie
                 'nitra' => Listing::get()->where('location', 'Nitra')->count(),
                 'vrable' => Listing::get()->where('location', 'Vrable')->count(),
                 'zvolen' => Listing::get()->where('location', 'Zvolen')->count(),
@@ -407,7 +407,7 @@ class UserController extends Controller
         // Login
         auth()->login($user);
 
-        return redirect('/')->with('message', 'Pouzivatel bol vytvoreny aj prihlaseny');
+        return redirect('/')->with('message', 'Používateľ bol vytvorený a prihlasený');
     }
 
     // Logout User
@@ -436,18 +436,18 @@ class UserController extends Controller
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
             if(auth()->user()->Admin == 1){
-                return redirect('/nexus_admin')->with('message', 'Ste prihláseny!');
+                return redirect('/nexus_admin')->with('message', 'Ste prihlásený!');
             }
             if(auth()->user()->Veduci_pracoviska == 1){
-                return redirect('/nexus_veduci')->with('message', 'Ste prihláseny!');
+                return redirect('/nexus_veduci')->with('message', 'Ste prihlásený!');
             }
             if(auth()->user()->Povereny_pracovnik == 1){
-                return redirect('/nexus_povereny')->with('message', 'Ste prihláseny!');
+                return redirect('/nexus_povereny')->with('message', 'Ste prihlásený!');
             }
             if(auth()->user()->Zastupca_firmy == 1){
-                return redirect('/')->with('message', 'Ste prihláseny!');
+                return redirect('/')->with('message', 'Ste prihlásený!');
             }
-            else{ return redirect('/')->with('message', 'Ste prihláseny!');}
+            else{ return redirect('/')->with('message', 'Ste prihlásený!');}
         }
 
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');

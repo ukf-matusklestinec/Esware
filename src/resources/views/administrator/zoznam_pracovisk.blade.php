@@ -1,9 +1,9 @@
 @if (Auth::check() && auth()->user()->Admin)
     <x-layout>
 
-        <a href="/nexus_admin" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center"
-            style="width: 80px;"><i class="fa-solid fa-arrow-left"></i> Naspäť
-        </a>
+        <a href="javascript:history.back()"
+           class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i
+                class="fa-solid fa-arrow-left"></i> Naspäť </a>
 
         <header>
             <h1 class="text-2xl text-center font-bold mb-6">
