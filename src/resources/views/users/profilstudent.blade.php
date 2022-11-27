@@ -1,14 +1,11 @@
 <x-layout>
 
-    <a href="javascript:history.back()"
-        class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i
-            class="fa-solid fa-arrow-left"></i> Naspäť
+    <a href="javascript:history.back()" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i class="fa-solid fa-arrow-left"></i> Naspäť
     </a>
     <x-card class="p-10 max-w-lg mx-auto mt-6">
-       {{-- <a href="/profilstudentedit" class="text-l text-black hover:text-laravel"--}}
-       <a href="profilstudentedit/{{ auth()->user()->id }} class="text-l text-black hover:text-laravel">Upraviť profil <i class="fa-solid fa-pen-to-square"></i></a> 
-            
-            
+        <a href="/profilstudentedit/{{ auth()->user()->id }}" class="text-l text-black hover:text-laravel" style="position: relative; left: 100%; bottom: 20px;">
+            <i class="fa-solid fa-pen-to-square"></i></a>
+
         </a>
         <div class="flex flex-col items-center justify-center text-center">
             <div class="border border-black-200 rounded mb-6">

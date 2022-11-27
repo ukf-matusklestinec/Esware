@@ -7,10 +7,10 @@
         </a>
 
 
-        <x-card class="p-10">
+        <x-card class="p-10 max-w-auto mx-auto mt-6">
             <header>
 
-                <h1 class="text-2xl text-center font-bold mb-6 uppercase">
+                <h1 class="text-2xl text-center font-bold mb-6">
                     Monitorovanie ponúk
                 </h1>
 
