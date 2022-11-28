@@ -18,8 +18,7 @@
                 @foreach ($listings as $listing)
                 {{-- názov spoločnosti a info ako mail a webstránka --}}
                 <tr class="border-gray-300">
-                    <td class="py-2 text-l border-b">
-                        {{ $listing->company }}
+                    <td class="py-2 text-l border-b"><a href="/profilfirma/{{ $listing->id }}" class="hover:text-laravel">{{ $listing->company }}</a>
                     </td>
 
                     <td class="py-2 text-l border-b">

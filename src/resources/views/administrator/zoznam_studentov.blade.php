@@ -100,8 +100,7 @@
                 @unless($users->isEmpty())
                 @foreach ($users as $user)
                 <tr class="border-gray-300">
-                    <td class="py-2 text-l border-b">
-                        {{ $user->name }}
+                    <td class="py-2 text-l border-b"><a class="hover:text-laravel" href="/profil/{{ $user->id }}">{{ $user->name }}</a>
                     </td>
 
                     {{-- odbor študenta --}}

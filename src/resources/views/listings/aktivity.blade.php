@@ -5,39 +5,41 @@
             class="fa-solid fa-arrow-left"></i> Naspäť
     </a>
 
-    <x-card class="p-10">
+    <x-card class="p-10 max-w-xl mx-auto mt-6">
 
 
         @if (Auth::check() && auth()->user()->Veduci_pracoviska | auth()->user()->Admin)
             {{-- výpis ak sa na aktivitu pozrie poverená osoba--}}
         <header>
-            <h1 class="text-3xl text-center font-bold my-6 uppercase">
+            <h1 class="text-2xl text-center font-bold mb-6">
                 Aktivity študenta
             </h1>
         </header>
         @else
             {{-- výpis ak sa na aktivitu pozrie študent--}}
             <header>
-                <h1 class="text-3xl text-center font-bold my-6 uppercase">
+                <h1 class="text-2xl text-center font-bold mb-6">
                     Vaše Aktivity
                 </h1>
             </header>
         @endif
-
-        <p>
-            Počet hodín: <b>{{ $pocethodin }}</b> / Počet dní <b>{{ $pocetdni }}</b>
-        </p>
-        <br>
-        @foreach ($SV as $SV1)
-            @if ($SV1->spatna_vazba == null)
-                <p>Žiadna spätná väzba</p>
-            @else
-                <p>
-                    Spätná väzba od zamestnávateľa.
-                    <br>{{ $SV1->spatna_vazba }}
-                </p>
-            @endif
-        @endforeach
+        
+        <div class="mb-4">
+            <p>
+                Počet hodín: <b>{{ $pocethodin }}</b> / Počet dní <b>{{ $pocetdni }}</b>
+            </p>
+            <br>
+            @foreach ($SV as $SV1)
+                @if ($SV1->spatna_vazba == null)
+                    <p>Žiadna spätná väzba</p>
+                @else
+                    <p>
+                        Spätná väzba od zamestnávateľa.
+                        <br>{{ $SV1->spatna_vazba }}
+                    </p>
+                @endif
+            @endforeach
+        </div>
 
         <table class="w-full table-auto rounded-sm">
             <tbody>

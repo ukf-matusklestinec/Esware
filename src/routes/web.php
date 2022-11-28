@@ -128,6 +128,9 @@ Route::get('/nexus_admin', [UserController::class, 'nexusA']);
 // spravovanie používateľov resp. študentov
 Route::get('/zoznam_studentov', [AdminController::class, 'manage_student']);
 
+// otvorí profil študenta
+Route::get('/profil/{users}', [AdminController::class, 'profil']);
+
 // odstránenie používateľov resp. študentov
 Route::delete('/zoznam_studentov/{user}', [AdminController::class, 'odstranenie_studenta'])->middleware('auth');
 
@@ -169,6 +172,9 @@ Route::put('/zoznam_veducich/{users}', [AdminController::class, 'odobranie_prav_
 // spravovať firmy a organizácie
 Route::get('/zoznam_firiem', [AdminController::class, 'manage_firmy']);
 
+// otvorí profil firmy
+Route::get('/profilfirma/{listing}', [AdminController::class, 'profil_firma']);
+
 // odstránenie firmy zo zoznamu
 Route::delete('/listings/{listing}', [AdminController::class, 'odstranenie_firmy'])->middleware('auth');
 
@@ -189,6 +195,9 @@ Route::get('/nexus_povereny', [UserController::class, 'nexusPov']);
 
 // zoznam študentov
 Route::get('/zoznam_akad_student', [PoverenyController::class, 'manage_student']);
+
+// otvorí profil študenta
+Route::get('/profil/{users}', [PoverenyController::class, 'profil']);
 
 // zoznam firiem
 Route::get('/zoznam_org_firm', [PoverenyController::class, 'manage_org_firm']);

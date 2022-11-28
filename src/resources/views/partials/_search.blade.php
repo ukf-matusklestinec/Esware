@@ -8,7 +8,7 @@
                 class="h-14 w-auto pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none"
                 placeholder="Hľadať v ponukách..." />
             <div class="absolute top-2 right-2">
-                <button type="submit" class="h-10 w-20 text-white rounded-lg bg-blue-500 hover:bg-green-600">
+                <button type="submit" class="h-10 w-20 text-white rounded-lg bg-blue-500 hover:bg-black">
                     Hľadať
                 </button>
             </div>

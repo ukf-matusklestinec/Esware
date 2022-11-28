@@ -16,7 +16,7 @@
                 @foreach ($users as $user)
                 <tr class="border-gray-300">
                     <td class="py-2 text-l border-b">
-                        {{ $user->name }}
+                        <a class="hover:text-laravel" href="/profil/{{ $user->id }}">{{ $user->name }}</a>
                     </td>
 
                     {{-- odbor študenta --}}

@@ -30,7 +30,7 @@
                     </button>
                 </div>
                 <div class="mt-4">
-                    <a href="/register" class="text-laravel">Nová registrácia</a>
+                    <a href="/register" class="text-laravel hover:text-black">Nová registrácia</a>
                 </div>
             </div>
         </form>

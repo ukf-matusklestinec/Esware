@@ -69,7 +69,7 @@
                     </button>
                 </div>
                 <div class="mt-4">
-                    <a href="/login" class="text-laravel">Máte už účet?</a>
+                    <a href="/login" class="text-laravel hover:text-black">Máte už účet?</a>
                     <br>
                 </div>
             </div>
