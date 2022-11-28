@@ -88,4 +88,4 @@
 @else
     Nemáte prístup!
 @endunless
-{{-- zobrazenie pre zamestávateľa ( zástupcu firmy alebo organizácie) ohľadom pracovnej ponuky --}}
+{{--  zástupcu firmy alebo organizácie ohľadom pracovnej ponuky --}}

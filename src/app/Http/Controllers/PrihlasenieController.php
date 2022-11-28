@@ -54,7 +54,7 @@ class PrihlasenieController extends Controller
 
         $aktivity->update($formFields);
 
-        return back()->with('message', 'Ponuka bola uspesne zmenena!');
+        return back()->with('message', 'Ponuka bola úspešne zmenená!');
     }
 
     public function destroy(Prihlasenie $aktivity) {

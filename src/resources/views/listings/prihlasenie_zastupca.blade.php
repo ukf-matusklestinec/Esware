@@ -98,3 +98,5 @@
     @endif
 
 </x-layout>
+
+{{-- zobrazenie pracovných ponúk u zamestnávateľa --}}

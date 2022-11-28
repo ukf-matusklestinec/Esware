@@ -10,11 +10,12 @@
         <body>
             <div class="lg:grid lg:grid-cols-3 gap-10 space-y-4 md:space-y-0 mx-10">
 
+
                 <x-card>
                     <div class="flex justify-center">
-                        <form action="/prihlasenie">
+                        <form action="/archiv_praxe">
                             <button type="submit" class="text-xl font-bold hover:text-laravel ">
-                                Praxe
+                                Archivované Praxe
                             </button>
                         </form>
                     </div>

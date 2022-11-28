@@ -349,8 +349,18 @@ class UserController extends Controller
 
         $listing = DB::table('listings')->distinct('company')->get();
         return view('veduci_pracoviska.zoznam_firm', ['listings' => $listing]);
-
     }
+
+    // zoznam archivovaných praxí
+    public function archPrax(){
+        if(auth()->user()->Admin == 1 | auth()->user()->Veduci_pracoviska == 1) {
+            return view('veduci_pracoviska.archiv_praxe', [
+                'aktivity2' => Prihlasenie::with('listing', 'user', 'aktivity')->get()->where('aktivna', 0)
+            ]);
+        }
+    }
+
+
 
     // -------------------------------------------------------------------------------------------
     // POVERENÝ PRACOVNÍK PRACOVISKA
@@ -364,7 +374,7 @@ class UserController extends Controller
         else{abort(403, 'Unauthorized Action');}
 
     }
-
+    // -------------------------------------------------------------------------------------------
 
     // Create New User
     public function store(Request $request) {

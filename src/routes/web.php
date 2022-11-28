@@ -188,6 +188,9 @@ Route::get('/nexus_veduci', [UserController::class, 'nexusV']);
 // zoznam firiem
 Route::get('/zoznam_firm', [UserController::class, "zoznamfirm"]);
 
+// zoznam archivovaných praxí
+Route::get('/archiv_praxe', [UserController::class, 'archPrax']);
+
 
 // ------------------------------------------------------------------------------- POVERENY PRACOVNIK PRACOVISKA
 // nexus poverený zamestnanec pracoviska
