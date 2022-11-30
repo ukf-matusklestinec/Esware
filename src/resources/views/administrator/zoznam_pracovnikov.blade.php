@@ -31,7 +31,7 @@
                         <form method="POST" action="/zoznam_pracovnikov/{{ $zam->id }}">
                             @csrf
                             @method('PUT')
-                            <button class="text-red-500">Odobrať funkciu</button>
+                            <button class="text-red-500 hover:text-laravel"><i class="fa-solid fa-trash"></i> Odobrať funkciu</button>
                         </form>
                     </td>
                 </tr>

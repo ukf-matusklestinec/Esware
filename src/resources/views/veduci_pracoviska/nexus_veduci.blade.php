@@ -15,7 +15,7 @@
                     <div class="flex justify-center">
                         <form action="/archiv_praxe">
                             <button type="submit" class="text-xl font-bold hover:text-laravel ">
-                                Archivované Praxe
+                                Archivované praxe
                             </button>
                         </form>
                     </div>

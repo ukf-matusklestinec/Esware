@@ -57,7 +57,7 @@
             #myTable tr.header,
             #myTable tr:hover {
                 /* Add a grey background color to the table header and on hover */
-                background-color: #f1f1f1;
+                background-color: rgb(45, 87, 239);
                 text-align: center;
             }
         </style>
@@ -100,7 +100,7 @@
                 @unless($users->isEmpty())
                 @foreach ($users as $user)
                 <tr class="border-gray-300">
-                    <td class="py-2 text-l border-b"><a class="hover:text-laravel" href="/profil/{{ $user->id }}">{{ $user->name }}</a>
+                    <td class="py-2 text-l border-b"><a class="hover:text-white" href="/profil/{{ $user->id }}">{{ $user->name }}</a>
                     </td>
 
                     {{-- odbor študenta --}}
@@ -111,7 +111,7 @@
                     {{-- zobrazenie jeho praxe TREBA OPRAVIŤ AK NEMÁ ŽIADNE PONUKY --}}
 
                     <td class="py-2 text-l border-b">
-                        <a href="/listings/{{ $user->id }}" class="text-green-500 hover:text-black"><i class="fa-solid fa-display"></i> Zobraziť prax</a>
+                        <a href="/listings/{{ $user->id }}" class="text-green-500 hover:text-white"><i class="fa-solid fa-display"></i> Zobraziť prax</a>
                     </td>
                     @if(auth()->user()->Admin == 1)
                     {{-- odstránenie používateľa, len pre admina --}}
@@ -119,7 +119,7 @@
                         <form method="POST" action="/zoznam_studentov/{{ $user->id }}">
                             @csrf
                             @method('DELETE')
-                            <button class="text-red-500 hover:text-black"><i class="fa-solid fa-trash"></i> Odstrániť</button>
+                            <button class="text-red-500 hover:text-white"><i class="fa-solid fa-trash"></i> Odstrániť</button>
                         </form>
                     </td>
                     @endif()

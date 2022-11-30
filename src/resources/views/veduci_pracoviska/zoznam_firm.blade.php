@@ -5,24 +5,6 @@
     </a>
     <br>
     <x-card class="p-10 max-w-5xl mx-auto mt-6">
-        <style>
-            table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-
-            th,
-            td {
-                padding: 8px;
-                text-align: center;
-                border-bottom: 1px solid rgb(0, 0, 0);
-            }
-
-            tr:hover {
-                background-color: rgb(45, 87, 239);
-            }
-        </style>
-
         <header>
             <h1 class="text-2xl text-center font-bold mb-6">
                 Zoznam prihlásených organizácií a firiem
@@ -42,13 +24,13 @@
                     </td>
 
                     <td class="py-2 text-l border-b">
-                        <a href="mailto:{{ $listing->email }}" class="hover:text-white">
+                        <a href="mailto:{{ $listing->email }}" class="hover:text-laravel">
                             <i class="fa-solid fa-envelope"></i>
                             {{ $listing->email }}</a>
                     </td>
 
                     <td class="py-2 text-l border-b">
-                        <a href="{{ $listing->website }}" target="_blank" class="hover:text-white">
+                        <a href="{{ $listing->website }}" target="_blank" class="hover:text-laravel">
                             <i class="fa-solid fa-globe"></i> {{ $listing->website }} </a>
                     </td>
 
