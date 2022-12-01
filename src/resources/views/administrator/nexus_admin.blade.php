@@ -9,23 +9,13 @@
         {{--    buttons ************************************************************************************************************** --}}
 
         <body>
-            <div class="lg:grid lg:grid-cols-5 gap-4 space-y-4 md:space-y-0 mx-4">
+            <div class="lg:grid lg:grid-cols-4 gap-4 space-y-4 md:space-y-0 mx-4">
 
                 <x-card>
                     <div class="flex justify-center">
                         <form action="/zoznam_studentov">
                             <button type="submit" class="text-xl font-bold hover:text-laravel ">
                                 Spravovať študentov
-                            </button>
-                        </form>
-                    </div>
-                </x-card>
-
-                <x-card>
-                    <div class="flex justify-center">
-                        <form action="/zoznam_pracovisk">
-                            <button type="submit" class="text-xl font-bold hover:text-laravel">
-                                Spravovať pracoviská
                             </button>
                         </form>
                     </div>

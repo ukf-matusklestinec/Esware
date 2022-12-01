@@ -322,15 +322,6 @@ class UserController extends Controller
         else{abort(403, 'Unauthorized Action');}
     }
 
-    //zoznam pracovísk
-    public function zoz_pracovisk(){
-        if(auth()->user()->Admin == 1) {
-            return view('administrator.zoznam_pracovisk');
-
-        }
-        else{abort(403, 'Unauthorized Action');}
-    }
-
 
     // ------------------------------------------------------------------------------------------
     // VEDUCI PRACOVISKA

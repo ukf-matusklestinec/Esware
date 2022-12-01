@@ -11,6 +11,13 @@
                 Zoznam firiem
             </h1>
         </header>
+        <style>
+            tbody tr:hover {
+                /* Add a blue background color to the table on hover */
+                background-color: rgb(45, 87, 239);
+                color: white;
+            }
+        </style>
 
         <table class="w-full table-auto rounded-sm">
             <tbody>
@@ -18,17 +25,17 @@
                 @foreach ($listings as $listing)
                 {{-- názov spoločnosti a info ako mail a webstránka --}}
                 <tr class="border-gray-300">
-                    <td class="py-2 text-l border-b"><a href="/profilfirma/{{ $listing->id }}" class="hover:text-laravel">{{ $listing->company }}</a>
+                    <td class="py-2 text-l border-b"><a href="/profilfirma/{{ $listing->id }}" class="hover:text-red-500">{{ $listing->company }}</a>
                     </td>
 
                     <td class="py-2 text-l border-b">
-                        <a href="mailto:{{ $listing->email }}" class="hover:text-laravel">
+                        <a href="mailto:{{ $listing->email }}" class="hover:text-red-500">
                             <i class="fa-solid fa-envelope"></i>
                             {{ $listing->email }}</a>
                     </td>
 
                     <td class="py-2 text-l border-b">
-                        <a href="{{ $listing->website }}" target="_blank" class="hover:text-laravel mr-6">
+                        <a href="{{ $listing->website }}" target="_blank" class="hover:text-red-500 mr-6">
                             <i class="fa-solid fa-globe"></i> {{ $listing->website }} </a>
                     </td>
 
@@ -37,7 +44,7 @@
                         <form method="POST" action="/listings/{{ $listing->id }}">
                             @csrf
                             @method('DELETE')
-                            <button class="text-red-500 hover:text-laravel"><i class="fa-solid fa-trash"></i> Odstrániť</button>
+                            <button class="text-red-500 hover:text-white"><i class="fa-solid fa-trash"></i> Odstrániť</button>
                         </form>
                     </td>
                 </tr>

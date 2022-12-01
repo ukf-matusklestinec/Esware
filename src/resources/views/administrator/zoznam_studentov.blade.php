@@ -54,11 +54,10 @@
                 border-bottom: 1px solid #ddd;
             }
 
-            #myTable tr.header,
-            #myTable tr:hover {
-                /* Add a grey background color to the table header and on hover */
+            #myTable tbody tr:hover {
+                /* Add a blue background color to the table on hover */
                 background-color: rgb(45, 87, 239);
-                text-align: center;
+                color: white;
             }
         </style>
 
@@ -100,7 +99,7 @@
                 @unless($users->isEmpty())
                 @foreach ($users as $user)
                 <tr class="border-gray-300">
-                    <td class="py-2 text-l border-b"><a class="hover:text-white" href="/profil/{{ $user->id }}">{{ $user->name }}</a>
+                    <td class="py-2 text-l border-b"><a class="hover:text-red-500" href="/profil/{{ $user->id }}">{{ $user->name }}</a>
                     </td>
 
                     {{-- odbor študenta --}}
