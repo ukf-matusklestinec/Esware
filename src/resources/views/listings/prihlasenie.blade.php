@@ -1,4 +1,4 @@
-@if (Auth::check() && auth()->user()->Veduci_pracoviska | auth()->user()->Admin)
+@if (Auth::check() && auth()->user()->Veduci_pracoviska | auth()->user()->Admin | auth()->user()->Povereny_pracovnik)
     <x-layout>
 
         <a href="javascript:history.back()"
@@ -66,6 +66,8 @@
                                         {{ $aktivit->spatna_vazba }}
                                     @endif
                                 </td>
+
+                                @if(auth()->user()->Povereny_pracovnik)
                                 <td class="py-2 text-l border-b text-center">
                                     <a href="/prihlasenie/{{ $aktivit->id }}/edit"
                                         class="text-blue-400 px-6 py-2 rounded-xl hover:text-white"><i
@@ -79,6 +81,7 @@
                                             Odstrániť </button>
                                     </form>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                     @else

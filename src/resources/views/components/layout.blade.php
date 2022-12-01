@@ -108,7 +108,7 @@
 
 
                 {{-- Monitorovanie študentov, ktorí sú prihlasení na prax --}}
-                @if (auth()->user()->Admin == 1 || auth()->user()->Veduci_pracoviska == 1 || auth()->user()->Zastupca_firmy == 1)
+                @if (auth()->user()->Admin == 1 || auth()->user()->Veduci_pracoviska == 1 || auth()->user()->Povereny_pracovnik == 1 || auth()->user()->Zastupca_firmy == 1)
                     <li>
                         <a href="/prihlasenie" class="hover:text-laravel"><i class="fa-solid fa-box-archive"></i>
                             Monitorovanie ponúk</a>

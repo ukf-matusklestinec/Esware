@@ -8,7 +8,7 @@
     <x-card class="p-10 max-w-xl mx-auto mt-6">
 
 
-        @if (Auth::check() && auth()->user()->Veduci_pracoviska | auth()->user()->Admin)
+        @if (Auth::check() && auth()->user()->Veduci_pracoviska || auth()->user()->Admin || auth()->user()->Povereny_pracovnik)
             {{-- výpis ak sa na aktivitu pozrie poverená osoba--}}
         <header>
             <h1 class="text-2xl text-center font-bold mb-6">
@@ -23,7 +23,7 @@
                 </h1>
             </header>
         @endif
-        
+
         <div class="mb-4">
             <p>
                 Počet hodín: <b>{{ $pocethodin }}</b> / Počet dní <b>{{ $pocetdni }}</b>
@@ -83,7 +83,7 @@
 
         {{-- tlačidlo prenesie študenta do rozhrania, kde vyplní koľko hodín odpracoval za deň a môže si
          vybrať možnosť, či pracoval z domu alebo nie --}}
-            @if (Auth::check() && auth()->user()->Veduci_pracoviska != 1 && auth()->user()->Admin != 1)
+            @if (Auth::check() && auth()->user()->Veduci_pracoviska != 1 && auth()->user()->Admin != 1 && auth()->user()->Povereny_pracovnik != 1 && auth()->user()->Zastupca_firmy != 1)
         <div class="text-lg space-y-6 text-center">
             <a href="/aktivity/{{ $priid }}/create"
                 class="block bg-green-600 text-white py-2 rounded-xl hover:opacity-80">
@@ -93,7 +93,7 @@
             @endif
         {{-- ak študent má viac ako 160 odpracovaných hodín, čo predstavuje minimum pre prax,
             tak sa mu sprístupní možnosť stiahnuť cez tlačidlo PDF súbor ako doklad o absolvovaní --}}
-            @if (Auth::check() && auth()->user()->Veduci_pracoviska != 1 && auth()->user()->Admin != 1)
+            @if (Auth::check() && auth()->user()->Veduci_pracoviska != 1 && auth()->user()->Admin != 1 && auth()->user()->Povereny_pracovnik != 1 && auth()->user()->Zastupca_firmy != 1)
         @if($pocethodin >= 160)
             <br>
             <div class="text-lg space-y-6 text-center">
