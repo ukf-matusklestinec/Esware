@@ -29,13 +29,13 @@
         <div class="d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-between">
             <div>
                 <p class="small text-muted">
-                    {!! __('Showing') !!}
+                    {!! __('Zobrazených') !!}
                     <span class="fw-semibold">{{ $paginator->firstItem() }}</span>
-                    {!! __('to') !!}
+                    {!! __('až') !!}
                     <span class="fw-semibold">{{ $paginator->lastItem() }}</span>
-                    {!! __('of') !!}
+                    {!! __('z') !!}
                     <span class="fw-semibold">{{ $paginator->total() }}</span>
-                    {!! __('results') !!}
+                    {!! __('výsledkov') !!}
                 </p>
             </div>
 
