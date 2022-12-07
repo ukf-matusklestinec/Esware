@@ -75,7 +75,7 @@
 
                     {{-- zobrazenie info praxe --}}
                     <td class="py-2 text-l border-b">
-                        <a href="/listings/{{ $prax->id }}"> Zobrazenie pracovnej ponuky </a>
+                        <a href="/listings/{{ $prax->id }}" class="hover:text-black"> Zobrazenie pracovnej ponuky </a>
                     </td>
 
                     {{-- tlačidlo, ktoré schváli danú prax --}}
@@ -83,7 +83,7 @@
                         <form method="POST" action="/zoznam_praxi/{{ $prax->id }}">
                             @csrf
                             @method('PUT')
-                            <button class="text-blue-500"> Schváliť </button>
+                            <button class="text-green-500 hover:text-white"><i class="fa fa-check"></i> Schváliť </button>
                         </form>
                     </td>
 
@@ -92,7 +92,7 @@
                         <form method="POST" action="/zoznam_praxi/{{ $prax->id }}">
                             @csrf
                             @method('DELETE')
-                            <button class="text-red-500"><i class="fa-solid fa-trash"></i> Odstrániť</button>
+                            <button class="text-red-500 hover:text-white"><i class="fa-solid fa-trash"></i> Odstrániť</button>
                         </form>
                     </td>
                 </tr>
