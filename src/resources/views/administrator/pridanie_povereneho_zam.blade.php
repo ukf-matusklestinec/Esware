@@ -13,7 +13,7 @@
                 </h1>
             </header>
 
-            <table class="w-full table-auto rounded-sm items-center justify-center text-center">
+            <table id="myTable" class="w-full table-auto rounded-sm items-center justify-center text-center">
                 <tbody>
                 @unless($users->isEmpty())
                     @foreach ($users as $ved)
@@ -29,7 +29,7 @@
                                 <form method="POST" action="/pridanie_povereneho_zam/{{ $ved->id }}">
                                     @csrf
                                     @method('PUT')
-                                    <button class="text-blue-500">Pridať</button>
+                                    <button class="hover:text-green-500"><i class="fa-solid fa-user-plus"></i> Pridať</button>
                                 </form>
                             </td>
                         </tr>

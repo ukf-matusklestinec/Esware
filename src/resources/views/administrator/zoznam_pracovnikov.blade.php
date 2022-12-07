@@ -16,7 +16,7 @@
                 <i class="fa-solid fa-user"></i>
                 Pridať zamestnanca</a>
         </div>
-        <table class="w-full table-auto rounded-sm items-center justify-center text-center">
+        <table id="myTable" class="w-full table-auto rounded-sm items-center justify-center text-center">
             <tbody>
                 @unless($users->isEmpty())
                 @foreach ($users as $zam)
@@ -31,7 +31,7 @@
                         <form method="POST" action="/zoznam_pracovnikov/{{ $zam->id }}">
                             @csrf
                             @method('PUT')
-                            <button class="text-red-500 hover:text-laravel"><i class="fa-solid fa-trash"></i> Odobrať funkciu</button>
+                            <button class="text-red-500 hover:text-white"><i class="fa-solid fa-trash"></i> Odobrať funkciu</button>
                         </form>
                     </td>
                 </tr>

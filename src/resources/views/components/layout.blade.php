@@ -39,6 +39,35 @@
             bottom: 0;
             width: 100%;
             height: 60px;
+        } 
+        #myTable {
+                border-collapse: collapse;
+                /* Collapse borders */
+                width: 100%;
+                /* Full-width */
+                border: 1px solid #ddd;
+                /* Add a grey border */
+                font-size: 18px;
+                /* Increase font-size */
+            }
+
+        #myTable th,
+            #myTable td {
+                text-align: center;
+                /* Left-align text */
+                padding: 12px;
+                /* Add padding */
+            }
+
+        #myTable tr {
+            /* Add a bottom border to all table rows */
+            border-bottom: 1px solid #ddd;
+        }
+
+        #myTable tbody tr:hover {
+            /* Add a blue background color to the table on hover */
+            background-color: rgb(45, 87, 239);
+            color: white;
         }
     </style>
     <title>EsWare</title>
@@ -101,8 +130,8 @@
                     auth()->user()->Veduci_pracoviska != 1 &&
                     auth()->user()->Povereny_pracovnik != 1)
                     <li>
-                        <a href="/listings/manage" class="hover:text-laravel"><i class="fa-solid fa-bars"></i>
-                            Vaše ponuky</a>
+                        <a href="/listings/manage" class="hover:text-laravel"><i class="fa-solid fa-box-archive"></i>
+                            Moje ponuky</a>
                     </li>
                 @endif
 

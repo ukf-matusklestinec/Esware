@@ -46,26 +46,6 @@
                 font-size: 18px;
                 /* Increase font-size */
             }
-
-            #myTable th,
-            #myTable td {
-                text-align: center;
-                /* Left-align text */
-                padding: 12px;
-                /* Add padding */
-            }
-
-            #myTable tr {
-                /* Add a bottom border to all table rows */
-                border-bottom: 1px solid #ddd;
-            }
-
-
-            tbody tr:hover {
-                    /* Add a blue background color to the table on hover */
-                    background-color: rgb(45, 87, 239);
-                    color: white;
-            }
             
             </style>
 

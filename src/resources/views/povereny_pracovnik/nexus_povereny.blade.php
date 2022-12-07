@@ -12,7 +12,7 @@
 
             <x-card>
                 <div class="flex justify-center">
-                    <form action="/zoznam_akad_student">
+                    <form action="/zoznam_studentov">
                         <button type="submit" class="text-xl font-bold hover:text-laravel ">
                             Študenti
                         </button>

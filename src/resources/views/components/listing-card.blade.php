@@ -2,9 +2,9 @@
 
 <x-card>
     <div class="flex">
-        <img class="hidden w-48 mr-6 md:block"
+        <a href="/listings/{{ $listing->id }}"><img class="hidden w-48 mr-6 md:block"
             src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('/images/no-imageUKF.png') }}"
-            alt="" />
+            alt="" /></a>
         <div>
             <h3 class="text-2xl hover:text-laravel">
                 <a href="/listings/{{ $listing->id }}">{{ $listing->title }}</a>

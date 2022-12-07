@@ -11,7 +11,7 @@
             <header>
 
                 <h1 class="text-2xl text-center font-bold mb-6">
-                    Monitorovanie ponúk
+                    Archivované praxe
                 </h1>
 
 
@@ -37,39 +37,7 @@
                     /* Add some space below the input */
                 }
     
-                #myTable {
-                    border-collapse: collapse;
-                    /* Collapse borders */
-                    width: 100%;
-                    /* Full-width */
-                    border: 1px solid #ddd;
-                    /* Add a grey border */
-                    font-size: 18px;
-                    /* Increase font-size */
-                }
-    
-                #myTable th,
-                #myTable td {
-                    text-align: center;
-                    /* Left-align text */
-                    padding: 12px;
-                    /* Add padding */
-                }
-    
-                #myTable tr {
-                    /* Add a bottom border to all table rows */
-                    border-bottom: 1px solid #ddd;
-                }
-    
-                #myTable tbody tr:hover {
-                    /* Add a blue background color to the table on hover */
-                    background-color: rgb(45, 87, 239);
-                    color: white;
-                }
                 
-                #myTable a:hover{
-                color: white;
-            }
             </style>
 
             <script>
@@ -106,8 +74,9 @@
 
 
             <table id="myTable" class="w-full table-auto rounded-sm">
-                <tbody>
+              
                 @unless($aktivity2->isEmpty())
+                <thead>
                     <tr>
                         <th>Ponuka</th>
                         <th>Firma</th>
@@ -115,6 +84,8 @@
                         <th>Aktívna prax</th>
                         <th>Spätná väzba</th>
                     </tr>
+                </thead>
+                    <tbody>
                     @foreach ($aktivity2 as $aktivit)
                         <tr class="border-gray-300">
                             <td class="py-2 text-l border-b text-center">
@@ -124,7 +95,7 @@
                                 {{ $aktivit->listing->company }}
                             </td>
                             <td class="py-2 text-l border-b text-center">
-                                <a href="mailto:{{ $aktivit->user->email }}">
+                                <a  class="hover:text-red-500" href="/profil/{{ $aktivit->user->id }}">
                                     {{ $aktivit->user->name }}
                                 </a>
                                 <a href="/aktivity/{{ $aktivit->id }}">

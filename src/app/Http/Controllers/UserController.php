@@ -451,6 +451,6 @@ class UserController extends Controller
             else{ return redirect('/')->with('message', 'Ste prihlásený!');}
         }
 
-        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+        return back()->withErrors(['email' => 'Nesprávne prihlasovacie údaje'])->onlyInput('email');
     }
 }

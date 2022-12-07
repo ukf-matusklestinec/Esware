@@ -31,39 +31,6 @@
                 margin-bottom: 12px;
                 /* Add some space below the input */
             }
-
-            #myTable {
-                border-collapse: collapse;
-                /* Collapse borders */
-                width: 100%;
-                /* Full-width */
-                border: 1px solid #ddd;
-                /* Add a grey border */
-                font-size: 18px;
-                /* Increase font-size */
-            }
-
-            #myTable th,
-            #myTable td {
-                text-align: center;
-                /* Left-align text */
-                padding: 12px;
-                /* Add padding */
-            }
-
-            #myTable tr {
-                /* Add a bottom border to all table rows */
-                border-bottom: 1px solid #ddd;
-            }
-
-            #myTable tbody tr:hover {
-                /* Add a blue background color to the table on hover */
-                background-color: rgb(45, 87, 239);
-                color: white;
-            }
-            #myTable a:hover{
-                color: white;
-            }
         </style>
 
         <script>
@@ -102,12 +69,12 @@
                     @foreach ($listings as $listing)
                         <tr class="border-gray-300">
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <a href="/listings/{{ $listing->id }}"> {{ $listing->title }} </a>
+                                <a href="/listings/{{ $listing->id }}" class="hover:text-black"> {{ $listing->title }} </a>
                             </td>
 
                             {{-- úprava používateľovych ponúk --}}
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <a href="/listings/{{ $listing->id }}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i
+                                <a href="/listings/{{ $listing->id }}/edit" class="hover:text-blue-400 px-6 py-2 rounded-xl"><i
                                         class="fa-solid fa-pen-to-square"></i>
                                     Upraviť</a>
                             </td>
@@ -117,7 +84,7 @@
                                 <form method="POST" action="/listings/{{ $listing->id }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="text-red-500"><i class="fa-solid fa-trash"></i> Odstrániť</button>
+                                    <button class=" hover:text-red-500"><i class="fa-solid fa-trash"></i> Odstrániť</button>
                                 </form>
                             </td>
                         </tr>

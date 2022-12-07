@@ -1,6 +1,8 @@
 @if (Auth::check() && auth()->user()->Admin)
 <x-layout>
 
+   
+
     <a href="javascript:history.back()" class="ml-6 block bg-blue-600 text-white py-2 rounded-xl hover:opacity-80 text-center" style="width: 80px;"><i class="fa-solid fa-arrow-left"></i> Naspäť </a>
 
     <x-card class="p-10 max-w-lg mx-auto mt-6">
@@ -16,7 +18,7 @@
                 Pridať vedúceho pracoviska</a>
         </div>
 
-        <table class="w-full table-auto rounded-sm items-center justify-center text-center">
+        <table id="myTable" class="w-full table-auto rounded-sm items-center justify-center text-center">
             <tbody>
                 @unless($users->isEmpty())
                 @foreach ($users as $ved)
@@ -31,7 +33,7 @@
                         <form method="POST" action="/zoznam_veducich/{{ $ved->id }}">
                             @csrf
                             @method('PUT')
-                            <button class="text-red-500 hover:text-laravel"><i class="fa-solid fa-trash"></i> Odobrať funkciu</button>
+                            <button class="text-red-500 hover:text-white"><i class="fa-solid fa-trash"></i> Odobrať funkciu</button>
                         </form>
                     </td>
                 </tr>

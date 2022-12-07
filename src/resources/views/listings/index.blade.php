@@ -1,19 +1,19 @@
 <x-layout>
 
     @include('partials._hero')
-    @include('partials._search')
     {{-- ak student sa prihlasil na prax, je tu tlacidlo pre pridanie aktivity --}}
     @foreach ($aktivity as $aktivit)
         @if ($aktivit->user_id == auth()->id())
+        <div class="flex flex-col justify-center items-center">
             <a href="/aktivity/{{ $aktivit->id }}"
-                class="block bg-blue-500 text-white py-2 rounded-xl hover:opacity-80 text-center"><i
-                    class="fa-solid fa-user-plus"></i> Moja prax</a>
+                class="block bg-green-500 text-center text-white py-2  w-96 rounded-xl hover:opacity-80"><i
+                    class="fa-solid fa-user"></i> Moja prax</a>
             <br>
+        </div>
         @break
-
-    @else
     @endif
 @endforeach
+@include('partials._search')
 
 <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
 

@@ -31,39 +31,6 @@
                 /* Add some space below the input */
             }
 
-            #myTable {
-                border-collapse: collapse;
-                /* Collapse borders */
-                width: 100%;
-                /* Full-width */
-                border: 1px solid #ddd;
-                /* Add a grey border */
-                font-size: 18px;
-                /* Increase font-size */
-            }
-
-            #myTable th,
-            #myTable td {
-                text-align: center;
-                /* Left-align text */
-                padding: 12px;
-                /* Add padding */
-            }
-
-            #myTable tr {
-                /* Add a bottom border to all table rows */
-                border-bottom: 1px solid #ddd;
-            }
-
-           tbody tr:hover {
-                    /* Add a blue background color to the table on hover */
-                    background-color: rgb(45, 87, 239);
-                    color: white;
-                }
-             
-            #myTable a:hover{
-                color: white;
-            }
         </style>
 
         <script>
@@ -105,18 +72,18 @@
                 <tr class="border-gray-300">
                     <td class="py-2 text-l border-b">
 
-                        <a href="/listings/{{ $listing->id }}"> {{ $listing->company }}</a>
+                        <a href="/listings/{{ $listing->id }}" class="hover:text-red-500"> {{ $listing->company }}</a>
 
                     </td>
 
                     <td class="py-2 text-l border-b">
-                        <a href="mailto:{{ $listing->email }}" class="hover:text-laravel">
+                        <a href="mailto:{{ $listing->email }}" class="hover:text-red-500">
                             <i class="fa-solid fa-envelope"></i>
                             {{ $listing->email }}</a>
                     </td>
 
                     <td class="py-2 text-l border-b">
-                        <a href="{{ $listing->website }}" target="_blank" class="hover:text-laravel">
+                        <a href="{{ $listing->website }}" target="_blank" class="hover:text-red-500">
                             <i class="fa-solid fa-globe"></i> {{ $listing->website }} </a>
                     </td>
 

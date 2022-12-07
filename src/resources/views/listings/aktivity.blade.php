@@ -87,7 +87,7 @@
         <div class="text-lg space-y-6 text-center">
             <a href="/aktivity/{{ $priid }}/create"
                 class="block bg-green-600 text-white py-2 rounded-xl hover:opacity-80">
-                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-plus"></i>
                 Pridať aktivitu</a>
         </div>
             @endif

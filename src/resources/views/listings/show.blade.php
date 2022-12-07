@@ -99,7 +99,7 @@
     @else
     {{-- ak nie je používateľ admin, môže sa prihlásiť na prax --}}
     @if (auth()->user()->Admin != 1 && auth()->user()->Povereny_pracovnik != 1 && auth()->user()->Veduci_pracoviska != 1)
-    <a href="/prihlas/{{ $listing->id }}" target="_blank" class="block bg-green-600 text-white py-2 rounded-xl hover:opacity-80 text-center">
+    <a href="/prihlas/{{ $listing->id }}" class="block bg-green-600 text-white py-2 rounded-xl hover:opacity-80 text-center">
         <i class="fa-solid fa-user"></i> Prihlásiť sa na ponuku</a>
     @endif
     @endunless
