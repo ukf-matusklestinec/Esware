@@ -72,7 +72,8 @@ class UserController extends Controller
             DB::update('update users set name = ?, email = ?, password = ?, tel_cislo = ?, datum_narodenia =?, ulica = ?, mesto= ? where id = ?'
             ,[$name, $email, $password, $tel_cislo, $datum_narodenia, $ulica, $mesto, $id ]);
 
-            return redirect('profilstudent')->with('success', 'Data Updated');
+            return redirect('profilstudent')->with('message', 'Profil bol upravený');
+
 
         }
 
