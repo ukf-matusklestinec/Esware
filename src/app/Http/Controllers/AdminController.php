@@ -86,7 +86,7 @@ class AdminController extends Controller
 
         $users->update($formFields);
 
-        return redirect('zoznam_veducich')->with('message', 'Používateľovi bola pridelená rola "Vedúci pracoviska"');
+        return redirect('zoznam_veducich')->with('message', 'Používateľovi bola odobraná rola "Vedúci pracoviska"');
     }
 
     public function manage_firmy()
