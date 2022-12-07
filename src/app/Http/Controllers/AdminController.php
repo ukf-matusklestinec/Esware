@@ -42,7 +42,7 @@ class AdminController extends Controller
 
         $users->update($formFields);
 
-        return view('administrator.zoznam_pracovnikov')->with('message', 'Používateľovi bola pridelená rola "Poverený pracovník"');
+        return redirect('zoznam_pracovnikov')->with('message', 'Používateľovi bola pridelená rola "Poverený pracovník"');
     }
 
     public function odobranie_prav_pracovnika(User $users)
@@ -52,7 +52,7 @@ class AdminController extends Controller
 
         $users->update($formFields);
 
-        return view('administrator.zoznam_pracovnikov')->with('message', 'Používateľovi bola odobraná rola "Poverený pracovník"');
+        return redirect('zoznam_pracovnikov')->with('message', 'Používateľovi bola odobraná rola "Poverený pracovník"');
     }
 
     public function manage_veducich()
@@ -76,7 +76,7 @@ class AdminController extends Controller
 
         $users->update($formFields);
 
-        return view('administrator.zoznam_veducich')->with('message', 'Používateľovi bola pridelená rola "Vedúci pracoviska"');
+        return redirect('zoznam_veducich')->with('message', 'Používateľovi bola pridelená rola "Vedúci pracoviska"');
     }
 
     public function odobranie_prav_ved(User $users)
@@ -86,7 +86,7 @@ class AdminController extends Controller
 
         $users->update($formFields);
 
-        return view('administrator.zoznam_veducich')->with('message', 'Používateľovi bola pridelená rola "Vedúci pracoviska"');
+        return redirect('zoznam_veducich')->with('message', 'Používateľovi bola pridelená rola "Vedúci pracoviska"');
     }
 
     public function manage_firmy()
