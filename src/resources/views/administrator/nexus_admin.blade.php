@@ -55,6 +55,17 @@
         </body>
 
 
+        <br>
+        <br>
+        {{-- stiahnutie reportu--}}
+        <div class="text-lg space-y-6 text-center">
+            <a href="/report_download" download
+               class="block bg-blue-500 text-white py-2 rounded-xl hover:opacity-80">
+                <i class="fa-solid fa-file-pdf"></i>
+                Stiahnuť report</a>
+        </div>
+
+
         {{-- grafy 1-2 ****************************************************************************************************************************** --}}
         <br>
         <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
