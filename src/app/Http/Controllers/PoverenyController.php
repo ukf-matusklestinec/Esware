@@ -49,7 +49,7 @@ class PoverenyController extends Controller
 
         $listings->update($formFields);
 
-        return view('povereny_pracovnik.zoznam_praxi')->with('message', 'Prax bola schválená!');
+        return redirect('zoznam_praxi')->with('message', 'Prax bola schválená!');
     }
 
     public function profil(User $users)
