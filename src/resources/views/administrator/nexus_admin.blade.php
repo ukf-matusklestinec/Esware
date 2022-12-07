@@ -57,12 +57,14 @@
 
         <br>
         <br>
-        {{-- stiahnutie reportu--}}
-        <div class="text-lg space-y-6 text-center">
-            <a href="/report_download" download
-               class="block bg-blue-500 text-white py-2 rounded-xl hover:opacity-80">
-                <i class="fa-solid fa-file-pdf"></i>
-                Stiahnuť report</a>
+        {{-- stiahnutie reportu --}}
+        <div class="flex flex-col justify-center items-center">
+            <div class="text-lg space-y-6 text-center">
+                <a href="/report_download" download
+                    class="block bg-laravel text-white py-2 rounded-xl w-96 hover:opacity-80">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Stiahnuť report</a>
+            </div>
         </div>
 
 

@@ -66,10 +66,6 @@
                     background-color: rgb(45, 87, 239);
                     color: white;
             }
-
-            #myTable a:hover{
-                color: white;
-            }
             
             </style>
 
